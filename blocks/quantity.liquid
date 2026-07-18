@@ -13,7 +13,10 @@
   {% endstyle %}
 {%- endif -%}
 
-{% render 'quantity-selector', product: closest.product, block: block, wrapper_class: wrapper_class %}
+<div class="product-quantity-wrapper" style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; width: 100%;">
+  <span class="product-quantity-label" style="font-weight: bold; min-width: 140px; color: var(--color-foreground); font-size: 14px;">Quantity:</span>
+  {% render 'quantity-selector', product: closest.product, block: block, wrapper_class: wrapper_class %}
+</div>
 
 {% schema %}
 {

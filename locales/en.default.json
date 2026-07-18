@@ -189,7 +189,7 @@
       "other": "{{ count }} left"
     },
     "inventory_low_stock": "Low stock",
-    "inventory_in_stock": "In stock",
+    "inventory_in_stock": "In Stock - Ready to Ship",
     "inventory_out_of_stock": "Out of stock",
     "item_count": {
       "one": "{{ count }} item",

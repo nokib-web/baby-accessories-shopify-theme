@@ -1,17 +1,18 @@
 <div
   class="trust-badges-block"
   style="
-    display: flex;
-    justify-content: {{ block.settings.alignment }};
-    gap: {{ block.settings.gap }}px;
-    padding-top: {{ block.settings.padding_top }}px;
-    padding-bottom: {{ block.settings.padding_bottom }}px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 16px;
     margin-top: {{ block.settings.margin_top }}px;
-    border-top: {% if block.settings.show_top_border %}1px solid rgba(var(--color-foreground-rgb, 0,0,0), 0.1){% else %}none{% endif %};
+    border: 1px solid rgba(var(--color-foreground-rgb, 0,0,0), 0.1);
+    border-radius: 8px;
+    background-color: var(--color-background-secondary);
   "
   {{ block.shopify_attributes }}
 >
-  {% for i in (1..3) %}
+  {% for i in (1..4) %}
     {% capture icon_key %}icon_{{ i }}{% endcapture %}
     {% capture text_key %}text_{{ i }}{% endcapture %}
     
@@ -19,13 +20,13 @@
     {% assign text = block.settings[text_key] %}
 
     {% if text != blank %}
-      <div class="trust-badge-item" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; flex: 1;">
+      <div class="trust-badge-item" style="display: flex; flex-direction: row; align-items: center; text-align: left; gap: 10px;">
         {% if icon != 'none' %}
-          <div class="trust-badge-icon" style="width: {{ block.settings.icon_size }}px; height: {{ block.settings.icon_size }}px; color: {{ block.settings.icon_color | default: 'inherit' }};">
+          <div class="trust-badge-icon" style="width: {{ block.settings.icon_size }}px; height: {{ block.settings.icon_size }}px; color: {{ block.settings.icon_color | default: '#2e4a29' }}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
             {% render 'icon', icon: icon %}
           </div>
         {% endif %}
-        <span class="trust-badge-text" style="font-size: {{ block.settings.font_size }}px; font-weight: 500; line-height: 1.2; color: var(--color-foreground); opacity: 0.8;">
+        <span class="trust-badge-text" style="font-size: {{ block.settings.font_size }}px; font-weight: 500; line-height: 1.2; color: var(--color-foreground); opacity: 0.9;">
           {{ text }}
         </span>
       </div>
@@ -36,6 +37,7 @@
 {% schema %}
 {
   "name": "Trust Badges",
+  "tag": null,
   "settings": [
     {
       "type": "header",
@@ -61,7 +63,7 @@
       "type": "text",
       "id": "text_1",
       "label": "Text 1",
-      "default": "Free Delivery"
+      "default": "Free UK Delivery over £25"
     },
     {
       "type": "header",
@@ -81,13 +83,13 @@
         { "value": "star", "label": "Star" },
         { "value": "lock", "label": "Lock" }
       ],
-      "default": "shield-check"
+      "default": "lock"
     },
     {
       "type": "text",
       "id": "text_2",
       "label": "Text 2",
-      "default": "Secure Checkout"
+      "default": "100% Secure Checkout"
     },
     {
       "type": "header",
@@ -113,22 +115,37 @@
       "type": "text",
       "id": "text_3",
       "label": "Text 3",
-      "default": "Easy Returns"
+      "default": "14-Day Easy Returns"
+    },
+    {
+      "type": "header",
+      "content": "Badge 4"
+    },
+    {
+      "type": "select",
+      "id": "icon_4",
+      "label": "Icon 4",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "truck", "label": "Delivery Truck" },
+        { "value": "shield-check", "label": "Shield Check" },
+        { "value": "return", "label": "Return Arrow" },
+        { "value": "leaf", "label": "Leaf" },
+        { "value": "heart", "label": "Heart" },
+        { "value": "star", "label": "Star" },
+        { "value": "lock", "label": "Lock" }
+      ],
+      "default": "shield-check"
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Text 4",
+      "default": "Authentic Beauty Guarantee"
     },
     {
       "type": "header",
       "content": "Styling"
-    },
-    {
-      "type": "select",
-      "id": "alignment",
-      "label": "Alignment",
-      "options": [
-        { "value": "flex-start", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "space-between", "label": "Space Between" }
-      ],
-      "default": "center"
     },
     {
       "type": "range",
@@ -138,12 +155,13 @@
       "max": 48,
       "step": 2,
       "unit": "px",
-      "default": 24
+      "default": 20
     },
     {
       "type": "color",
       "id": "icon_color",
-      "label": "Icon Color"
+      "label": "Icon Color",
+      "default": "#2e4a29"
     },
     {
       "type": "range",
@@ -153,53 +171,17 @@
       "max": 20,
       "step": 1,
       "unit": "px",
-      "default": 12
-    },
-    {
-      "type": "range",
-      "id": "gap",
-      "label": "Spacing Between Badges",
-      "min": 0,
-      "max": 40,
-      "step": 4,
-      "unit": "px",
-      "default": 16
-    },
-    {
-      "type": "checkbox",
-      "id": "show_top_border",
-      "label": "Show top divider border",
-      "default": true
+      "default": 13
     },
     {
       "type": "range",
       "id": "margin_top",
       "label": "Top Margin",
       "min": 0,
-      "max": 40,
+      "max": 60,
       "step": 4,
       "unit": "px",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "label": "Top Padding",
-      "min": 0,
-      "max": 40,
-      "step": 4,
-      "unit": "px",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "label": "Bottom Padding",
-      "min": 0,
-      "max": 40,
-      "step": 4,
-      "unit": "px",
-      "default": 0
+      "default": 24
     }
   ],
   "presets": [

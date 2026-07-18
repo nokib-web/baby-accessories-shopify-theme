@@ -16,12 +16,12 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "grid",
+            "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 4,
             "large_first_image": false,
             "icons_style": "none",
-            "slideshow_controls_style": "counter",
+            "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
             "thumbnail_width": 44,
@@ -126,31 +126,26 @@
                   },
                   "blocks": {}
                 },
-                "price_tVjtKg": {
-                  "type": "price",
+                "inventory_pill": {
+                  "type": "product-inventory",
                   "settings": {
-                    "show_sale_price_first": true,
-                    "show_installments": false,
-                    "show_tax_info": false,
-                    "type_preset": "paragraph",
-                    "width": "100%",
-                    "alignment": "left",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
+                    "inventory_threshold": 10,
+                    "show_inventory_quantity": false,
                     "padding-block-start": 4,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-block-end": 4
                   },
+                  "blocks": {}
+                },
+                "details_table": {
+                  "type": "product-details-table",
+                  "settings": {},
                   "blocks": {}
                 }
               },
               "block_order": [
                 "text_xrnftG",
-                "price_tVjtKg"
+                "inventory_pill",
+                "details_table"
               ]
             },
             "divider_VJhene": {
@@ -181,7 +176,7 @@
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
-                "stacking": true,
+                "stacking": false,
                 "show_pickup_availability": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -236,6 +231,24 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "trust_badges_block": {
+              "type": "trust-badges",
+              "settings": {
+                "icon_1": "truck",
+                "text_1": "Free UK Delivery over £25",
+                "icon_2": "lock",
+                "text_2": "100% Secure Checkout",
+                "icon_3": "return",
+                "text_3": "14-Day Easy Returns",
+                "icon_4": "shield-check",
+                "text_4": "Authentic Beauty Guarantee",
+                "icon_size": 20,
+                "icon_color": "#2e4a29",
+                "font_size": 13,
+                "margin_top": 24
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -243,6 +256,7 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "trust_badges_block",
             "text_aEtTtq"
           ]
         }
