@@ -97,6 +97,9 @@
 {% elsif plain_text != blank %}
   <div {{ attributes | strip_newlines | strip }}>
     <{{ element }} style="display: block; width: 100%; max-width: min(100%, var(--max-width, 100%));">
+      {% if template.name == 'product' and product != blank and block.settings.text == product.description %}
+        <h3 class="product-description-heading">Product Description</h3>
+      {% endif %}
       {{ block.settings.text }}
     </{{ element }}>
     

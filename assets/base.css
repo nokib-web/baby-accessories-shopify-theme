@@ -2521,3 +2521,84 @@ main > .shopify-section:first-child .section:not(.disable-section-top-offset) {
   justify-content: flex-start !important;
 }
 
+/* Product page details column overrides */
+.product-details .group-block-content {
+  gap: 8px !important;
+  --gap: 8px !important;
+}
+
+.product-details .group-block-content > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  --padding-block-start: 0px !important;
+  --padding-block-end: 0px !important;
+  --margin-block-start: 0px !important;
+  --margin-block-end: 0px !important;
+}
+
+/* Hide empty blocks (like empty variant pickers or empty dividers) to prevent double gaps */
+.product-details .group-block-content > .shopify-block:not(:has(*)) {
+  display: none !important;
+}
+
+/* Specifically target buy-buttons-block inside details */
+.product-details .buy-buttons-block {
+  margin: 0 !important;
+  padding: 0 !important;
+  --padding-block-start: 0px !important;
+  --padding-block-end: 0px !important;
+}
+
+/* Target nested blocks inside buy-buttons-block like product-form-buttons */
+.product-details .product-form-buttons {
+  gap: 8px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  --padding-block-start: 0px !important;
+  --padding-block-end: 0px !important;
+}
+
+.product-details .product-form-buttons > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.product-details .product-form-action-buttons {
+  margin-top: 0 !important;
+}
+
+/* Style trust badges block: left align, premium border, clean layout */
+.product-details .trust-badges-block {
+  margin-top: 12px !important;
+  margin-bottom: 8px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 14px 16px !important;
+  border: 1px solid rgba(46, 74, 41, 0.15) !important;
+  border-radius: 12px !important;
+  background-color: #fbfdfb !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Description block heading and text alignment styling */
+.product-description-heading {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #2e4a29 !important;
+  margin: 16px 0 8px 0 !important;
+  font-family: var(--font-heading--family), Outfit, Barlow, sans-serif !important;
+  text-align: left !important;
+  line-height: 1.3 !important;
+  display: block !important;
+}
+
+.product-details .text-block.rte {
+  text-align: left !important;
+}
+
