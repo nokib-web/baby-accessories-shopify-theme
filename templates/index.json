@@ -180,35 +180,35 @@
           "type": "collection",
           "settings": {
             "collection": "100-cotton-bathrobes-and-gift-sets",
-            "title": "Better Rewards"
+            "title": ""
           }
         },
         "block_2": {
           "type": "collection",
           "settings": {
             "collection": "100-organic-cotton-50-organic-cotton-and-50-modal",
-            "title": "Shop Better"
+            "title": ""
           }
         },
         "block_3": {
           "type": "collection",
           "settings": {
             "collection": "all-products",
-            "title": "Baby Travel & Safety"
+            "title": ""
           }
         },
         "block_4": {
           "type": "collection",
           "settings": {
             "collection": "hopfrog-barefoot-shoes-multimix",
-            "title": "Nursery & Accessories"
+            "title": ""
           }
         },
         "block_5": {
           "type": "collection",
           "settings": {
             "collection": "teethers-and-soothers",
-            "title": "Baby Car Seats"
+            "title": ""
           }
         },
         "block_6": {
@@ -216,14 +216,14 @@
           "disabled": true,
           "settings": {
             "collection": "teethers-and-soothers",
-            "title": "Baby Toys"
+            "title": ""
           }
         },
         "block_7": {
           "type": "collection",
           "settings": {
             "collection": "100-organic-cotton",
-            "title": "Home & Safety"
+            "title": ""
           }
         }
       },
@@ -246,6 +246,8 @@
         "speed": 50,
         "movement_direction": "normal",
         "heading_color": "",
+        "heading_font_size": 28,
+        "heading_font_size_mobile": 22,
         "text_color": "",
         "background_color": "",
         "background_gradient": "",
@@ -258,6 +260,8 @@
       "settings": {
         "heading": "Save Big on Baby Essentials",
         "heading_color": "#333333",
+        "heading_font_size": 28,
+        "heading_font_size_mobile": 22,
         "collection": "teethers-and-soothers",
         "max_products": 8,
         "section_width": "custom",
@@ -378,6 +382,8 @@
         "promo_button_text": "Explore more",
         "promo_button_link": "shopify://collections/hopfrog-barefoot-shoes-multimix",
         "promo_text_color": "#ffffff",
+        "heading_font_size": 35,
+        "heading_font_size_mobile": 26,
         "button_bg_color": "#2e4a29",
         "button_text_color": "#ffffff",
         "collection": "hopfrog-barefoot-shoes-multimix",
@@ -717,6 +723,8 @@
       "settings": {
         "heading": "Explore Our Featured Collection",
         "heading_color": "#333333",
+        "heading_font_size": 28,
+        "heading_font_size_mobile": 22,
         "collection": "all-products",
         "max_products": 8,
         "section_width": "custom",
@@ -1203,6 +1211,8 @@
       "settings": {
         "heading": "Our Favourite Brands",
         "heading_color": "#000000",
+        "heading_font_size": 28,
+        "heading_font_size_mobile": 22,
         "logo_height": 150,
         "section_width": "custom",
         "custom_max_width": 1600,

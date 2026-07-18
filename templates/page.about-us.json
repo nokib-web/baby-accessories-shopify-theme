@@ -149,7 +149,7 @@
         "custom_max_width": 1570,
         "image_size": 130,
         "gap_between_elements": 24,
-        "speed": 25,
+        "speed": 40,
         "movement_direction": "normal",
         "heading_color": "",
         "heading_font_size": 28,
