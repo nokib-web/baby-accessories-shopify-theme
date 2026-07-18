@@ -61,7 +61,6 @@
       "blocks": {
         "image_btGrVf": {
           "type": "image",
-          "disabled": false,
           "settings": {
             "link": "",
             "image_ratio": "square",
@@ -169,7 +168,6 @@
             },
             "button_64dqMh": {
               "type": "button",
-              "disabled": false,
               "settings": {
                 "label": "Shop now",
                 "link": "shopify://collections/all",

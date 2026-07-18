@@ -1,13 +1,17 @@
 <style>
   .about-belief-section-{{ section.id }} {
-    background-color: {{ section.settings.background_color | default: 'transparent' }};
+    {% if section.settings.background_color != blank %}
+      background-color: {{ section.settings.background_color }};
+    {% else %}
+      background-color: transparent;
+    {% endif %}
     {% if section.settings.background_image != blank %}
       background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}');
       background-size: cover;
       background-position: center;
     {% endif %}
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-top: {{ section.settings.padding_top | default: 80 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 80 }}px;
     text-align: center;
   }
 
