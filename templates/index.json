@@ -76,6 +76,7 @@
         "badge_tVMrPJ": {
           "type": "badge",
           "settings": {
+            "icon": "shopify://shop_images/leaf.png",
             "title": "100% Organic Cotton",
             "description": "GOTS certified fabrics"
           }
@@ -83,6 +84,7 @@
         "badge_iKMN8E": {
           "type": "badge",
           "settings": {
+            "icon": "shopify://shop_images/healthy-living.png",
             "title": "Healthy Foot Development",
             "description": "Doctor-approved barefoot shoes"
           }
@@ -90,6 +92,7 @@
         "badge_eNGceh": {
           "type": "badge",
           "settings": {
+            "icon": "shopify://shop_images/non-toxic.png",
             "title": "100% Non-Toxic",
             "description": "Safe food-grade baby teethers"
           }
@@ -139,8 +142,8 @@
         "description_color": "#333333",
         "description_font_weight": "400",
         "description_max_width": 420,
-        "button_text": "Shop Clothes",
-        "button_link": "",
+        "button_text": "Shop Collection",
+        "button_link": "shopify://collections/all",
         "button_padding_horizontal": 28,
         "button_padding_vertical": 16,
         "button_font_size": 13,
@@ -149,7 +152,7 @@
         "button_bg": "#2e4a29",
         "button_hover_bg": "#1d301a",
         "button_text_2": "Why Barefoot Shoes",
-        "button_link_2": "",
+        "button_link_2": "shopify://pages/why-hopfrog-barefoot-shoes",
         "button_2_show_icon": false,
         "button_2_padding_horizontal": 28,
         "button_2_padding_vertical": 16,
@@ -1251,6 +1254,7 @@
       "block_order": [
         "text_kFiJUi"
       ],
+      "disabled": true,
       "name": "t:names.marquee_section",
       "settings": {
         "movement_direction": "reverse",

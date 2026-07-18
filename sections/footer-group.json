@@ -17,30 +17,34 @@
         "feature_64A8fC": {
           "type": "feature",
           "settings": {
+            "custom_image": "shopify://shop_images/fast-delivery_1.png",
             "svg_icon": "",
-            "text": "Free Delivery",
+            "text": "Fast Delivery",
             "text_preset": "paragraph"
           }
         },
         "feature_xkqEWK": {
           "type": "feature",
           "settings": {
+            "custom_image": "shopify://shop_images/leaf.png",
             "svg_icon": "",
-            "text": "Free Delivery",
+            "text": "100% Natural",
             "text_preset": "paragraph"
           }
         },
         "feature_1": {
           "type": "feature",
           "settings": {
+            "custom_image": "shopify://shop_images/fast-delivery_1.png",
             "svg_icon": "",
-            "text": "Free Delivery",
+            "text": "Fast & Secure",
             "text_preset": "paragraph"
           }
         },
         "feature_2": {
           "type": "feature",
           "settings": {
+            "custom_image": "shopify://shop_images/income.png",
             "svg_icon": "",
             "text": "Secure Payment",
             "text_preset": "paragraph"
@@ -49,6 +53,7 @@
         "feature_3": {
           "type": "feature",
           "settings": {
+            "custom_image": "shopify://shop_images/box.png",
             "svg_icon": "",
             "text": "Click & Collect",
             "text_preset": "paragraph"
@@ -66,7 +71,7 @@
         "section_width": "custom",
         "custom_max_width": 1600,
         "background_color": "{{ settings.color_palette.color9 }}",
-        "background_image": "shopify://shop_images/cta-bg.webp",
+        "background_image": "shopify://shop_images/leafy-background-pattern.png",
         "icon_size": 32,
         "show_newsletter": true,
         "newsletter_heading": "Get the latest news & the best offers",
@@ -111,7 +116,7 @@
           "type": "menu",
           "name": "t:names.menu",
           "settings": {
-            "menu": "main-menu",
+            "menu": "about-us",
             "heading": "",
             "menu_spacing": 12,
             "show_as_accordion": false,
@@ -132,7 +137,7 @@
           "type": "menu",
           "name": "t:names.menu",
           "settings": {
-            "menu": "main-menu",
+            "menu": "customer-account-main-menu",
             "heading": "",
             "menu_spacing": 12,
             "show_as_accordion": false,
@@ -153,7 +158,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+            "text": "<p>At <strong>Little Leaf Baby Company</strong>, we believe that the gentlest touch begins with nature. We're passionate about providing South African parents with premium-quality baby essentials responsibly sourced and consciously crafted from organic and natural materials that are as kind to your baby's delicate skin as they are to our planet<br/><br/></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
