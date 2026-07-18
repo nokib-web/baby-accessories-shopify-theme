@@ -2482,58 +2482,42 @@ main > .shopify-section:first-child .section:not(.disable-section-top-offset) {
   letter-spacing: normal !important;
 }
 
-/* Force equal height and square aspect ratio for collection and search results cards */
-results-list .card-gallery,
-.product-grid .card-gallery {
-  aspect-ratio: 1 / 1 !important;
-  height: auto !important;
-  display: block !important;
+/* Restrict collection template width and center it */
+.collection-wrapper {
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   width: 100% !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
 }
 
-results-list .card-gallery slideshow-component,
-.product-grid .card-gallery slideshow-component {
-  aspect-ratio: 1 / 1 !important;
+/* Force equal height product cards in grids */
+.product-grid__item {
+  display: flex !important;
+  flex-direction: column !important;
   height: 100% !important;
-  width: 100% !important;
 }
 
-results-list .card-gallery slideshow-slide,
-.product-grid .card-gallery slideshow-slide {
-  aspect-ratio: 1 / 1 !important;
+.product-grid__item product-card {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
   height: 100% !important;
-  width: 100% !important;
 }
 
-results-list .card-gallery .product-media-container,
-.product-grid .card-gallery .product-media-container {
-  aspect-ratio: 1 / 1 !important;
+.product-grid__item .product-card__content {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
   height: 100% !important;
-  width: 100% !important;
-  display: block !important;
 }
 
-results-list .card-gallery .product-media,
-.product-grid .card-gallery .product-media {
-  aspect-ratio: 1 / 1 !important;
-  height: 100% !important;
-  width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
+/* Make title block take remaining vertical space to push pricing to the bottom */
+.product-grid__item .product-card__content > *:nth-child(2) {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
 }
-
-results-list .card-gallery img,
-.product-grid .card-gallery img {
-  height: 100% !important;
-  width: 100% !important;
-  object-fit: cover !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-}
-
-
-
-
-
 
