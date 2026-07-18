@@ -21,12 +21,35 @@
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "h2",
-            "font": "var(--font-primary--family)"
-          }
+            "font": "var(--font-primary--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "show_social_icons": false,
+            "facebook_url": "",
+            "instagram_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
+          },
+          "blocks": {}
         },
         "page-content": {
           "type": "page-content",
-          "settings": {}
+          "settings": {
+            "text_color": ""
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -34,7 +57,13 @@
         "page-content"
       ],
       "disabled": true,
-      "settings": {}
+      "settings": {
+        "content_direction": "column",
+        "gap": 12,
+        "background_color": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     },
     "why_teethers_hero": {
       "type": "why-teethers-hero",
@@ -42,9 +71,11 @@
         "title": "Why Little Leaf 'Baby Teethers?'",
         "subtitle": "Natural Hevea Rubber Baby Teethers",
         "intro_text": "<p>Available in 4 charming designs — <strong>Watermelon, Bunny, Carrot and Koala Bear</strong> — thoughtfully created to soothe teething babies while supporting safe, natural play.</p>",
-        "hero_image": "shopify://shop_images/04.22414e6e-c1bb-4591-ab3f-a3d8bcf5a069_1800x1800_6f6c91a0-ba0f-4886-addc-843ca205a2cd.jpg",
+        "hero_image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp",
         "background_image": "shopify://shop_images/leafy-background-pattern.png",
-        "max_width": 1600
+        "max_width": 1500,
+        "accent_color": "#2e4a29",
+        "text_color": "#555555"
       }
     },
     "why_teethers_features": {
@@ -53,79 +84,91 @@
         "key_feat_1": {
           "type": "key_feature",
           "settings": {
-            "title": "Made from 100% Natural Hevea Rubber"
+            "title": "Made from 100% Natural Hevea Rubber",
+            "icon_image": "shopify://shop_images/leaf.png"
           }
         },
         "key_feat_2": {
           "type": "key_feature",
           "settings": {
-            "title": "CE, UKCA & EN71 Certified for safety and quality"
+            "title": "CE, UKCA & EN71 Certified for safety and quality",
+            "icon_image": "shopify://shop_images/healthy-living.png"
           }
         },
         "key_feat_3": {
           "type": "key_feature",
           "settings": {
-            "title": "BPA, PVC & Phthalate Free"
+            "title": "BPA, PVC & Phthalate Free",
+            "icon_image": "shopify://shop_images/non-toxic.png"
           }
         },
         "key_feat_4": {
           "type": "key_feature",
           "settings": {
-            "title": "Hypoallergenic and gentle on sensitive gums"
+            "title": "Hypoallergenic and gentle on sensitive gums",
+            "icon_image": "shopify://shop_images/hubble-morkov-prorezyvatel-v-ruke-detal_2cdd74e9-3e08-45d5-841c-bb2d51d060d5.webp"
           }
         },
         "key_feat_5": {
           "type": "key_feature",
           "settings": {
-            "title": "Colored using natural plant pigments with no harmful chemical fixatives"
+            "title": "Colored using natural plant pigments with no harmful chemical fixatives",
+            "icon_image": "shopify://shop_images/box.png"
           }
         },
         "key_feat_6": {
           "type": "key_feature",
           "settings": {
-            "title": "Easy to clean and designed for everyday use"
+            "title": "Easy to clean and designed for everyday use",
+            "icon_image": "shopify://shop_images/03_ac89df38-9aab-408a-a319-a56d6970cdf2.webp"
           }
         },
         "parent_feat_1": {
           "type": "parent_feature",
           "settings": {
             "title": "Environmentally Friendly",
-            "description": "<p>Made from a renewable, sustainable resource.</p>"
+            "description": "<p>Made from a renewable, sustainable resource.</p>",
+            "icon_image": "shopify://shop_images/leaf.png"
           }
         },
         "parent_feat_2": {
           "type": "parent_feature",
           "settings": {
             "title": "Soft & Flexible",
-            "description": "<p>Naturally soft texture provides gentle relief.</p>"
+            "description": "<p>Naturally soft texture provides gentle relief.</p>",
+            "icon_image": "shopify://shop_images/healthy-living.png"
           }
         },
         "parent_feat_3": {
           "type": "parent_feature",
           "settings": {
             "title": "Natural Antibacterial Properties",
-            "description": "<p>Helps resist the growth of germs and bacteria.</p>"
+            "description": "<p>Helps resist the growth of germs and bacteria.</p>",
+            "icon_image": "shopify://shop_images/hubble-morkov-prorezyvatel-v-ruke-detal_2cdd74e9-3e08-45d5-841c-bb2d51d060d5.webp"
           }
         },
         "parent_feat_4": {
           "type": "parent_feature",
           "settings": {
             "title": "Durable & Long-Lasting",
-            "description": "<p>Designed to withstand chewing and play.</p>"
+            "description": "<p>Designed to withstand chewing and play.</p>",
+            "icon_image": "shopify://shop_images/03_ac89df38-9aab-408a-a319-a56d6970cdf2.webp"
           }
         },
         "parent_feat_5": {
           "type": "parent_feature",
           "settings": {
             "title": "Biodegradable",
-            "description": "<p>An eco-conscious choice that breaks down naturally.</p>"
+            "description": "<p>An eco-conscious choice that breaks down naturally.</p>",
+            "icon_image": "shopify://shop_images/healthy-living.png"
           }
         },
         "parent_feat_6": {
           "type": "parent_feature",
           "settings": {
             "title": "Easy to Clean",
-            "description": "<p>Simple, practical cleaning for parents.</p>"
+            "description": "<p>Simple, practical cleaning for parents.</p>",
+            "icon_image": "shopify://shop_images/hubble-morkov-prorezyvatel-v-ruke-detal_2cdd74e9-3e08-45d5-841c-bb2d51d060d5.webp"
           }
         }
       },
@@ -147,7 +190,12 @@
         "background_image": "shopify://shop_images/leafy-background-pattern.png",
         "col_1_title": "Key Features",
         "col_2_title": "Why Parents Love Natural Rubber Teethers",
-        "footer_text": "Safe, soothing and inspired by nature — our Hevea rubber teethers help comfort little ones through every stage of teething. 🖤"
+        "footer_text": "Safe, soothing and inspired by nature — our Hevea rubber teethers help comfort little ones through every stage of teething. 🖤",
+        "accent_color": "#2e4a29",
+        "text_color": "#555555",
+        "card_bg_color": "#fffffff0",
+        "icon_bg_color": "#f4f6f1",
+        "pill_bg_color": "#f4f6f1"
       }
     }
   },

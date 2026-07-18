@@ -77,12 +77,18 @@
   }
 
   .promo-block__title {
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: {{ section.settings.heading_font_size | default: 35 }}px;
+    font-weight: 600;
     line-height: 1.2;
     margin-bottom: 12px;
     color: inherit;
     font-family: var(--font-heading--family);
+  }
+
+  @media screen and (max-width: 749px) {
+    .promo-block__title {
+      font-size: {{ section.settings.heading_font_size_mobile | default: 26 }}px;
+    }
   }
 
   .promo-block__subtitle {
@@ -420,6 +426,26 @@
       "id": "promo_text_color",
       "label": "Text Color",
       "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size (desktop)",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "label": "Heading Font Size (mobile)",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 26
     },
     {
       "type": "color",

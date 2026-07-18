@@ -65,10 +65,16 @@
 
   .product-slider__heading {
     margin: 0 0 8px;
-    font-size: 28px;
+    font-size: {{ section.settings.heading_font_size | default: 28 }}px;
     font-weight: 600;
     color: {{ section.settings.heading_color | default: 'var(--color-foreground)' }};
     font-family: var(--font-heading--family);
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-slider__heading {
+      font-size: {{ section.settings.heading_font_size_mobile | default: 22 }}px;
+    }
   }
 
   .product-slider__heading-line {
@@ -517,6 +523,26 @@
       "id": "heading_color",
       "label": "Heading Color",
       "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size (desktop)",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "label": "Heading Font Size (mobile)",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 22
     },
     {
       "type": "collection",

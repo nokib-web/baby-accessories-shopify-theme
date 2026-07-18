@@ -21,12 +21,35 @@
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "h2",
-            "font": "var(--font-primary--family)"
-          }
+            "font": "var(--font-primary--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "show_social_icons": false,
+            "facebook_url": "",
+            "instagram_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
+          },
+          "blocks": {}
         },
         "page-content": {
           "type": "page-content",
-          "settings": {}
+          "settings": {
+            "text_color": ""
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -34,7 +57,13 @@
         "page-content"
       ],
       "disabled": true,
-      "settings": {}
+      "settings": {
+        "content_direction": "column",
+        "gap": 12,
+        "background_color": "",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     },
     "why_organic_cotton_custom": {
       "type": "why-organic-cotton-custom",
@@ -43,35 +72,40 @@
           "type": "feature",
           "settings": {
             "title": "Skin-Safe & Gentle",
-            "description": "<p>Organic cotton is grown without synthetic pesticides or fertilizers, making it naturally gentle on your baby's sensitive skin. Free from harsh chemicals and irritants, it reduces the risk of allergic reactions and skin irritation, providing the comfort your little one deserves.</p>"
+            "description": "<p>Organic cotton is grown without synthetic pesticides or fertilizers, making it naturally gentle on your baby's sensitive skin. Free from harsh chemicals and irritants, it reduces the risk of allergic reactions and skin irritation, providing the comfort your little one deserves.</p>",
+            "icon_image": "shopify://shop_images/healthy-living.png"
           }
         },
         "feature_2": {
           "type": "feature",
           "settings": {
             "title": "Breathable & Comfortable",
-            "description": "<p>The natural fibers in organic cotton allow superior breathability, helping regulate your baby's body temperature and prevent overheating. This breathability ensures maximum comfort throughout the day and night.</p>"
+            "description": "<p>The natural fibers in organic cotton allow superior breathability, helping regulate your baby's body temperature and prevent overheating. This breathability ensures maximum comfort throughout the day and night.</p>",
+            "icon_image": "shopify://shop_images/hubble-morkov-prorezyvatel-v-ruke-detal_2cdd74e9-3e08-45d5-841c-bb2d51d060d5.webp"
           }
         },
         "feature_3": {
           "type": "feature",
           "settings": {
             "title": "Eco-Friendly & Sustainable",
-            "description": "<p>Our organic cotton is sourced from farms that practice sustainable farming methods, protecting soil health and biodiversity. By choosing organic, you're supporting agricultural practices that are better for the environment and future generations.</p>"
+            "description": "<p>Our organic cotton is sourced from farms that practice sustainable farming methods, protecting soil health and biodiversity. By choosing organic, you're supporting agricultural practices that are better for the environment and future generations.</p>",
+            "icon_image": "shopify://shop_images/leaf.png"
           }
         },
         "feature_4": {
           "type": "feature",
           "settings": {
             "title": "No Harsh Chemicals",
-            "description": "<p>Unlike conventional cotton, which is treated with numerous chemical dyes and finishes, our organic cotton products are processed with natural, non-toxic methods. This means your baby is never exposed to harmful residues.</p>"
+            "description": "<p>Unlike conventional cotton, which is treated with numerous chemical dyes and finishes, our organic cotton products are processed with natural, non-toxic methods. This means your baby is never exposed to harmful residues.</p>",
+            "icon_image": "shopify://shop_images/non-toxic.png"
           }
         },
         "feature_5": {
           "type": "feature",
           "settings": {
             "title": "Premium Quality",
-            "description": "<p>We select only the finest organic cotton to create products that are durable, soft, and built to last. Our rigorous quality standards ensure every item meets our commitment to excellence and your family's wellbeing.</p>"
+            "description": "<p>We select only the finest organic cotton to create products that are durable, soft, and built to last. Our rigorous quality standards ensure every item meets our commitment to excellence and your family's wellbeing.</p>",
+            "icon_image": "shopify://shop_images/fast-delivery_1.png"
           }
         }
       },
@@ -86,7 +120,12 @@
         "title": "Why Choose Organic Cotton",
         "intro_text": "<p>At Little Leaf Baby Company, we believe that what touches your baby's delicate skin matters deeply. Our commitment to organic cotton reflects our dedication to your child's health and our planet's future.</p>",
         "background_image": "shopify://shop_images/leafy-background-pattern.png",
-        "footer_text": "Choose organic cotton for your baby—because natural is always better."
+        "footer_text": "Choose organic cotton for your baby—because natural is always better.",
+        "accent_color": "#2e4a29",
+        "text_color": "#555555",
+        "card_bg_color": "#ffffffeb",
+        "icon_bg_color": "#f4f6f1",
+        "pill_bg_color": "#f4f6f1"
       }
     }
   },

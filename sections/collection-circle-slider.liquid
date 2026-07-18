@@ -10,6 +10,17 @@
   endif
 %}
 
+<style>
+  #shopify-section-{{ section.id }} .collection-circle-slider__heading {
+    font-size: {{ section.settings.heading_font_size | default: 28 }}px !important;
+  }
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .collection-circle-slider__heading {
+      font-size: {{ section.settings.heading_font_size_mobile | default: 22 }}px !important;
+    }
+  }
+</style>
+
 <div
   class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
   style="
@@ -34,7 +45,7 @@
   {% if section.settings.heading != blank or section.settings.subheading != blank %}
     <div class="collection-circle-slider__header text-center" style="margin-bottom: var(--padding-xl); display: flex; flex-direction: column; align-items: center; gap: 8px;">
       {% if section.settings.heading != blank %}
-        <h2 class="collection-circle-slider__heading" style="margin: 0; color: {{ section.settings.heading_color | default: 'inherit' }}; font-family: var(--font-heading--family); font-weight: var(--font-heading--weight);">
+        <h2 class="collection-circle-slider__heading" style="margin: 0; color: {{ section.settings.heading_color | default: 'inherit' }}; font-family: var(--font-heading--family); font-weight: 600;">
           {{ section.settings.heading }}
         </h2>
       {% endif %}
@@ -282,6 +293,26 @@
       "type": "color",
       "id": "heading_color",
       "label": "Heading Color"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size (desktop)",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "label": "Heading Font Size (mobile)",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 22
     },
     {
       "type": "color",
