@@ -87,6 +87,78 @@
         "padding_bottom": 60
       }
     },
+    "collection_circle_slider_y9yhC4": {
+      "type": "collection-circle-slider",
+      "blocks": {
+        "collection_bwWe94": {
+          "type": "collection",
+          "settings": {
+            "collection": "100-cotton-bathrobes-and-gift-sets",
+            "title": ""
+          }
+        },
+        "collection_myLHkT": {
+          "type": "collection",
+          "settings": {
+            "collection": "100-organic-cotton",
+            "title": ""
+          }
+        },
+        "collection_Xy3Nkb": {
+          "type": "collection",
+          "settings": {
+            "collection": "100-organic-cotton-50-organic-cotton-and-50-modal",
+            "title": ""
+          }
+        },
+        "collection_VfTX9P": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-products",
+            "title": ""
+          }
+        },
+        "collection_emybhe": {
+          "type": "collection",
+          "settings": {
+            "collection": "hopfrog-barefoot-shoes-multimix",
+            "title": ""
+          }
+        },
+        "collection_mqQK6m": {
+          "type": "collection",
+          "settings": {
+            "collection": "teethers-and-soothers",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_bwWe94",
+        "collection_myLHkT",
+        "collection_Xy3Nkb",
+        "collection_VfTX9P",
+        "collection_emybhe",
+        "collection_mqQK6m"
+      ],
+      "name": "Collection Circle Slider",
+      "settings": {
+        "heading": "We Specialize In",
+        "subheading": "Explore our curated collections",
+        "section_width": "page-width",
+        "custom_max_width": 1400,
+        "image_size": 130,
+        "gap_between_elements": 24,
+        "speed": 25,
+        "movement_direction": "reverse",
+        "heading_color": "",
+        "text_color": "",
+        "background_color": "",
+        "background_gradient": "",
+        "padding-block-start": 36,
+        "padding-block-end": 36
+      }
+    },
     "about_specialties": {
       "type": "about-us-specialties",
       "blocks": {
@@ -135,6 +207,7 @@
         "spec_5",
         "spec_6"
       ],
+      "disabled": true,
       "settings": {
         "title": "We Specialize In",
         "max_width": 1600,
@@ -288,6 +361,7 @@
     "main",
     "about_hero",
     "about_promise",
+    "collection_circle_slider_y9yhC4",
     "about_specialties",
     "about_organic",
     "about_barefoot",

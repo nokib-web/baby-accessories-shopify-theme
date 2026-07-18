@@ -1,0 +1,214 @@
+<style>
+  .why-shoes-hero-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 80px 20px 40px 20px;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 749px) {
+    .why-shoes-hero-section {
+      padding: 50px 16px 20px 16px;
+    }
+  }
+
+  .why-shoes-hero-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    --shoes-hero-accent: {{ section.settings.accent_color | default: '#2e4a29' }};
+    --shoes-hero-text: {{ section.settings.text_color | default: '#555555' }};
+  }
+
+  @media screen and (max-width: 990px) {
+    .why-shoes-hero-container {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      text-align: center;
+    }
+  }
+
+  .why-shoes-hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 990px) {
+    .why-shoes-hero-left {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .why-shoes-hero-title {
+    font-size: 3.0rem !important;
+    font-weight: 700 !important;
+    color: var(--shoes-hero-accent) !important;
+    margin: 0 0 12px 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.2 !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    .why-shoes-hero-title {
+      font-size: 2.2rem !important;
+    }
+  }
+
+  .why-shoes-hero-ornament {
+    color: var(--shoes-hero-accent);
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .why-shoes-hero-ornament svg {
+    width: 70px;
+    height: auto;
+  }
+
+  .why-shoes-hero-intro {
+    font-size: 1.05rem !important;
+    line-height: 1.75 !important;
+    color: var(--shoes-hero-text) !important;
+    margin: 0 !important;
+    font-family: var(--font-body--family), Inter, sans-serif !important;
+  }
+
+  .why-shoes-hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .why-shoes-hero-img-box {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 65% 35% 55% 45% / 45% 55% 45% 55%;
+    border: 2px solid #e2e8dd;
+    box-shadow: 0 15px 35px rgba(46, 74, 41, 0.08);
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+  }
+
+  .why-shoes-hero-img-box:hover {
+    transform: scale(1.02) rotate(1deg);
+  }
+
+  .why-shoes-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 400px;
+  }
+</style>
+
+<div class="why-shoes-hero-section">
+  <!-- Framing foliage background pattern left and right -->
+  {% if section.settings.background_image != blank %}
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}'); background-repeat: no-repeat; background-position: center; background-size: cover; z-index: 1; opacity: 0.85;"></div>
+  {% endif %}
+  
+  <div class="why-shoes-hero-container">
+    <div class="why-shoes-hero-left">
+      <h2 class="why-shoes-hero-title">{{ section.settings.title }}</h2>
+      <div class="why-shoes-hero-ornament">
+        <svg viewBox="0 0 100 20" width="70" height="14">
+          <path d="M50 10c-5-5-15-5-20 0s15 5 20 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M50 10c5-5 15-5 20 0s-15 5-20 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M20 10h10M70 10h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      {% if section.settings.intro_text != blank %}
+        <div class="why-shoes-hero-intro">
+          {{ section.settings.intro_text }}
+        </div>
+      {% endif %}
+    </div>
+    
+    <div class="why-shoes-hero-right">
+      <div class="why-shoes-hero-img-box">
+        {% if section.settings.hero_image != blank %}
+          <img class="why-shoes-hero-img" src="{{ section.settings.hero_image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" loading="lazy" />
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'why-shoes-hero-img placeholder' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Shoes Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Hero Title",
+      "default": "Natural Foot Development for Growing Children"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Hero Intro Text",
+      "default": "<p>At Little Leaf Baby Company, we believe that what touches your baby's delicate skin matters deeply. Our commitment to organic cotton reflects our dedication to your child's health and our planet's future.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Right Side Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Foliage Background Pattern"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Section Max Width",
+      "default": 1600
+    },
+    {
+      "type": "header",
+      "content": "Color Customization"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Title & Accent Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body Text Color",
+      "default": "#555555"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Shoes Hero"
+    }
+  ]
+}
+{% endschema %}

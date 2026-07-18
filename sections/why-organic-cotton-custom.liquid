@@ -1,0 +1,437 @@
+<style>
+  #why-cotton-custom-{{ section.id }} .why-cotton-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    box-sizing: border-box;
+    background: {{ section.settings.card_bg_color | default: 'rgba(255, 255, 255, 0.92)' }};
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(46, 74, 41, 0.03);
+    position: relative;
+    z-index: 2;
+    --cotton-accent: {{ section.settings.accent_color | default: '#2e4a29' }};
+    --cotton-text: {{ section.settings.text_color | default: '#555555' }};
+    --cotton-icon-bg: {{ section.settings.icon_bg_color | default: '#f4f6f1' }};
+    --cotton-pill-bg: {{ section.settings.pill_bg_color | default: '#f4f6f1' }};
+  }
+
+  @media screen and (max-width: 749px) {
+    #why-cotton-custom-{{ section.id }} .why-cotton-container {
+      padding: 30px 16px;
+    }
+  }
+
+  /* Title styling */
+  #why-cotton-custom-{{ section.id }} .why-cotton-title {
+    font-size: 2.6rem !important;
+    font-weight: 700 !important;
+    color: var(--cotton-accent) !important;
+    margin: 0 0 12px 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    #why-cotton-custom-{{ section.id }} .why-cotton-title {
+      font-size: 2.0rem !important;
+    }
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-ornament {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 24px auto;
+    color: var(--cotton-accent);
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-ornament svg {
+    width: 80px;
+    height: auto;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-intro {
+    font-size: 1.1rem !important;
+    line-height: 1.8 !important;
+    color: var(--cotton-text) !important;
+    max-width: 780px !important;
+    margin: 0 auto 40px auto !important;
+    text-align: center !important;
+    font-family: var(--font-body--family), Inter, sans-serif !important;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-intro p {
+    margin: 0 !important;
+  }
+
+  /* Feature rows */
+  #why-cotton-custom-{{ section.id }} .why-cotton-features {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 36px 0;
+    border-bottom: 1px solid #eef1ea;
+    text-align: left !important;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-row:last-child {
+    border-bottom: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    #why-cotton-custom-{{ section.id }} .why-cotton-row {
+      flex-direction: column;
+      align-items: center;
+      text-align: center !important;
+      gap: 16px;
+      padding: 28px 0;
+    }
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-icon {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    border-radius: 50%;
+    background-color: var(--cotton-icon-bg);
+    border: 1px solid #e2e8dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cotton-accent);
+    box-shadow: 0 4px 10px rgba(46, 74, 41, 0.02);
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-row:hover .why-cotton-icon {
+    transform: scale(1.05);
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-feature-title {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: var(--cotton-accent) !important;
+    margin: 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.3 !important;
+    text-align: inherit !important;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-feature-desc {
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+    color: var(--cotton-text) !important;
+    margin: 0 !important;
+    font-family: var(--font-body--family), Inter, sans-serif !important;
+    text-align: inherit !important;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-feature-desc p {
+    margin: 0 !important;
+  }
+
+  /* Callout footer pill */
+  #why-cotton-custom-{{ section.id }} .why-cotton-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 36px;
+    background: var(--cotton-pill-bg);
+    border: 1px solid #e2e8dd;
+    border-radius: 50px;
+    max-width: 800px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(46, 74, 41, 0.02);
+  }
+
+  @media screen and (max-width: 749px) {
+    #why-cotton-custom-{{ section.id }} .why-cotton-pill {
+      flex-direction: column;
+      padding: 16px 24px;
+      border-radius: 20px;
+      gap: 6px;
+    }
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-pill-emoji {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  #why-cotton-custom-{{ section.id }} .why-cotton-pill-text {
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    color: var(--cotton-accent) !important;
+    margin: 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+</style>
+
+<div class="section spacing-style" id="why-cotton-custom-{{ section.id }}" style="position: relative; overflow: hidden; background-color: #ffffff; padding-block: 60px;">
+  <!-- Side background leafy framing pattern -->
+  {% if section.settings.background_image != blank %}
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}'); background-repeat: no-repeat; background-position: center; background-size: cover; z-index: 1; opacity: 0.85;"></div>
+  {% endif %}
+  
+  <div class="why-cotton-container">
+    
+    <div class="why-cotton-header">
+      <h2 class="why-cotton-title">{{ section.settings.title }}</h2>
+      <div class="why-cotton-ornament">
+        <svg viewBox="0 0 100 20" width="80" height="16">
+          <path d="M50 10c-5-5-15-5-20 0s15 5 20 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M50 10c5-5 15-5 20 0s-15 5-20 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M20 10h10M70 10h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      {% if section.settings.intro_text != blank %}
+        <div class="why-cotton-intro">
+          {{ section.settings.intro_text }}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="why-cotton-features">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <div class="why-cotton-row" {{ block.shopify_attributes }}>
+            <div class="why-cotton-icon">
+              {% if block.settings.icon_image != blank %}
+                <img src="{{ block.settings.icon_image | image_url: width: 120 }}" alt="{{ block.settings.title | escape }}" loading="lazy" />
+              {% else %}
+                {% case forloop.index0 %}
+                  {% when 0 %}
+                    <!-- Leaf outline SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12 2c0 0-8 4.5-8 11.5S7.5 22 12 22s8-4 8-10.5S12 2 12 2z"/>
+                      <path d="M12 2v20"/>
+                      <path d="M12 10c2-1 4-1 5-2"/>
+                      <path d="M12 14c-2-1-4-1-5-2"/>
+                      <path d="M12 17c2-0.5 4-1 4.5-2.5"/>
+                    </svg>
+                  {% when 1 %}
+                    <!-- Breathable waves SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M2 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 16c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+                    </svg>
+                  {% when 2 %}
+                    <!-- Earth/Eco SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10M12 2a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10M2 12h20"/>
+                    </svg>
+                  {% when 3 %}
+                    <!-- Flask SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M6 3h12M9 3v6l-5 9a2 2 0 002 3h12a2 2 0 002-3l-5-9V3"/>
+                    </svg>
+                  {% when 4 %}
+                    <!-- Ribbon/Badge SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <circle cx="12" cy="9" r="6"/>
+                      <path d="M9 14.5l-3 6.5 6-3 6 3-3-6.5M12 6v6M10 8h4"/>
+                    </svg>
+                  {% else %}
+                    <!-- Generic Leaf outline SVG fallback -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12 2c0 0-8 4.5-8 11.5S7.5 22 12 22s8-4 8-10.5S12 2 12 2z"/>
+                      <path d="M12 2v20"/>
+                    </svg>
+                {% endcase %}
+              {% endif %}
+            </div>
+            <div class="why-cotton-content">
+              <h3 class="why-cotton-feature-title">{{ block.settings.title }}</h3>
+              <div class="why-cotton-feature-desc">
+                {{ block.settings.description }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.footer_text != blank %}
+      <div class="why-cotton-footer">
+        <div class="why-cotton-pill">
+          <span class="why-cotton-pill-emoji">🍃🍃</span>
+          <p class="why-cotton-pill-text">{{ section.settings.footer_text }}</p>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Organic Cotton Custom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Why Choose Organic Cotton"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Intro Paragraph",
+      "default": "<p>At Little Leaf Baby Company, we believe that what touches your baby's delicate skin matters deeply. Our commitment to organic cotton reflects our dedication to your child's health and our planet's future.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Foliage Background Pattern"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Pill Text",
+      "default": "Choose organic cotton for your baby—because natural is always better."
+    },
+    {
+      "type": "header",
+      "content": "Color Customization"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Title/Icons/Borders)",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body Text Color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "rgba(255, 255, 255, 0.92)"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon Circle Background",
+      "default": "#f4f6f1"
+    },
+    {
+      "type": "color",
+      "id": "pill_bg_color",
+      "label": "Footer Pill Background",
+      "default": "#f4f6f1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Feature Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom Icon Image (Optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Organic Cotton Custom",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Skin-Safe & Gentle",
+            "description": "<p>Organic cotton is grown without synthetic pesticides or fertilizers, making it naturally gentle on your baby's sensitive skin. Free from harsh chemicals and irritants, it reduces the risk of allergic reactions and skin irritation, providing the comfort your little one deserves.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Breathable & Comfortable",
+            "description": "<p>The natural fibers in organic cotton allow superior breathability, helping regulate your baby's body temperature and prevent overheating. This breathability ensures maximum comfort throughout the day and night.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Eco-Friendly & Sustainable",
+            "description": "<p>Our organic cotton is sourced from farms that practice sustainable farming methods, protecting soil health and biodiversity. By choosing organic, you're supporting agricultural practices that are better for the environment and future generations.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "No Harsh Chemicals",
+            "description": "<p>Unlike conventional cotton, which is treated with numerous chemical dyes and finishes, our organic cotton products are processed with natural, non-toxic methods. This means your baby is never exposed to harmful residues.</p>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Premium Quality",
+            "description": "<p>We select only the finest organic cotton to create products that are durable, soft, and built to last. Our rigorous quality standards ensure every item meets our commitment to excellence and your family's wellbeing.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

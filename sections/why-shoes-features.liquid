@@ -1,0 +1,341 @@
+<style>
+  .why-shoes-features-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 20px 20px 80px 20px;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 749px) {
+    .why-shoes-features-section {
+      padding: 10px 16px 50px 16px;
+    }
+  }
+
+  .why-shoes-features-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+  }
+
+  .why-shoes-features-header {
+    text-align: center;
+    margin-bottom: 48px;
+    --shoes-feat-accent: {{ section.settings.accent_color | default: '#2e4a29' }};
+  }
+
+  .why-shoes-features-main-title {
+    font-size: 2.2rem !important;
+    font-weight: 700 !important;
+    color: var(--shoes-feat-accent) !important;
+    margin: 0 0 12px 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.3 !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    .why-shoes-features-main-title {
+      font-size: 1.7rem !important;
+    }
+  }
+
+  .why-shoes-features-header-ornament {
+    color: var(--shoes-feat-accent);
+    display: flex;
+    justify-content: center;
+  }
+  .why-shoes-features-header-ornament svg {
+    width: 60px;
+    height: auto;
+  }
+
+  /* 5-Column responsive grid */
+  .why-shoes-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 100%;
+    --shoes-feat-accent: {{ section.settings.accent_color | default: '#2e4a29' }};
+    --shoes-feat-text: {{ section.settings.text_color | default: '#555555' }};
+    --shoes-feat-card-bg: {{ section.settings.card_bg_color | default: '#ffffff' }};
+    --shoes-feat-icon-bg: {{ section.settings.icon_bg_color | default: '#f4f6f1' }};
+  }
+
+  @media screen and (max-width: 1199px) {
+    .why-shoes-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .why-shoes-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .why-shoes-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  /* Card styling matching the teethers design but with 5 columns */
+  .why-shoes-card {
+    background: var(--shoes-feat-card-bg);
+    border: 1px solid #eef1ea;
+    border-radius: 16px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(46, 74, 41, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .why-shoes-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(46, 74, 41, 0.06);
+    border-color: var(--shoes-feat-accent);
+  }
+
+  .why-shoes-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--shoes-feat-icon-bg);
+    border: 1px solid #e2e8dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--shoes-feat-accent);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(46, 74, 41, 0.01);
+    overflow: hidden;
+  }
+
+  .why-shoes-icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .why-shoes-icon-wrapper svg {
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .why-shoes-card-title {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: var(--shoes-feat-accent) !important;
+    margin: 0 0 10px 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.3 !important;
+  }
+
+  .why-shoes-card-desc {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    color: var(--shoes-feat-text) !important;
+    margin: 0 !important;
+    font-family: var(--font-body--family), Inter, sans-serif !important;
+  }
+
+  .why-shoes-card-desc p {
+    margin: 0 !important;
+  }
+</style>
+
+<div class="why-shoes-features-section">
+  <div class="why-shoes-features-container">
+    
+    <div class="why-shoes-features-header">
+      <h2 class="why-shoes-features-main-title">{{ section.settings.title }}</h2>
+      <div class="why-shoes-features-header-ornament">
+        <svg viewBox="0 0 100 20" width="60" height="12">
+          <path d="M50 10c-4-4-12-4-16 0s12 4 16 0z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M50 10c4-4 12-4 16 0s-12 4-16 0z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="why-shoes-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <div class="why-shoes-card" {{ block.shopify_attributes }}>
+            <div class="why-shoes-icon-wrapper">
+              {% if block.settings.icon_image != blank %}
+                <img src="{{ block.settings.icon_image | image_url: width: 120 }}" alt="{{ block.settings.title | escape }}" loading="lazy" />
+              {% else %}
+                {% case forloop.index0 %}
+                  {% when 0 %}
+                    <!-- Feet / Footprint outline -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12 22a5 5 0 005-5c0-4-3-8-5-10-2 2-5 6-5 10a5 5 0 005 5z"/>
+                      <circle cx="12" cy="4" r="1.5"/>
+                    </svg>
+                  {% when 1 %}
+                    <!-- Growing plant / Foot development -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12 22V12M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                      <path d="M8 8s2-2 4-2" stroke-linecap="round"/>
+                    </svg>
+                  {% when 2 %}
+                    <!-- Wide Toe box (expand toes profile) -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M3 10c2-3 5-4 9-4s7 1 9 4c1 1.5 1 3 0 4.5l-4 5.5H7l-4-5.5C2 13 2 11.5 3 10z"/>
+                      <circle cx="7" cy="10" r="1"/>
+                      <circle cx="10" cy="9" r="1"/>
+                      <circle cx="14" cy="9" r="1"/>
+                      <circle cx="17" cy="10" r="1"/>
+                    </svg>
+                  {% when 3 %}
+                    <!-- Flexible sole bend curves -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M3 17c3-3 6-3 9 0s6 3 9 0M3 12c3-3 6-3 9 0s6 3 9 0"/>
+                    </svg>
+                  {% when 4 %}
+                    <!-- Balance scale stance -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12 3v18M19 17l-7-7-7 7M19 12l-7-7-7 7"/>
+                    </svg>
+                  {% when 5 %}
+                    <!-- Feather / Lightweight -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5l6.74-6.76zM16 8l-6 6"/>
+                    </svg>
+                  {% when 6 %}
+                    <!-- Gait / Feet trajectory walking -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M9 18c1-3 3-5 5-6s4-1 6-2M4 20c1-2 2-3 4-4s3-1 5-2"/>
+                    </svg>
+                  {% when 7 %}
+                    <!-- Shield / Quality construction -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  {% when 8 %}
+                    <!-- Heart / Trust -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                    </svg>
+                  {% when 9 %}
+                    <!-- Earth globe eco -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10M12 2a15.3 15.3 0 00-4 10 15.3 15.3 0 004 10M2 12h20"/>
+                    </svg>
+                  {% else %}
+                    <!-- Leaf outline fallback -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M12 2c0 0-8 4.5-8 11.5S7.5 22 12 22s8-4 8-10.5S12 2 12 2z"/>
+                    </svg>
+                {% endcase %}
+              {% endif %}
+            </div>
+            <h3 class="why-shoes-card-title">{{ block.settings.title }}</h3>
+            <div class="why-shoes-card-desc">
+              {{ block.settings.description }}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Shoes Features",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Our Promise to Little Feet & a Better Planet"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Max Container Width",
+      "default": 1600
+    },
+    {
+      "type": "header",
+      "content": "Color Customization"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Title/Icons/Hover Borders)",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body Text Color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon Circle Background",
+      "default": "#f4f6f1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Feature Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom Icon Image (Optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Shoes Features"
+    }
+  ]
+}
+{% endschema %}

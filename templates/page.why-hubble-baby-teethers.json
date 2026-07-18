@@ -21,26 +21,12 @@
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "font": "var(--font-primary--family)"
+          }
         },
         "page-content": {
           "type": "page-content",
-          "settings": {},
-          "blocks": {}
+          "settings": {}
         }
       },
       "block_order": [
@@ -48,185 +34,126 @@
         "page-content"
       ],
       "disabled": true,
+      "settings": {}
+    },
+    "why_teethers_hero": {
+      "type": "why-teethers-hero",
       "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "title": "Why Little Leaf 'Baby Teethers?'",
+        "subtitle": "Natural Hevea Rubber Baby Teethers",
+        "intro_text": "<p>Available in 4 charming designs — <strong>Watermelon, Bunny, Carrot and Koala Bear</strong> — thoughtfully created to soothe teething babies while supporting safe, natural play.</p>",
+        "hero_image": "shopify://shop_images/04.22414e6e-c1bb-4591-ab3f-a3d8bcf5a069_1800x1800_6f6c91a0-ba0f-4886-addc-843ca205a2cd.jpg",
+        "background_image": "shopify://shop_images/leafy-background-pattern.png",
+        "max_width": 1600
       }
     },
-    "section_NTtkD3": {
-      "type": "section",
+    "why_teethers_features": {
+      "type": "why-teethers-features",
       "blocks": {
-        "image_btGrVf": {
-          "type": "image",
-          "disabled": true,
+        "key_feat_1": {
+          "type": "key_feature",
           "settings": {
-            "link": "",
-            "image_ratio": "square",
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "title": "Made from 100% Natural Hevea Rubber"
+          }
         },
-        "group_EndFhd": {
-          "type": "group",
+        "key_feat_2": {
+          "type": "key_feature",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "custom",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_n6rb8K": {
-              "type": "text",
-              "name": "t:names.heading",
-              "settings": {
-                "text": "<h2>Why Little Leaf Baby Teethers?</h2>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h3",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "text_Uidqpe": {
-              "type": "text",
-              "settings": {
-                "text": "<p><strong>Natural Hevea Rubber Baby Teethers</strong><br/><br/>Available in 4 charming designs — <strong>Watermelon, Bunny, Carrot and Koala Bear</strong> — thoughtfully created to soothe teething babies while supporting safe, natural play.</p><h3>Key Features</h3><p>✓ Made from <strong>100% Natural Hevea Rubber</strong><br/><br/>✓ <strong>CE, UKCA & EN71 Certified</strong> for safety and quality<br/><br/>✓ <strong>BPA, PVC & Phthalate Free</strong><br/><br/>✓ <strong>Hypoallergenic</strong> and gentle on sensitive gums<br/><br/>✓ Colored using <strong>natural plant pigments</strong> with <strong>no harmful chemical fixatives</strong><br/><br/>✓ Easy to clean and designed for everyday use</p><h3>Why Parents Love Natural Rubber Teethers</h3><p>🌿 <strong>Environmentally Friendly</strong><br/><br/>Made from a renewable, sustainable resource that is kinder to the planet.</p><p>🦷 <strong>Soft & Flexible</strong><br/><br/>Naturally soft texture provides gentle relief for sore, sensitive gums.</p><p>✨ <strong>Natural Antibacterial Properties</strong><br/><br/>Helps resist the growth of germs and bacteria for a more hygienic teething experience.</p><p>💪 <strong>Durable & Long-Lasting</strong><br/><br/>Designed to withstand chewing while maintaining comfort and quality.</p><p>♻️ <strong>Biodegradable</strong><br/><br/>An eco-conscious choice that naturally breaks down over time without harming nature.</p><p>🧼 <strong>Easy to Clean</strong><br/><br/>Simple, practical cleaning makes daily use effortless for busy parents.</p><p><strong>Safe, soothing and inspired by nature — our Hevea rubber teethers help comfort little ones through every stage of teething.</strong> 💚</p>",
-                "width": "fit-content",
-                "max_width": "narrow",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "button_64dqMh": {
-              "type": "button",
-              "disabled": true,
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_n6rb8K",
-            "text_Uidqpe",
-            "button_64dqMh"
-          ]
+            "title": "CE, UKCA & EN71 Certified for safety and quality"
+          }
+        },
+        "key_feat_3": {
+          "type": "key_feature",
+          "settings": {
+            "title": "BPA, PVC & Phthalate Free"
+          }
+        },
+        "key_feat_4": {
+          "type": "key_feature",
+          "settings": {
+            "title": "Hypoallergenic and gentle on sensitive gums"
+          }
+        },
+        "key_feat_5": {
+          "type": "key_feature",
+          "settings": {
+            "title": "Colored using natural plant pigments with no harmful chemical fixatives"
+          }
+        },
+        "key_feat_6": {
+          "type": "key_feature",
+          "settings": {
+            "title": "Easy to clean and designed for everyday use"
+          }
+        },
+        "parent_feat_1": {
+          "type": "parent_feature",
+          "settings": {
+            "title": "Environmentally Friendly",
+            "description": "<p>Made from a renewable, sustainable resource.</p>"
+          }
+        },
+        "parent_feat_2": {
+          "type": "parent_feature",
+          "settings": {
+            "title": "Soft & Flexible",
+            "description": "<p>Naturally soft texture provides gentle relief.</p>"
+          }
+        },
+        "parent_feat_3": {
+          "type": "parent_feature",
+          "settings": {
+            "title": "Natural Antibacterial Properties",
+            "description": "<p>Helps resist the growth of germs and bacteria.</p>"
+          }
+        },
+        "parent_feat_4": {
+          "type": "parent_feature",
+          "settings": {
+            "title": "Durable & Long-Lasting",
+            "description": "<p>Designed to withstand chewing and play.</p>"
+          }
+        },
+        "parent_feat_5": {
+          "type": "parent_feature",
+          "settings": {
+            "title": "Biodegradable",
+            "description": "<p>An eco-conscious choice that breaks down naturally.</p>"
+          }
+        },
+        "parent_feat_6": {
+          "type": "parent_feature",
+          "settings": {
+            "title": "Easy to Clean",
+            "description": "<p>Simple, practical cleaning for parents.</p>"
+          }
         }
       },
       "block_order": [
-        "image_btGrVf",
-        "group_EndFhd"
+        "key_feat_1",
+        "key_feat_2",
+        "key_feat_3",
+        "key_feat_4",
+        "key_feat_5",
+        "key_feat_6",
+        "parent_feat_1",
+        "parent_feat_2",
+        "parent_feat_3",
+        "parent_feat_4",
+        "parent_feat_5",
+        "parent_feat_6"
       ],
-      "name": "t:names.image_with_text",
       "settings": {
-        "content_direction": "row",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "image",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
         "background_image": "shopify://shop_images/leafy-background-pattern.png",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "col_1_title": "Key Features",
+        "col_2_title": "Why Parents Love Natural Rubber Teethers",
+        "footer_text": "Safe, soothing and inspired by nature — our Hevea rubber teethers help comfort little ones through every stage of teething. 🖤"
       }
     }
   },
   "order": [
     "main",
-    "section_NTtkD3"
+    "why_teethers_hero",
+    "why_teethers_features"
   ]
 }

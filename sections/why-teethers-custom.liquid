@@ -1,0 +1,603 @@
+<style>
+  /* Base layout constraints for teethers custom section */
+  .why-teethers-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 80px 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 749px) {
+    .why-teethers-wrapper {
+      padding: 50px 16px;
+    }
+  }
+
+  .why-teethers-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.94);
+    padding: 50px;
+    border-radius: 28px;
+    box-shadow: 0 10px 40px rgba(46, 74, 41, 0.03);
+  }
+
+  @media screen and (max-width: 990px) {
+    .why-teethers-container {
+      padding: 30px 20px;
+    }
+  }
+
+  /* Hero row styling */
+  .why-teethers-hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  @media screen and (max-width: 990px) {
+    .why-teethers-hero {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      text-align: center;
+    }
+  }
+
+  .why-teethers-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 990px) {
+    .why-teethers-hero-content {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  .why-teethers-title {
+    font-size: 3.0rem !important;
+    font-weight: 700 !important;
+    color: #2e4a29 !important; /* Brand green */
+    margin: 0 0 12px 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.2 !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    .why-teethers-title {
+      font-size: 2.2rem !important;
+    }
+  }
+
+  .why-teethers-ornament {
+    color: #2e4a29;
+    margin-bottom: 20px;
+  }
+
+  .why-teethers-ornament svg {
+    width: 70px;
+    height: auto;
+  }
+
+  .why-teethers-subtitle {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: #4a4a4a !important;
+    text-transform: none !important;
+    margin: 0 0 16px 0 !important;
+    font-family: var(--font-heading--family), Outfit, sans-serif !important;
+    border-bottom: 1.5px solid #2e4a29;
+    padding-bottom: 4px;
+    display: inline-block;
+  }
+
+  .why-teethers-intro {
+    font-size: 1.05rem !important;
+    line-height: 1.75 !important;
+    color: #555555 !important;
+    margin: 0 !important;
+    font-family: var(--font-body--family), Inter, sans-serif !important;
+  }
+
+  /* Hero image styling with premium organic mask */
+  .why-teethers-hero-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .why-teethers-hero-image {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    aspect-ratio: 1.25 / 1;
+    object-fit: cover;
+    border-radius: 65% 35% 55% 45% / 45% 55% 45% 55%; /* Premium fluid blob mask */
+    border: 2px solid #e2e8dd;
+    box-shadow: 0 15px 35px rgba(46, 74, 41, 0.08);
+    transition: transform 0.5s ease;
+  }
+
+  .why-teethers-hero-image:hover {
+    transform: scale(1.02) rotate(1deg);
+  }
+
+  /* Features columns */
+  .why-teethers-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    border-top: 1.5px dashed #e2e8dd;
+    padding-top: 40px;
+  }
+
+  @media screen and (max-width: 990px) {
+    .why-teethers-features-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .why-teethers-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .why-teethers-column-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .why-teethers-column-title {
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    color: #2e4a29 !important;
+    margin: 0 0 8px 0 !important;
+    font-family: var(--font-heading--family), Outfit, sans-serif !important;
+  }
+
+  .why-teethers-column-ornament {
+    color: #a6b89c;
+  }
+  .why-teethers-column-ornament svg {
+    width: 40px;
+    height: auto;
+  }
+
+  /* Feature items */
+  .why-teethers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .why-teethers-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 480px) {
+    .why-teethers-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+  }
+
+  .why-teethers-icon-box {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background-color: #f4f6f1;
+    border: 1px solid #e2e8dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2e4a29;
+    box-shadow: 0 4px 10px rgba(46, 74, 41, 0.02);
+  }
+
+  .why-teethers-icon-box svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .why-teethers-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .why-teethers-item-title {
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #2e4a29 !important;
+    margin: 0 !important;
+    font-family: var(--font-body--family), Inter, sans-serif !important;
+  }
+
+  .why-teethers-item-desc {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    color: #555555 !important;
+    margin: 0 !important;
+    font-family: var(--font-body--family), Inter, sans-serif !important;
+  }
+
+  .why-teethers-item-desc p {
+    margin: 0 !important;
+  }
+
+  /* Single block layout (when a feature block only has a title, like Key Features) */
+  .why-teethers-item--title-only {
+    align-items: center;
+  }
+  @media screen and (max-width: 480px) {
+    .why-teethers-item--title-only {
+      flex-direction: row;
+      text-align: left;
+      align-items: center;
+    }
+  }
+
+  .why-teethers-item--title-only .why-teethers-item-title {
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    color: #4a4a4a !important;
+  }
+
+  /* Footer Callout Pill */
+  .why-teethers-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+  }
+
+  .why-teethers-pill-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 18px 40px;
+    background: #f4f6f1;
+    border: 1px solid #e2e8dd;
+    border-radius: 50px;
+    max-width: 860px;
+    box-shadow: 0 4px 15px rgba(46, 74, 41, 0.02);
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 749px) {
+    .why-teethers-pill-box {
+      flex-direction: column;
+      padding: 20px 24px;
+      border-radius: 24px;
+      gap: 12px;
+    }
+  }
+
+  .why-teethers-pill-icon {
+    display: flex;
+    align-items: center;
+    color: #2e4a29;
+  }
+  
+  .why-teethers-pill-icon svg {
+    width: 36px;
+    height: auto;
+  }
+
+  .why-teethers-pill-text {
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    color: #2e4a29 !important;
+    margin: 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.4 !important;
+    text-align: center;
+  }
+</style>
+
+<div class="section spacing-style" style="position: relative; overflow: hidden; background-color: #ffffff; padding-block: 60px;">
+  <!-- Framing leafy branch decorations left and right -->
+  {% if section.settings.background_image != blank %}
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}'); background-repeat: no-repeat; background-position: center; background-size: cover; z-index: 1; opacity: 0.85;"></div>
+  {% endif %}
+  
+  <div class="why-teethers-container">
+    
+    <!-- Hero Block -->
+    <div class="why-teethers-hero">
+      <div class="why-teethers-hero-content">
+        <h2 class="why-teethers-title">{{ section.settings.title }}</h2>
+        <div class="why-teethers-ornament">
+          <svg viewBox="0 0 100 20" width="70" height="14">
+            <path d="M50 10c-5-5-15-5-20 0s15 5 20 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M50 10c5-5 15-5 20 0s-15 5-20 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M20 10h10M70 10h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="why-teethers-subtitle">{{ section.settings.subtitle }}</h3>
+        {% if section.settings.intro_text != blank %}
+          <div class="why-teethers-intro">
+            {{ section.settings.intro_text }}
+          </div>
+        {% endif %}
+      </div>
+      
+      <div class="why-teethers-hero-image-wrapper">
+        {% if section.settings.hero_image != blank %}
+          <img class="why-teethers-hero-image" src="{{ section.settings.hero_image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" loading="lazy" />
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'why-teethers-hero-image placeholder' }}
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Features Grid Row -->
+    <div class="why-teethers-features-grid">
+      
+      <!-- Column 1: Key Features -->
+      <div class="why-teethers-column">
+        <div class="why-teethers-column-header">
+          <h3 class="why-teethers-column-title">{{ section.settings.col_1_title }}</h3>
+          <div class="why-teethers-column-ornament">
+            <svg viewBox="0 0 100 20" width="40" height="8">
+              <path d="M50 10c-3-3-9-3-12 0s9 3 12 0z" fill="none" stroke="currentColor" stroke-width="1"/>
+              <path d="M50 10c3-3 9-3 12 0s-9 3-12 0z" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="why-teethers-list">
+          {% assign col1_count = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'key_feature' %}
+              <div class="why-teethers-item why-teethers-item--title-only" {{ block.shopify_attributes }}>
+                <div class="why-teethers-icon-box">
+                  {% case col1_count %}
+                    {% when 0 %}
+                      <!-- Leaf/Plant -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2c0 0-8 4.5-8 11.5S7.5 22 12 22s8-4 8-10.5S12 2 12 2z"/><path d="M12 2v20"/><path d="M12 10c2-1 4-1 5-2"/><path d="M12 14c-2-1-4-1-5-2"/>
+                      </svg>
+                    {% when 1 %}
+                      <!-- Shield/Safety -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                      </svg>
+                    {% when 2 %}
+                      <!-- Drop/Chemical Free -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 22a7 7 0 007-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 007 7z"/>
+                      </svg>
+                    {% when 3 %}
+                      <!-- Heart/Gums -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                      </svg>
+                    {% when 4 %}
+                      <!-- Flower/Plant Pigments -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="3"/><path d="M12 5V2M12 22v-3M5 12H2M22 12h-3M7.05 7.05L4.93 4.93M19.07 19.07l-2.12-2.12M7.05 16.95l-2.12 2.12M19.07 4.93l-2.12 2.12"/>
+                      </svg>
+                    {% when 5 %}
+                      <!-- Water/Easy Clean -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2v6M5 12a7 7 0 0014 0c0-4.3-7-10-7-10S5 7.7 5 12z"/>
+                      </svg>
+                    {% else %}
+                      <!-- Fallback checkmark -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 6L9 17l-5-5"/>
+                      </svg>
+                  {% endcase %}
+                </div>
+                <div class="why-teethers-item-content">
+                  <h4 class="why-teethers-item-title">{{ block.settings.title }}</h4>
+                </div>
+              </div>
+              {% assign col1_count = col1_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Column 2: Why Parents Love Natural Rubber Teethers -->
+      <div class="why-teethers-column">
+        <div class="why-teethers-column-header">
+          <h3 class="why-teethers-column-title">{{ section.settings.col_2_title }}</h3>
+          <div class="why-teethers-column-ornament">
+            <svg viewBox="0 0 100 20" width="40" height="8">
+              <path d="M50 10c-3-3-9-3-12 0s9 3 12 0z" fill="none" stroke="currentColor" stroke-width="1"/>
+              <path d="M50 10c3-3 9-3 12 0s-9 3-12 0z" fill="none" stroke="currentColor" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="why-teethers-list">
+          {% assign col2_count = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'parent_feature' %}
+              <div class="why-teethers-item" {{ block.shopify_attributes }}>
+                <div class="why-teethers-icon-box">
+                  {% case col2_count %}
+                    {% when 0 %}
+                      <!-- Recycled Leaf -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2c0 0-8 4.5-8 11.5S7.5 22 12 22s8-4 8-10.5S12 2 12 2z"/><path d="M12 2v20"/>
+                      </svg>
+                    {% when 1 %}
+                      <!-- Hand/Squeeze/Flex -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M18 10a6 6 0 00-12 0v8a6 6 0 0012 0v-8zM12 4v4M9 6h6"/>
+                      </svg>
+                    {% when 2 %}
+                      <!-- Shield/Germ Protect -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 11l2 2 4-4"/>
+                      </svg>
+                    {% when 3 %}
+                      <!-- Infinite/Durability -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 8a4 4 0 100 8 4 4 0 000-8z"/><path d="M2.5 12h3.8M17.7 12h3.8"/>
+                      </svg>
+                    {% when 4 %}
+                      <!-- Soil/Biodegradable -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 22V12M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z"/>
+                      </svg>
+                    {% when 5 %}
+                      <!-- Faucet/Clean spray -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M7 21h10M12 21V11M12 11c3 0 5-2 5-5V3H7v3c0 3 2 5 5 5z"/>
+                      </svg>
+                    {% else %}
+                      <!-- Fallback leaf -->
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 22h20L12 2z"/>
+                      </svg>
+                  {% endcase %}
+                </div>
+                <div class="why-teethers-item-content">
+                  <h4 class="why-teethers-item-title">{{ block.settings.title }}</h4>
+                  <div class="why-teethers-item-desc">
+                    {{ block.settings.description }}
+                  </div>
+                </div>
+              </div>
+              {% assign col2_count = col2_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer callout pill box -->
+    {% if section.settings.footer_text != blank %}
+      <div class="why-teethers-footer">
+        <div class="why-teethers-pill-box">
+          <div class="why-teethers-pill-icon">
+            <svg viewBox="0 0 100 60" width="36" height="22">
+              <path d="M30 30c0-10 10-20 20-20s20 10 20 20-10 20-20 20-20-10-20-20z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M50 10v40" stroke="currentColor" stroke-width="2"/>
+              <path d="M50 30c10-5 20-5 25-10" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <p class="why-teethers-pill-text">{{ section.settings.footer_text }}</p>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Teethers Custom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Hero Title",
+      "default": "Why Little Leaf Baby Teethers?"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Hero Subtitle",
+      "default": "Natural Hevea Rubber Baby Teethers"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Hero Intro Text",
+      "default": "<p>Available in 4 charming designs — Watermelon, Bunny, Carrot and Koala Bear — thoughtfully created to soothe teething babies while supporting safe, natural play.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Right Side Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Foliage Background Pattern"
+    },
+    {
+      "type": "text",
+      "id": "col_1_title",
+      "label": "Column 1 Title",
+      "default": "Key Features"
+    },
+    {
+      "type": "text",
+      "id": "col_2_title",
+      "label": "Column 2 Title",
+      "default": "Why Parents Love Natural Rubber Teethers"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Pill Text",
+      "default": "Safe, soothing and inspired by nature — our Hevea rubber teethers help comfort little ones through every stage of teething. 🖤"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "key_feature",
+      "name": "Key Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title"
+        }
+      ]
+    },
+    {
+      "type": "parent_feature",
+      "name": "Parent Love Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Feature Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Teethers Custom"
+    }
+  ]
+}
+{% endschema %}

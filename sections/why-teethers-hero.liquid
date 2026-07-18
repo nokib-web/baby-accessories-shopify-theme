@@ -1,0 +1,233 @@
+<style>
+  #why-teethers-hero-{{ section.id }}.why-teethers-hero-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 80px 20px 40px 20px;
+    box-sizing: border-box;
+    --teether-hero-accent: {{ section.settings.accent_color | default: '#2e4a29' }};
+    --teether-hero-text: {{ section.settings.text_color | default: '#555555' }};
+  }
+
+  @media screen and (max-width: 749px) {
+    #why-teethers-hero-{{ section.id }}.why-teethers-hero-section {
+      padding: 50px 16px 20px 16px;
+    }
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 990px) {
+    #why-teethers-hero-{{ section.id }} .why-teethers-hero-container {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      text-align: center;
+    }
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 990px) {
+    #why-teethers-hero-{{ section.id }} .why-teethers-hero-left {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-title {
+    font-size: 3.0rem !important;
+    font-weight: 700 !important;
+    color: var(--teether-hero-accent) !important;
+    margin: 0 0 12px 0 !important;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
+    line-height: 1.2 !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    #why-teethers-hero-{{ section.id }} .why-teethers-hero-title {
+      font-size: 2.2rem !important;
+    }
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-ornament {
+    color: var(--teether-hero-accent);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-ornament svg {
+    width: 70px;
+    height: auto;
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-subtitle {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    color: var(--teether-hero-text) !important;
+    text-transform: none !important;
+    margin: 0 0 16px 0 !important;
+    font-family: var(--font-heading--family), Outfit, sans-serif !important;
+    border-bottom: 1.5px solid var(--teether-hero-accent);
+    padding-bottom: 4px;
+    display: inline-block;
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-intro {
+    font-size: 1.05rem !important;
+    line-height: 1.75 !important;
+    color: var(--teether-hero-text) !important;
+    margin: 0 !important;
+    font-family: var(--font-body--family), Inter, sans-serif !important;
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-img-box {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 65% 35% 55% 45% / 45% 55% 45% 55%;
+    border: 2px solid #e2e8dd;
+    box-shadow: 0 15px 35px rgba(46, 74, 41, 0.08);
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-img-box:hover {
+    transform: scale(1.02) rotate(1deg);
+  }
+
+  #why-teethers-hero-{{ section.id }} .why-teethers-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 400px;
+  }
+</style>
+
+<div class="why-teethers-hero-section" id="why-teethers-hero-{{ section.id }}">
+  <!-- Framing foliage background pattern left and right -->
+  {% if section.settings.background_image != blank %}
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}'); background-repeat: no-repeat; background-position: center; background-size: cover; z-index: 1; opacity: 0.85;"></div>
+  {% endif %}
+  
+  <div class="why-teethers-hero-container">
+    <div class="why-teethers-hero-left">
+      <h2 class="why-teethers-hero-title">{{ section.settings.title }}</h2>
+      <div class="why-teethers-hero-ornament">
+        <svg viewBox="0 0 100 20" width="70" height="14">
+          <path d="M50 10c-5-5-15-5-20 0s15 5 20 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M50 10c5-5 15-5 20 0s-15 5-20 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M20 10h10M70 10h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3 class="why-teethers-hero-subtitle">{{ section.settings.subtitle }}</h3>
+      {% if section.settings.intro_text != blank %}
+        <div class="why-teethers-hero-intro">
+          {{ section.settings.intro_text }}
+        </div>
+      {% endif %}
+    </div>
+    
+    <div class="why-teethers-hero-right">
+      <div class="why-teethers-hero-img-box">
+        {% if section.settings.hero_image != blank %}
+          <img class="why-teethers-hero-img" src="{{ section.settings.hero_image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" loading="lazy" />
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'why-teethers-hero-img placeholder' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Teethers Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Hero Title",
+      "default": "Why Little Leaf 'Baby Teethers?'"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Hero Subtitle",
+      "default": "Natural Hevea Rubber Baby Teethers"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Hero Intro Text",
+      "default": "<p>Available in 4 charming designs — Watermelon, Bunny, Carrot and Koala Bear — thoughtfully created to soothe teething babies while supporting safe, natural play.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Right Side Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Foliage Background Pattern"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Section Max Width",
+      "default": 1600
+    },
+    {
+      "type": "header",
+      "content": "Color Customization"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Title & Accent Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body Text Color",
+      "default": "#555555"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Teethers Hero"
+    }
+  ]
+}
+{% endschema %}
