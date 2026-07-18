@@ -1,8 +1,6 @@
-
-
 {%- if block.settings.input_style == 'custom' -%}
   {%- capture wrapper_class -%}quantity-selector-wrapper--block-{{ block.id }}{%- endcapture -%}
-  {% style %}
+  <style>
     .{{ wrapper_class }} {
       {%- render 'input-custom-styles', block_settings: block.settings -%}
       --style-border-width-inputs: {{ block.settings.border_width }}px;
@@ -10,11 +8,107 @@
       --style-border-radius-buttons-primary: {{ block.settings.border_radius }}px;
       --style-border-radius-buttons-secondary: {{ block.settings.border_radius }}px;
     }
-  {% endstyle %}
+  </style>
 {%- endif -%}
 
-<div class="product-quantity-wrapper" style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; width: 100%;">
-  <span class="product-quantity-label" style="font-weight: bold; min-width: 140px; color: var(--color-foreground); font-size: 14px;">Quantity:</span>
+<style>
+  .product-quantity-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+  }
+  
+  .shopify-block:has(.product-quantity-wrapper) {
+    flex: 1 0 100% !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .product-quantity-label {
+    font-weight: bold !important;
+    width: 140px !important;
+    min-width: 140px !important;
+    max-width: 140px !important;
+    color: var(--color-foreground) !important;
+    font-size: 14px !important;
+  }
+
+  .product-quantity-wrapper .quantity-selector-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    flex: 0 0 120px !important;
+    margin: 0 !important;
+  }
+
+  .product-quantity-wrapper .quantity-selector {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    flex: 0 0 120px !important;
+    height: 36px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 0px !important;
+    background: #fff !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .product-quantity-wrapper .quantity-selector :is(.quantity-minus, .quantity-plus) {
+    width: 36px !important;
+    height: 36px !important;
+    flex: 0 0 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #c62828 !important;
+    cursor: pointer !important;
+  }
+
+  .product-quantity-wrapper .quantity-selector :is(.quantity-minus, .quantity-plus) svg {
+    width: 12px !important;
+    height: 12px !important;
+    color: #c62828 !important;
+  }
+
+  .product-quantity-wrapper .quantity-selector .quantity-minus {
+    border-right: 1px solid #ddd !important;
+  }
+
+  .product-quantity-wrapper .quantity-selector .quantity-plus {
+    border-left: 1px solid #ddd !important;
+  }
+
+  .product-quantity-wrapper .quantity-selector input[type='number'] {
+    width: 46px !important;
+    max-width: 46px !important;
+    flex: 1 1 auto !important;
+    height: 36px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    text-align: center !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #111 !important;
+    font-size: 15px !important;
+  }
+</style>
+
+<div class="product-quantity-wrapper" {{ block.shopify_attributes }}>
+  <span class="product-quantity-label">Quantity:</span>
   {% render 'quantity-selector', product: closest.product, block: block, wrapper_class: wrapper_class %}
 </div>
 

@@ -43,6 +43,7 @@
   data-testid="product-recommendations-section"
   data-recommendations-performed="{{ recommendations.performed }}"
   data-hydration-key="product-recommendations-{{ section.id }}"
+  style="max-width: {{ section.settings.max_width }}px !important; margin-left: auto !important; margin-right: auto !important; display: block !important;"
   {{ section.shopify_attributes }}
 >
   {% liquid
@@ -67,6 +68,9 @@
       {%  render 'spacing-style', settings: section.settings %}
       {%  render 'gap-style', value: section.settings.gap %}
       {{ styles }}
+      max-width: {{ section.settings.max_width }}px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     "
   >
     <div class="section-resource-list__content">
@@ -412,6 +416,16 @@
         }
       ],
       "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Section Max Width",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "default": 1600
     },
     {
       "type": "range",

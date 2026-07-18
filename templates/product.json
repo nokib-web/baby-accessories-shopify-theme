@@ -9,6 +9,25 @@
  */
 {
   "sections": {
+    "hero_banner_product": {
+      "type": "hero",
+      "settings": {
+        "section_height": "medium",
+        "media_type_1": "image"
+      },
+      "blocks": {
+        "text_title": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Our Products</h2>",
+            "type_preset": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "text_title"
+      ]
+    },
     "main": {
       "type": "product-information",
       "blocks": {
@@ -23,7 +42,7 @@
             "icons_style": "none",
             "slideshow_controls_style": "thumbnails",
             "slideshow_mobile_controls_style": "dots",
-            "thumbnail_position": "right",
+            "thumbnail_position": "bottom",
             "thumbnail_width": 44,
             "aspect_ratio": "adapt",
             "constrain_to_viewport": true,
@@ -236,13 +255,13 @@
               "type": "trust-badges",
               "settings": {
                 "icon_1": "truck",
-                "text_1": "Free UK Delivery over £25",
+                "text_1": "Free Shipping in SA",
                 "icon_2": "lock",
                 "text_2": "100% Secure Checkout",
                 "icon_3": "return",
-                "text_3": "14-Day Easy Returns",
-                "icon_4": "shield-check",
-                "text_4": "Authentic Beauty Guarantee",
+                "text_3": "Easy Returns & Exchanges",
+                "icon_4": "leaf",
+                "text_4": "100% Organic & Baby Safe",
                 "icon_size": 20,
                 "icon_color": "#2e4a29",
                 "font_size": 13,
@@ -410,6 +429,7 @@
     }
   },
   "order": [
+    "hero_banner_product",
     "main",
     "product_recommendations_qggXJq"
   ]

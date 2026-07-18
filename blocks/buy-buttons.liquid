@@ -1,4 +1,99 @@
 
+<style>
+  /* Reset margins for form and inner block wrappers */
+  .product-form-buttons form,
+  product-form-component form {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .product-form-buttons > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Layout container for quantity and buttons */
+  div.product-form-buttons.spacing-style {
+    display: flex !important;
+    flex-direction: column !important; /* Stack quantity on top and buttons below */
+    align-items: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .product-form-buttons .product-quantity-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Force action buttons to be side-by-side with equal widths and same height/radius */
+  .product-form-action-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .product-form-action-buttons > span:has(.add-to-cart-button) {
+    flex: 1 1 50% !important;
+    display: block !important;
+    width: 50% !important;
+  }
+
+  .product-form-action-buttons .add-to-cart-button {
+    width: 100% !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    border-radius: var(--style-border-radius-buttons-primary, 4px) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+  }
+
+  .product-form-action-buttons .accelerated-checkout-block {
+    flex: 1 1 50% !important;
+    width: 50% !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .product-form-action-buttons .shopify-payment-button {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .product-form-action-buttons .shopify-payment-button__button {
+    width: 100% !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    border-radius: var(--style-border-radius-buttons-primary, 4px) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+  }
+</style>
+
 {% render 'theme-drawer-styles' %}
 {% liquid
   assign block_settings = block.settings
@@ -221,19 +316,21 @@
               </div>
             </volume-pricing>
           {%- endif -%}
-          {% content_for 'block',
-            type: 'add-to-cart',
-            id: 'add-to-cart',
-            can_add_to_cart: can_add_to_cart,
-            add_to_cart_text: add_to_cart_text
-          %}
+          <div class="product-form-action-buttons">
+            {% content_for 'block',
+              type: 'add-to-cart',
+              id: 'add-to-cart',
+              can_add_to_cart: can_add_to_cart,
+              add_to_cart_text: add_to_cart_text
+            %}
 
-          {% content_for 'block',
-            type: 'accelerated-checkout',
-            id: 'accelerated-checkout',
-            can_add_to_cart: can_add_to_cart,
-            form_obj: form
-          %}
+            {% content_for 'block',
+              type: 'accelerated-checkout',
+              id: 'accelerated-checkout',
+              can_add_to_cart: can_add_to_cart,
+              form_obj: form
+            %}
+          </div>
         </div>
         {%- if block_settings.gift_card_form and product.gift_card? -%}
           </span>

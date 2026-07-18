@@ -1,0 +1,252 @@
+<style>
+  .about-specs-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: 'transparent' }};
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}');
+      background-size: cover;
+      background-position: center;
+    {% endif %}
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    text-align: center;
+  }
+
+  .about-specs-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .about-specs-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2e4a29;
+    margin: 0 0 12px 0;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
+  }
+
+  .about-specs-leaf {
+    display: inline-block;
+    color: #a6b89c;
+    margin-bottom: 40px;
+  }
+
+  .about-specs-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  @media screen and (max-width: 990px) {
+    .about-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 16px;
+    }
+  }
+
+  .about-spec-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 12px;
+  }
+
+  /* Dotted dividers between items on desktop */
+  @media screen and (min-width: 991px) {
+    .about-spec-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -8px;
+      top: 15%;
+      height: 70%;
+      border-right: 1.5px dotted #c5d0be;
+    }
+  }
+
+  .about-spec-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f4f6f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(46, 74, 41, 0.03);
+    border: 1px solid rgba(46, 74, 41, 0.03);
+  }
+
+  .about-spec-item:hover .about-spec-icon-circle {
+    transform: translateY(-4px);
+    background-color: #eef1ea;
+  }
+
+  .about-spec-icon-circle img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+
+  .about-spec-icon-circle svg {
+    width: 36px;
+    height: 36px;
+    color: #2e4a29;
+  }
+
+  .about-spec-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2e4a29;
+    line-height: 1.4;
+    margin: 0;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
+  }
+</style>
+
+<div class="about-specs-section-{{ section.id }}">
+  <div class="about-specs-container">
+    {% if section.settings.title != blank %}
+      <h2 class="about-specs-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    
+    <div class="about-specs-leaf">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.5 2 2 6.5 2 12c0 3 .5 5 1.5 6.5L12 12l8.5 6.5c1-1.5 1.5-3.5 1.5-6.5 0-5.5-4.5-10-10-10z"/></svg>
+    </div>
+
+    <div class="about-specs-grid">
+      {% for block in section.blocks %}
+        <div class="about-spec-item" {{ block.shopify_attributes }}>
+          <div class="about-spec-icon-circle">
+            {% if block.settings.icon != blank %}
+              <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="{{ block.settings.title }}" loading="lazy">
+            {% else %}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.5 2 2 6.5 2 12c0 3 .5 5 1.5 6.5L12 12l8.5 6.5c1-1.5 1.5-3.5 1.5-6.5 0-5.5-4.5-10-10-10z"/></svg>
+            {% endif %}
+          </div>
+          <h3 class="about-spec-title">{{ block.settings.title }}</h3>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us Specialties",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "We Specialize In"
+    },
+    {
+      "type": "header",
+      "content": "Layout and Style Settings"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum Section Width",
+      "default": 1300
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Overlay Image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "specialty",
+      "name": "Specialty Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Custom Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Specialty Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us Specialties",
+      "blocks": [
+        {
+          "type": "specialty",
+          "settings": { "title": "Organic Baby Clothing" }
+        },
+        {
+          "type": "specialty",
+          "settings": { "title": "Barefoot Shoes" }
+        },
+        {
+          "type": "specialty",
+          "settings": { "title": "Cloth Nappies & Accessories" }
+        },
+        {
+          "type": "specialty",
+          "settings": { "title": "Feeding Essentials" }
+        },
+        {
+          "type": "specialty",
+          "settings": { "title": "Nursery & Sleep" }
+        },
+        {
+          "type": "specialty",
+          "settings": { "title": "Baby Gift Sets & More" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,5 +1,48 @@
 
 
+<style>
+  /* Tighten spacing between blocks in the details column */
+  .product-details .group-block-content {
+    gap: 12px !important;
+  }
+
+  .product-details .group-block-content > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Layout constraints for product page columns to prevent stretching */
+  @media screen and (min-width: 750px) {
+    .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left {
+      grid-template-columns: minmax(auto, 500px) minmax(auto, 550px) !important;
+      justify-content: center !important;
+      gap: 40px !important;
+    }
+    .product-information__media {
+      max-width: 500px !important;
+      width: 100% !important;
+      margin: 0 !important;
+    }
+    .product-details {
+      max-width: 550px !important;
+      width: 100% !important;
+      margin: 0 !important;
+    }
+  }
+
+  /* Gap between hero and product information */
+  .product-information {
+    margin-top: 30px !important;
+  }
+  @media screen and (max-width: 749px) {
+    .product-information {
+      margin-top: 15px !important;
+    }
+  }
+</style>
+
 <script type="application/ld+json">
   {{ closest.product | structured_data }}
 </script>

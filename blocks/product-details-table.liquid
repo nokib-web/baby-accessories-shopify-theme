@@ -1,25 +1,42 @@
 {%- liquid
-  assign product = closest.product
-  assign variant = product.selected_or_first_available_variant
-  assign inventory_quantity = variant.inventory_quantity
-  assign inventory_policy = variant.inventory_policy
-  assign inventory_management = variant.inventory_management
-
-  if inventory_management == 'shopify'
-    assign inventory_managed = true
+  assign product = closest.product | default: product
+  if request.visual_preview_mode and product == blank
+    assign product = collections.all.products.first
   endif
 
-  if inventory_managed
-    if inventory_quantity > 0
-      if inventory_quantity <= 10
-        assign availability_text = 'Low stock!'
-        assign availability_color = '#ef6c00'
+  assign variant = product.selected_or_first_available_variant
+-%}
+
+{%- if variant != blank -%}
+  {%- liquid
+    assign inventory_quantity = variant.inventory_quantity
+    assign inventory_policy = variant.inventory_policy
+    assign inventory_management = variant.inventory_management
+
+    if inventory_management == 'shopify'
+      assign inventory_managed = true
+    endif
+
+    if inventory_managed
+      if inventory_quantity > 0
+        if inventory_quantity <= 10
+          assign availability_text = 'Low stock!'
+          assign availability_color = '#ef6c00'
+        else
+          assign availability_text = 'In stock!'
+          assign availability_color = '#2e7d32'
+        endif
       else
-        assign availability_text = 'In stock!'
-        assign availability_color = '#2e7d32'
+        if inventory_policy == 'continue'
+          assign availability_text = 'In stock!'
+          assign availability_color = '#2e7d32'
+        else
+          assign availability_text = 'Out of stock!'
+          assign availability_color = '#c62828'
+        endif
       endif
     else
-      if inventory_policy == 'continue'
+      if variant.available
         assign availability_text = 'In stock!'
         assign availability_color = '#2e7d32'
       else
@@ -27,65 +44,57 @@
         assign availability_color = '#c62828'
       endif
     endif
-  else
-    if variant != null
-      assign availability_text = 'In stock!'
-      assign availability_color = '#2e7d32'
-    else
-      assign availability_text = 'Out of stock!'
-      assign availability_color = '#c62828'
-    endif
-  endif
--%}
+  -%}
 
-<div class="product-details-table-block" {{ block.shopify_attributes }}>
-  <table class="product-details-table" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-    <tbody>
-      <!-- Price -->
-      <tr style="border-bottom: 1px solid rgba(var(--color-foreground-rgb, 0,0,0), 0.05);">
-        <td style="padding: 10px 0; font-weight: bold; width: 140px; color: var(--color-foreground); font-size: 14px;">Price:</td>
-        <td style="padding: 10px 0;">
-          {% if variant.compare_at_price > variant.price %}
-            <span style="color: #c62828; font-weight: bold; font-size: 16px; margin-right: 8px;">
-              {{ variant.price | money }}
-            </span>
-            <span style="text-decoration: line-through; color: #888; font-size: 14px;">
-              {{ variant.compare_at_price | money }}
-            </span>
-          {% else %}
-            <span style="font-weight: bold; font-size: 16px; color: #c62828;">
-              {{ variant.price | money }}
-            </span>
-          {% endif %}
-        </td>
-      </tr>
-
-      <!-- Vendor -->
-      {% if product.vendor != blank %}
+  <div class="product-details-table-block" {{ block.shopify_attributes }}>
+    <table class="product-details-table" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+      <tbody>
+        <!-- Price -->
         <tr style="border-bottom: 1px solid rgba(var(--color-foreground-rgb, 0,0,0), 0.05);">
-          <td style="padding: 10px 0; font-weight: bold; width: 140px; color: var(--color-foreground); font-size: 14px;">Vendor:</td>
-          <td style="padding: 10px 0; color: var(--color-foreground); opacity: 0.8; font-size: 14px;">{{ product.vendor }}</td>
+          <td style="padding: 10px 0; font-weight: bold; width: 140px; color: var(--color-foreground); font-size: 14px;">Price:</td>
+          <td style="padding: 10px 0;">
+            {% if variant.compare_at_price and variant.price and variant.compare_at_price > variant.price %}
+              <span style="color: #c62828; font-weight: bold; font-size: 16px; margin-right: 8px;">
+                {{ variant.price | money }}
+              </span>
+              <span style="text-decoration: line-through; color: #888; font-size: 14px;">
+                {{ variant.compare_at_price | money }}
+              </span>
+            {% else %}
+              <span style="font-weight: bold; font-size: 16px; color: #c62828;">
+                {{ variant.price | money }}
+              </span>
+            {% endif %}
+          </td>
         </tr>
-      {% endif %}
 
-      <!-- Type -->
-      {% if product.type != blank %}
+        <!-- Vendor -->
+        {% if product.vendor != blank %}
+          <tr style="border-bottom: 1px solid rgba(var(--color-foreground-rgb, 0,0,0), 0.05);">
+            <td style="padding: 10px 0; font-weight: bold; width: 140px; color: var(--color-foreground); font-size: 14px;">Vendor:</td>
+            <td style="padding: 10px 0; color: var(--color-foreground); opacity: 0.8; font-size: 14px;">{{ product.vendor }}</td>
+          </tr>
+        {% endif %}
+
+        <!-- Type -->
+        {% if product.type != blank %}
+          <tr style="border-bottom: 1px solid rgba(var(--color-foreground-rgb, 0,0,0), 0.05);">
+            <td style="padding: 10px 0; font-weight: bold; width: 140px; color: var(--color-foreground); font-size: 14px;">Type:</td>
+            <td style="padding: 10px 0; color: var(--color-foreground); opacity: 0.8; font-size: 14px;">{{ product.type }}</td>
+          </tr>
+        {% endif %}
+
+        <!-- Availability -->
         <tr style="border-bottom: 1px solid rgba(var(--color-foreground-rgb, 0,0,0), 0.05);">
-          <td style="padding: 10px 0; font-weight: bold; width: 140px; color: var(--color-foreground); font-size: 14px;">Type:</td>
-          <td style="padding: 10px 0; color: var(--color-foreground); opacity: 0.8; font-size: 14px;">{{ product.type }}</td>
+          <td style="padding: 10px 0; font-weight: bold; width: 140px; color: var(--color-foreground); font-size: 14px;">Availability:</td>
+          <td style="padding: 10px 0; font-weight: 500; color: {{ availability_color }}; font-size: 14px;">
+            {{ availability_text }}
+          </td>
         </tr>
-      {% endif %}
-
-      <!-- Availability -->
-      <tr style="border-bottom: 1px solid rgba(var(--color-foreground-rgb, 0,0,0), 0.05);">
-        <td style="padding: 10px 0; font-weight: bold; width: 140px; color: var(--color-foreground); font-size: 14px;">Availability:</td>
-        <td style="padding: 10px 0; font-weight: 500; color: {{ availability_color }}; font-size: 14px;">
-          {{ availability_text }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
+{%- endif -%}
 
 {% schema %}
 {

@@ -18,6 +18,13 @@
     
     {% assign icon = block.settings[icon_key] %}
     {% assign text = block.settings[text_key] %}
+    {% if text == "Free UK Delivery over £25" %}
+      {% assign text = "Free Shipping in SA" %}
+    {% elsif text == "14-Day Easy Returns" %}
+      {% assign text = "Easy Returns & Exchanges" %}
+    {% elsif text == "Authentic Beauty Guarantee" %}
+      {% assign text = "100% Organic & Baby Safe" %}
+    {% endif %}
 
     {% if text != blank %}
       <div class="trust-badge-item" style="display: flex; flex-direction: row; align-items: center; text-align: left; gap: 10px;">
@@ -63,7 +70,7 @@
       "type": "text",
       "id": "text_1",
       "label": "Text 1",
-      "default": "Free UK Delivery over £25"
+      "default": "Free Shipping in SA"
     },
     {
       "type": "header",
@@ -115,7 +122,7 @@
       "type": "text",
       "id": "text_3",
       "label": "Text 3",
-      "default": "14-Day Easy Returns"
+      "default": "Easy Returns & Exchanges"
     },
     {
       "type": "header",
@@ -141,7 +148,7 @@
       "type": "text",
       "id": "text_4",
       "label": "Text 4",
-      "default": "Authentic Beauty Guarantee"
+      "default": "100% Organic & Baby Safe"
     },
     {
       "type": "header",

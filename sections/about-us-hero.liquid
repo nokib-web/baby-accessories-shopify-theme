@@ -1,0 +1,309 @@
+<style>
+  .about-hero-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: 'transparent' }};
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}');
+      background-size: cover;
+      background-position: center;
+    {% endif %}
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .about-hero-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 990px) {
+    .about-hero-container {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      text-align: center;
+    }
+  }
+
+  .about-hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  @media screen and (max-width: 990px) {
+    .about-hero-content {
+      align-items: center;
+    }
+  }
+
+  .about-hero-subtitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #8c9c84;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: var(--font-body--family), Inter, sans-serif;
+  }
+
+  .about-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #2e4a29;
+    line-height: 1.15;
+    margin: 0 0 20px 0;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
+  }
+
+  .about-hero-title em {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 749px) {
+    .about-hero-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  .about-hero-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin-bottom: 32px;
+    max-width: 580px;
+    font-family: var(--font-body--family), Inter, sans-serif;
+  }
+
+  .about-hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .about-hero-btn-primary {
+    background-color: #2e4a29;
+    color: #ffffff !important;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(46, 74, 41, 0.15);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .about-hero-btn-primary:hover {
+    background-color: #1e331a;
+    transform: translateY(-2px);
+  }
+
+  .about-hero-btn-secondary {
+    border: 1px solid #2e4a29;
+    color: #2e4a29 !important;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .about-hero-btn-secondary:hover {
+    background-color: rgba(46, 74, 41, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .about-hero-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .about-hero-image-blob {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    background-color: #f4f6f2;
+    border: 1px solid rgba(46, 74, 41, 0.05);
+  }
+
+  .about-hero-image-blob img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<div class="about-hero-section-{{ section.id }}">
+  <div class="about-hero-container">
+    <div class="about-hero-content">
+      {% if section.settings.subtitle != blank %}
+        <span class="about-hero-subtitle">{{ section.settings.subtitle }}</span>
+      {% endif %}
+      
+      <h1 class="about-hero-title">
+        {{ section.settings.title | replace: 'Little Leaf', '<em>Little Leaf</em>' }}
+      </h1>
+      
+      {% if section.settings.text != blank %}
+        <div class="about-hero-text">
+          {{ section.settings.text }}
+        </div>
+      {% endif %}
+      
+      <div class="about-hero-buttons">
+        {% if section.settings.btn_1_label != blank %}
+          <a href="{{ section.settings.btn_1_link | default: '#' }}" class="about-hero-btn-primary">
+            {{ section.settings.btn_1_label }}
+            {% if section.settings.show_leaf_icons %}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C6.5 2 2 6.5 2 12c0 3 .5 5 1.5 6.5L12 12l8.5 6.5c1-1.5 1.5-3.5 1.5-6.5 0-5.5-4.5-10-10-10z"/></svg>
+            {% endif %}
+          </a>
+        {% endif %}
+        
+        {% if section.settings.btn_2_label != blank %}
+          <a href="{{ section.settings.btn_2_link | default: '#' }}" class="about-hero-btn-secondary">
+            {{ section.settings.btn_2_label }}
+            {% if section.settings.show_leaf_icons %}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C6.5 2 2 6.5 2 12c0 3 .5 5 1.5 6.5L12 12l8.5 6.5c1-1.5 1.5-3.5 1.5-6.5 0-5.5-4.5-10-10-10z"/></svg>
+            {% endif %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    
+    <div class="about-hero-image-wrapper">
+      <div class="about-hero-image-blob">
+        {% if section.settings.image != blank %}
+          <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | strip_html }}" loading="eager">
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "NATURAL. GENTLE. THOUGHTFUL."
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Welcome to Little Leaf Baby Company"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text Content",
+      "default": "<p>At Little Leaf Baby Company, we believe that the gentlest touch begins with nature...</p>"
+    },
+    {
+      "type": "text",
+      "id": "btn_1_label",
+      "label": "Button 1 Label",
+      "default": "Shop Our Range"
+    },
+    {
+      "type": "url",
+      "id": "btn_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_2_label",
+      "label": "Button 2 Label",
+      "default": "Our Story"
+    },
+    {
+      "type": "url",
+      "id": "btn_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "boolean",
+      "id": "show_leaf_icons",
+      "label": "Show Leaf Icons in Buttons",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "header",
+      "content": "Layout and Style Settings"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum Section Width",
+      "default": 1600
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Overlay Image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us Hero"
+    }
+  ]
+}
+{% endschema %}

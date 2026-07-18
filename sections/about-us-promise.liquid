@@ -1,0 +1,133 @@
+<style>
+  .about-promise-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: 'transparent' }};
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}');
+      background-size: cover;
+      background-position: center;
+    {% endif %}
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    text-align: center;
+  }
+
+  .about-promise-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .about-promise-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2e4a29;
+    margin: 0 0 12px 0;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
+  }
+
+  .about-promise-leaf {
+    display: inline-block;
+    color: #a6b89c;
+    margin-bottom: 24px;
+  }
+
+  .about-promise-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    max-width: 780px;
+    margin: 0 auto;
+    font-family: var(--font-body--family), Inter, sans-serif;
+  }
+
+  .about-promise-text p {
+    margin: 0;
+  }
+</style>
+
+<div class="about-promise-section-{{ section.id }}">
+  <div class="about-promise-container">
+    {% if section.settings.title != blank %}
+      <h2 class="about-promise-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    
+    <div class="about-promise-leaf">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.5 2 2 6.5 2 12c0 3 .5 5 1.5 6.5L12 12l8.5 6.5c1-1.5 1.5-3.5 1.5-6.5 0-5.5-4.5-10-10-10z"/></svg>
+    </div>
+
+    {% if section.settings.text != blank %}
+      <div class="about-promise-text">
+        {{ section.settings.text }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us Promise",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Promise"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text Content",
+      "default": "<p>Every product in our collection is thoughtfully selected with your baby's wellbeing and environmental responsibility in mind...</p>"
+    },
+    {
+      "type": "header",
+      "content": "Layout and Style Settings"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum Content Width",
+      "default": 1000
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Overlay Image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us Promise"
+    }
+  ]
+}
+{% endschema %}

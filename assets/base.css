@@ -2210,3 +2210,330 @@ main > .shopify-section:first-child .section:not(.disable-section-top-offset) {
     margin-top: calc(var(--header-height) * var(--transparent-header-offset-boolean) * -1);
   }
 }
+
+/* Custom product page layouts */
+@media screen and (min-width: 750px) {
+  .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left {
+    grid-template-columns: 1fr 1.3fr !important;
+  }
+  .product-information__media {
+    max-width: 520px !important;
+    margin-left: auto !important;
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .product-information__grid:not(.product-information__grid--half, .product-information--media-none).product-information--media-left {
+    grid-template-columns: 1fr 1.4fr !important;
+  }
+}
+
+/* Custom quantity selector stepper */
+.product-quantity-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100% !important;
+}
+
+.shopify-block:has(.product-quantity-wrapper) {
+  flex: 1 0 100% !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.product-quantity-label {
+  font-weight: bold !important;
+  width: 140px !important;
+  min-width: 140px !important;
+  max-width: 140px !important;
+  color: var(--color-foreground) !important;
+  font-size: 14px !important;
+}
+
+.product-quantity-wrapper .quantity-selector-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  width: 120px !important;
+  min-width: 120px !important;
+  max-width: 120px !important;
+  flex: 0 0 120px !important;
+  margin: 0 !important;
+}
+
+.product-quantity-wrapper .quantity-selector {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 120px !important;
+  min-width: 120px !important;
+  max-width: 120px !important;
+  flex: 0 0 120px !important;
+  height: 36px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 0px !important;
+  background: #fff !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.product-quantity-wrapper .quantity-selector :is(.quantity-minus, .quantity-plus) {
+  width: 36px !important;
+  height: 36px !important;
+  flex: 0 0 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #c62828 !important;
+  cursor: pointer !important;
+}
+
+.product-quantity-wrapper .quantity-selector :is(.quantity-minus, .quantity-plus) svg {
+  width: 12px !important;
+  height: 12px !important;
+  color: #c62828 !important;
+}
+
+.product-quantity-wrapper .quantity-selector .quantity-minus {
+  border-right: 1px solid #ddd !important;
+}
+
+.product-quantity-wrapper .quantity-selector .quantity-plus {
+  border-left: 1px solid #ddd !important;
+}
+
+.product-quantity-wrapper .quantity-selector input[type='number'] {
+  width: 46px !important;
+  max-width: 46px !important;
+  flex: 1 1 auto !important;
+  height: 36px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  text-align: center !important;
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #111 !important;
+  font-size: 15px !important;
+}
+
+/* Restrict product information section to max-width 1600px and center it */
+.product-information {
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Force thumbnails to bottom and horizontal flow */
+@media screen and (min-width: 750px) {
+  /* Override slideshow layout grid to flex column */
+  .product-information__media slideshow-component:has(slideshow-controls[thumbnails]) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  /* Place controls (thumbnails) at the bottom */
+  .product-information__media slideshow-controls[thumbnails] {
+    order: 2 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 15px !important;
+    min-height: 0 !important;
+  }
+  
+  /* Force container and list to flow horizontally */
+  .product-information__media slideshow-controls[thumbnails] .slideshow-controls__thumbnails-container {
+    overflow: auto hidden !important;
+    width: 100% !important;
+  }
+  
+  .product-information__media slideshow-controls[thumbnails] .slideshow-controls__thumbnails {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+
+  .product-information__media slideshow-controls[thumbnails] .slideshow-controls__thumbnail {
+    margin: 0 !important;
+  }
+}
+
+/* Force equal height and square aspect ratio for Product Recommendations cards */
+.product-recommendations .card-gallery {
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.product-recommendations .card-gallery slideshow-component {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.product-recommendations .card-gallery slideshow-slide {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.product-recommendations .card-gallery .product-media-container {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.product-recommendations .card-gallery .product-media {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.product-recommendations .card-gallery img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Add gap between Hero section and Product layout */
+.product-information {
+  margin-top: 40px !important;
+}
+@media screen and (max-width: 749px) {
+  .product-information {
+    margin-top: 20px !important;
+  }
+}
+
+/* Make Add to Cart and Buy it Now buttons have equal widths, heights, and styles */
+.product-form-buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.product-form-buttons > span:has(.add-to-cart-button) {
+  flex: 1 1 50% !important;
+  display: block !important;
+  width: 50% !important;
+}
+
+.product-form-buttons .add-to-cart-button {
+  width: 100% !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 16px !important;
+  margin: 0 !important;
+  border-radius: var(--style-border-radius-buttons-primary, 4px) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+.product-form-buttons .accelerated-checkout-block {
+  flex: 1 1 50% !important;
+  width: 50% !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.product-form-buttons .shopify-payment-button {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.product-form-buttons .shopify-payment-button__button {
+  width: 100% !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 16px !important;
+  margin: 0 !important;
+  border-radius: var(--style-border-radius-buttons-primary, 4px) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* Force equal height and square aspect ratio for collection and search results cards */
+results-list .card-gallery,
+.product-grid .card-gallery {
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+results-list .card-gallery slideshow-component,
+.product-grid .card-gallery slideshow-component {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+results-list .card-gallery slideshow-slide,
+.product-grid .card-gallery slideshow-slide {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+results-list .card-gallery .product-media-container,
+.product-grid .card-gallery .product-media-container {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+results-list .card-gallery .product-media,
+.product-grid .card-gallery .product-media {
+  aspect-ratio: 1 / 1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+results-list .card-gallery img,
+.product-grid .card-gallery img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+
+
+
+
+

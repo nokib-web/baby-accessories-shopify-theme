@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -16,276 +7,246 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
+            "text": "<h1>Our Story</h1>",
             "width": "100%",
             "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "page-content": {
-          "type": "page-content",
-          "settings": {},
-          "blocks": {}
+            "alignment": "center",
+            "type_preset": "h1"
+          }
         }
       },
       "block_order": [
-        "heading",
-        "page-content"
+        "heading"
       ],
       "disabled": true,
       "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 40,
-        "padding-block-end": 80
-      }
-    },
-    "section_wY6JaQ": {
-      "type": "section",
-      "blocks": {
-        "text_P9niwh": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p><strong>Little Leaf Leading with Love and Expertise</strong></p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h1",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": true,
-            "background_color": "#ffffff",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "text_X84TXz": {
-          "type": "text",
-          "name": "t:names.text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Where every product is a promise—a promise of gentleness, purity, and love for your little one.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_RjXHEd": {
-          "type": "button",
-          "name": "t:names.button",
-          "disabled": true,
-          "settings": {
-            "label": "Shop now",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_P9niwh",
-        "text_X84TXz",
-        "button_RjXHEd"
-      ],
-      "name": "t:names.rich_text_section",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 25,
-        "section_width": "page-width",
-        "section_height": "small",
-        "section_height_custom": 50,
-        "background_media": "image",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
-        "background_image": "shopify://shop_images/leafy-background-pattern.png",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 48,
-        "padding-block-end": 12
-      }
-    },
-    "section_nc9ixp": {
-      "type": "section",
-      "blocks": {
-        "group_H4pUF7": {
-          "type": "group",
-          "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "custom",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "image",
-            "video_position": "cover",
-            "background_image": "shopify://shop_images/leafy-background-pattern.png",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_LHHT66": {
-              "type": "text",
-              "settings": {
-                "text": "<p><strong>Welcome to Little Leaf Baby Company</strong></p><p><strong>At Little Leaf Baby Company, we believe that the gentlest touch begins with nature. We're passionate about providing South African parents with premium quality, baby essentials responsibly sourced and consciously crafted from organic and natural materials that are as kind to your baby's delicate skin as they are to our planet.</strong></p><p><strong>Our Promise</strong></p><p><strong>Every product in our collection is thoughtfully selected with your baby's wellbeing and environmental responsibility in mind.  We curate each item with care, ensuring it meets our high standards for quality, safety, and sustainability. From organic cotton babywear to natural teethers, every product reflects our commitment to conscious parenting and a healthier planet. </strong></p><p><strong>We specialize in:</strong></p><ul><li><strong>Organic Cotton – Grown without harmful pesticides or chemicals, our certified organic cotton is breathable, hypoallergenic, and incredibly soft against newborn skin.</strong></li><li><strong>Modal Fabrics – Derived from sustainably sourced beech trees, modal is a natural, biodegradable fibre that's silky smooth, moisture-wicking, and perfect for sensitive skin.</strong></li><li><strong>Teethers – Our teethers are 100% natural and chemical free. Hubble teethers are made from the natural sap of the hevea tree, have undergone rigorous testing in international laboratories, and meet the highest quality standards.</strong></li><li><strong>Barefoot Shoes – Hopfrog uses environmentally responsible materials such as BioVegan™ and Orthoflex®, along with recycled and upcycled components. Their production processes are based on ethical, transparent, and nature-conscious principles.</strong></li></ul><p><strong>Conventional baby clothing and accessories can contain synthetic materials, chemical dyes, and pesticide residues that may irritate your little one's skin. By choosing organic and natural fabrics, you're:</strong></p><ul><li><strong>Protecting your baby from exposure to harsh chemicals</strong></li><li><strong>Supporting sustainable farming practices</strong></li><li><strong>Reducing environmental impact for future generations</strong></li><li><strong>Investing in higher quality, longer-lasting products</strong></li></ul><p><strong>We understand that the right foundation starts early. That's why we focus on natural materials, breathable fabrics, and designs that allow your baby to move, explore, and grow freely—just as nature intended.</strong></p><p><strong>Because when it comes to your baby's development, we don't believe in shortcuts. We believe in supporting their journey, one gentle step at a time.</strong></p><p><strong>Thank you for choosing Little Leaf Baby Company. Together, we're nurturing the next generation naturally.</strong></p><p><strong>Why Organic?</strong></p><p>Your baby experiences the world through touch long before words.</p><p>The fabric against their cheek, the sleeve they chew while drifting to sleep, the teether they hold for comfort — these small, everyday moments are constant. And because a baby’s skin is delicate and more absorbent than ours, what surrounds them matters more than we often realise.</p><p>That is why we choose organic.</p><p></p><p></p><p><strong>Gentle Where It Matters Most</strong></p><p>Our babywear is made from <strong>GOTS-certified organic cotton</strong> — a certification that ensures the entire process, from farming to final garment, avoids harsh chemicals, toxic dyes and irritants. </p><p>The result is not only softer fabric, but calmer comfort:</p><ul><li>breathable fibres that help regulate temperature</li><li>naturally hypoallergenic materials</li><li>fewer irritants against sensitive newborn skin</li></ul><p>Organic cotton is soft because of the fibre itself — not because it has been chemically treated to feel soft. </p><p>It simply feels the way baby clothing always should have felt.</p><p></p><p></p><p><strong>Safe Comfort, Naturally</strong></p><p>Babies explore the world with their mouths — which is why our teethers are <strong>100% natural</strong>.</p><p>Made from pure natural materials and free from gels, plastics and hidden fillers, they offer soothing relief while remaining gentle and safe for little mouths to chew. </p><p>Because comfort should never come with uncertainty.</p><p></p><p></p><p><strong>More Than Clothing — A Beginning</strong></p><p>Choosing organic is not about perfection.<br/>It’s about intention.</p><p>By surrounding your baby with natural materials you are:</p><ul><li>reducing exposure to unnecessary chemicals</li><li>supporting responsible farming and ethical production</li><li>creating a calmer environment for sensitive skin</li><li>choosing quality made to last and be loved longer</li></ul><p>Organic cotton production also protects soil, water and ecosystems — the very world your child will grow into. </p><p></p><p></p><p><strong>Our Belief</strong></p><p>We don’t believe babies need more things.<br/>We believe they need better ones.</p><p>At Little Leaf Baby Company, every piece is chosen to nurture — not interfere — with your child’s earliest days.</p><p>Because the gentlest beginnings leave the deepest impressions.</p><p>Organic short section</p><p><strong>Why Organic?</strong></p><p>Your baby’s skin is delicate — and what touches it every day matters.</p><p>Our babywear is made from GOTS-certified organic cotton, free from harsh chemicals and gentle enough for the smallest cuddles. Soft, breathable fibres help keep your little one comfortable, while our 100% natural teethers offer safe soothing for curious little mouths.</p><p>We choose natural materials not just for today’s comfort, but for the world your child will grow into.</p><p>Because their first experiences should feel pure, calm, and cared for.</p><p><strong>Barefoot Shoes — Natural Steps, Healthy Development</strong></p><p>A baby learns through movement.</p><p>Before they run, they balance.<br/>Before they walk, they feel the ground.</p><p>Those first steps help shape posture, strengthen muscles and build coordination — which is why what goes on their feet matters.</p><p>Paediatric specialists widely recommend flexible, lightweight footwear for early walkers, as restrictive shoes can interfere with natural foot development. Little feet are soft and still forming, and they grow strongest when they are free to move.</p><p></p><p></p><p><strong>Why Barefoot Matters</strong></p><p>Barefoot-style shoes are designed to support — not control — movement. They allow:</p><ul><li>natural toe spreading for balance</li><li>stronger foot and ankle muscles</li><li>improved stability and coordination</li><li>healthy posture and alignment</li></ul><p>Instead of forcing the foot into shape, they let it develop naturally.</p><p></p><p></p><p><strong>Designed for Growing Feet</strong></p><p>Our Hopfrog barefoot shoes are shaped to match a child’s natural foot and movement.</p><p>They feature:</p><ul><li>wide toe boxes for natural toe movement</li><li>ultra-flexible soles for ground feedback</li><li>lightweight, breathable comfort</li></ul><p>They protect little feet while still allowing them to feel the world beneath them.</p><p><strong>Modal — Silky Soft, Naturally Gentle</strong></p><p>Some fabrics feel soft for a moment.<br/>Others feel calm every time they touch your baby’s skin.</p><p>Modal is one of those fabrics.</p><p>Made from the natural fibres of sustainably grown beech trees, modal creates an exceptionally smooth, breathable material that feels cool, light and comforting — perfect for delicate skin that needs gentle care all day and night.</p><p></p><p></p><p><strong>Why Modal Matters</strong></p><p>A baby’s skin loses moisture quickly and can react easily to rough or synthetic materials. Modal helps create a calmer environment by offering:</p><ul><li>a naturally smooth, irritation-free feel</li><li>breathable comfort that helps regulate temperature</li><li>moisture-wicking fibres to keep skin dry</li><li>lightweight softness for better sleep and movement</li></ul><p>It doesn’t cling, overheat, or feel heavy — it simply rests softly against the skin.</p><p></p><p></p><p><strong>Gentle and Thoughtfully Produced</strong></p><p>Our modal is made from renewable beechwood sources using environmentally responsible processes and is free from harmful substances that can irritate sensitive skin.</p><p>The result is a fabric that is both comforting for your baby and kinder to the world they will grow into.</p><p></p><p></p><p><strong>Comfort That Lasts</strong></p><p>Modal keeps its softness wash after wash, making it ideal for everyday wear — from naps to playtime and everything in between.</p><p>Because when a baby is comfortable, everything feels easier.</p>",
-                "width": "fit-content",
-                "max_width": "none",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "loose",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#ffffff",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "button_NyJctG": {
-              "type": "button",
-              "disabled": true,
-              "settings": {
-                "label": "Shop now",
-                "link": "shopify://collections/all",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_LHHT66",
-            "button_NyJctG"
-          ]
-        }
-      },
-      "block_order": [
-        "group_H4pUF7"
-      ],
-      "name": "t:names.image_with_text",
-      "settings": {
-        "content_direction": "row",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
-        "background_image": "shopify://shop_images/leafy-background-pattern.png",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 12,
         "padding-block-end": 40
+      }
+    },
+    "about_hero": {
+      "type": "about-us-hero",
+      "settings": {
+        "subtitle": "NATURAL. GENTLE. THOUGHTFUL.",
+        "title": "Welcome to Little Leaf Baby Company",
+        "text": "<p>At Little Leaf Baby Company, we believe that the gentlest touch begins with nature. We're passionate about providing South African parents with premium quality, baby essentials responsibly sourced and consciously crafted from organic and natural materials that are as kind to your baby's delicate skin as they are to our planet.</p>",
+        "btn_1_label": "Shop Our Range",
+        "btn_1_link": "shopify://collections/all",
+        "btn_2_label": "Our Story",
+        "btn_2_link": "shopify://pages/about-us-1",
+        "show_leaf_icons": true,
+        "max_width": 1600,
+        "background_image": "shopify://shop_images/leafy-background-pattern.png",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_promise": {
+      "type": "about-us-promise",
+      "settings": {
+        "title": "Our Promise",
+        "text": "<p>Every product in our collection is thoughtfully selected with your baby's wellbeing and environmental responsibility in mind.  We curate each item with care, ensuring it meets our high standards for quality, safety, and sustainability. From organic cotton babywear to natural teethers, every product reflects our commitment to conscious parenting and a healthier planet.</p>",
+        "max_width": 1000,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "about_specialties": {
+      "type": "about-us-specialties",
+      "blocks": {
+        "spec_1": {
+          "type": "specialty",
+          "settings": {
+            "title": "Organic Baby Clothing"
+          }
+        },
+        "spec_2": {
+          "type": "specialty",
+          "settings": {
+            "title": "Barefoot Shoes"
+          }
+        },
+        "spec_3": {
+          "type": "specialty",
+          "settings": {
+            "title": "Cloth Nappies & Accessories"
+          }
+        },
+        "spec_4": {
+          "type": "specialty",
+          "settings": {
+            "title": "Feeding Essentials"
+          }
+        },
+        "spec_5": {
+          "type": "specialty",
+          "settings": {
+            "title": "Nursery & Sleep"
+          }
+        },
+        "spec_6": {
+          "type": "specialty",
+          "settings": {
+            "title": "Baby Gift Sets & More"
+          }
+        }
+      },
+      "block_order": [
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "spec_6"
+      ],
+      "settings": {
+        "title": "We Specialize In",
+        "max_width": 1600,
+        "background_image": "shopify://shop_images/leafy-background-pattern.png",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "about_organic": {
+      "type": "about-us-split-list",
+      "blocks": {
+        "org_1": {
+          "type": "list_item",
+          "settings": {
+            "title": "Gentle Where It Matters Most",
+            "text": "Our babywear is made from GOTS-certified organic cotton — a certification that ensures the entire process, from farming to final garment, avoids harsh chemicals, toxic dyes and irritants. The result is not only softer fabric, but calmer comfort."
+          }
+        },
+        "org_2": {
+          "type": "list_item",
+          "settings": {
+            "title": "Safe, Comfort, Naturally",
+            "text": "Babies explore the world with their mouths — which is why our teethers are 100% natural. Made from pure natural materials and free from gels, plastics and hidden fillers, they offer soothing relief."
+          }
+        },
+        "org_3": {
+          "type": "list_item",
+          "settings": {
+            "title": "More Than Clothing — A Beginning",
+            "text": "Choosing organic is not about perfection. It’s about intention. By surrounding your baby with natural materials you are reducing exposure to unnecessary chemicals, supporting responsible farming and ethical production."
+          }
+        }
+      },
+      "block_order": [
+        "org_1",
+        "org_2",
+        "org_3"
+      ],
+      "settings": {
+        "title": "Why Organic?",
+        "image_alignment": "left",
+        "image_shape": "blob_1",
+        "max_width": 1600,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_barefoot": {
+      "type": "about-us-split-list",
+      "blocks": {
+        "bf_1": {
+          "type": "list_item",
+          "settings": {
+            "title": "Made to Move Naturally",
+            "text": "Our barefoot shoes support natural foot movement, building strength and balance from the ground up."
+          }
+        },
+        "bf_2": {
+          "type": "list_item",
+          "settings": {
+            "title": "Why Barefoot Matters",
+            "text": "Wide toe boxes, flexible soles, and zero drop — helping little feet grow strong and healthy."
+          }
+        },
+        "bf_3": {
+          "type": "list_item",
+          "settings": {
+            "title": "Designed for Growing Feet",
+            "text": "Lightweight, breathable, and thoughtfully crafted for every adventure, every day."
+          }
+        }
+      },
+      "block_order": [
+        "bf_1",
+        "bf_2",
+        "bf_3"
+      ],
+      "settings": {
+        "title": "Barefoot Shoes — Natural Steps, Healthy Development",
+        "image_alignment": "right",
+        "image_shape": "blob_2",
+        "max_width": 1600,
+        "background_image": "shopify://shop_images/leafy-background-pattern.png",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_modal": {
+      "type": "about-us-split-list",
+      "blocks": {
+        "md_1": {
+          "type": "list_item",
+          "settings": {
+            "title": "Why Modal Matters",
+            "text": "Modal is ultra soft, breathable and gentle on sensitive skin — perfect for everyday comfort."
+          }
+        },
+        "md_2": {
+          "type": "list_item",
+          "settings": {
+            "title": "Gentle and Thoughtfully Produced",
+            "text": "Made from beech tree fibers using eco-friendly processes that are better for baby and the planet."
+          }
+        },
+        "md_3": {
+          "type": "list_item",
+          "settings": {
+            "title": "Comfort That Lasts",
+            "text": "Smooth, durable, and designed to keep your little one cozy all day and night."
+          }
+        }
+      },
+      "block_order": [
+        "md_1",
+        "md_2",
+        "md_3"
+      ],
+      "settings": {
+        "title": "Modal — Silky Soft, Naturally Gentle",
+        "image_alignment": "left",
+        "image_shape": "blob_1",
+        "max_width": 1600,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "about_belief": {
+      "type": "about-us-belief",
+      "settings": {
+        "title": "Our Belief",
+        "text": "<p>We believe in natural. We believe in gentle. We believe in growing little ones the right way — with love, care, and conscious choices.</p>",
+        "highlight_text": "For your baby. For your family. For the world they'll grow up in. ♥",
+        "closing_text": "Because the gentlest beginnings leave the deepest impressions.",
+        "max_width": 1600,
+        "background_image": "shopify://shop_images/leafy-background-pattern.png",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "main",
-    "section_wY6JaQ",
-    "section_nc9ixp"
+    "about_hero",
+    "about_promise",
+    "about_specialties",
+    "about_organic",
+    "about_barefoot",
+    "about_modal",
+    "about_belief"
   ]
 }

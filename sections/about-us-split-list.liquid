@@ -1,0 +1,355 @@
+<style>
+  .about-split-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color | default: 'transparent' }};
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 1920 }}');
+      background-size: cover;
+      background-position: center;
+    {% endif %}
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .about-split-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .about-split-header {
+    margin-bottom: 48px;
+  }
+
+  .about-split-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2e4a29;
+    margin: 0 0 12px 0;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
+  }
+
+  .about-split-leaf {
+    display: inline-block;
+    color: #a6b89c;
+  }
+
+  .about-split-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    align-items: center;
+  }
+
+  /* Alignment styling */
+  .about-split-grid--image-right .about-split-image-col {
+    order: 2;
+  }
+  .about-split-grid--image-right .about-split-list-col {
+    order: 1;
+  }
+
+  @media screen and (max-width: 990px) {
+    .about-split-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .about-split-image-col {
+      order: 1 !important;
+    }
+    .about-split-list-col {
+      order: 2 !important;
+    }
+  }
+
+  .about-split-image-col {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Shape options */
+  .about-split-image-wrapper {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 1.1 / 1;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    background-color: #f4f6f2;
+    border: 1px solid rgba(46, 74, 41, 0.05);
+  }
+
+  .about-split-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .shape-blob_1 {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  .shape-blob_2 {
+    border-radius: 50% 40% 60% 40% / 45% 55% 45% 55%;
+  }
+  .shape-circle {
+    border-radius: 50%;
+  }
+  .shape-rounded_rect {
+    border-radius: 36px 36px 36px 36px / 36px 36px 36px 36px;
+  }
+
+  .about-split-list-col {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    text-align: left;
+  }
+
+  .about-split-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .about-split-item-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #f4f6f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(46, 74, 41, 0.03);
+    box-shadow: 0 4px 10px rgba(46, 74, 41, 0.03);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .about-split-item:hover .about-split-item-icon {
+    transform: scale(1.05);
+    background-color: #eef1ea;
+  }
+
+  .about-split-item-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .about-split-item-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #2e4a29;
+  }
+
+  .about-split-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .about-split-item-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2e4a29;
+    margin: 0;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
+  }
+
+  .about-split-item-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin: 0;
+    font-family: var(--font-body--family), Inter, sans-serif;
+  }
+</style>
+
+<div class="about-split-section-{{ section.id }}">
+  <div class="about-split-container">
+    {% if section.settings.title != blank %}
+      <div class="about-split-header">
+        <h2 class="about-split-title">{{ section.settings.title }}</h2>
+        <div class="about-split-leaf">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.5 2 2 6.5 2 12c0 3 .5 5 1.5 6.5L12 12l8.5 6.5c1-1.5 1.5-3.5 1.5-6.5 0-5.5-4.5-10-10-10z"/></svg>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="about-split-grid about-split-grid--image-{{ section.settings.image_alignment }}">
+      <div class="about-split-image-col">
+        <div class="about-split-image-wrapper shape-{{ section.settings.image_shape }}">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | strip_html }}" loading="lazy">
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="about-split-list-col">
+        {% for block in section.blocks %}
+          <div class="about-split-item" {{ block.shopify_attributes }}>
+            <div class="about-split-item-icon">
+              {% if block.settings.icon != blank %}
+                <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="{{ block.settings.title }}" loading="lazy">
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.5 2 2 6.5 2 12c0 3 .5 5 1.5 6.5L12 12l8.5 6.5c1-1.5 1.5-3.5 1.5-6.5 0-5.5-4.5-10-10-10z"/></svg>
+              {% endif %}
+            </div>
+            <div class="about-split-item-content">
+              <h3 class="about-split-item-title">{{ block.settings.title }}</h3>
+              <div class="about-split-item-text">{{ block.settings.text }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us Split List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Featured Image"
+    },
+    {
+      "type": "select",
+      "id": "image_alignment",
+      "label": "Image Side",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image Mask Shape",
+      "options": [
+        {
+          "value": "blob_1",
+          "label": "Organic Blob 1"
+        },
+        {
+          "value": "blob_2",
+          "label": "Organic Blob 2"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "rounded_rect",
+          "label": "Rounded Rectangle"
+        }
+      ],
+      "default": "blob_1"
+    },
+    {
+      "type": "header",
+      "content": "Layout and Style Settings"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Maximum Section Width",
+      "default": 1600
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Overlay Image"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_item",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Custom Item Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description Text",
+          "default": "Feature description text..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us Split List",
+      "blocks": [
+        {
+          "type": "list_item",
+          "settings": { "title": "First Feature" }
+        },
+        {
+          "type": "list_item",
+          "settings": { "title": "Second Feature" }
+        },
+        {
+          "type": "list_item",
+          "settings": { "title": "Third Feature" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
