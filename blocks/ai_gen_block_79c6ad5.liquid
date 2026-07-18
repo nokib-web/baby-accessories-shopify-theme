@@ -1,0 +1,247 @@
+{% doc %}
+  @prompt
+    Add a row of policy links to the password page footer area. Include links to Privacy Policy (/policies/privacy-policy), Refund Policy (/policies/refund-policy), Shipping Policy (/policies/shipping-policy), and Terms of Service (/policies/terms-of-service). Style them subtle, minimal, and centered — small font, muted color — to suit a premium eco-friendly baby brand aesthetic.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-policy-links-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.vertical_padding }}px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-policy-links__container-{{ ai_gen_id }} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: {{ block.settings.link_spacing }}px;
+    margin: 0 auto;
+  }
+
+  .ai-policy-links__link-{{ ai_gen_id }} {
+    font-size: {{ block.settings.font_size }}px;
+    color: {{ block.settings.link_color }};
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    opacity: {{ block.settings.link_opacity }};
+    font-weight: 400;
+    letter-spacing: 0.3px;
+  }
+
+  .ai-policy-links__link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.link_hover_color }};
+    opacity: 1;
+  }
+
+  .ai-policy-links__separator-{{ ai_gen_id }} {
+    color: {{ block.settings.link_color }};
+    opacity: {{ block.settings.link_opacity }};
+    font-size: {{ block.settings.font_size }}px;
+    user-select: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-policy-links__container-{{ ai_gen_id }} {
+      gap: {{ block.settings.link_spacing | times: 0.8 }}px;
+    }
+
+    .ai-policy-links__link-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size | times: 0.9 }}px;
+    }
+
+    .ai-policy-links__separator-{{ ai_gen_id }} {
+      font-size: {{ block.settings.font_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<policy-links-{{ ai_gen_id }}
+  class="ai-policy-links-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-policy-links__container-{{ ai_gen_id }}">
+    {% if block.settings.show_privacy %}
+      <a
+        href="/policies/privacy-policy"
+        class="ai-policy-links__link-{{ ai_gen_id }}"
+      >
+        Privacy Policy
+      </a>
+      {% if block.settings.show_refund or block.settings.show_shipping or block.settings.show_terms %}
+        <span class="ai-policy-links__separator-{{ ai_gen_id }}">{{ block.settings.separator }}</span>
+      {% endif %}
+    {% endif %}
+
+    {% if block.settings.show_refund %}
+      <a
+        href="/policies/refund-policy"
+        class="ai-policy-links__link-{{ ai_gen_id }}"
+      >
+        Refund Policy
+      </a>
+      {% if block.settings.show_shipping or block.settings.show_terms %}
+        <span class="ai-policy-links__separator-{{ ai_gen_id }}">{{ block.settings.separator }}</span>
+      {% endif %}
+    {% endif %}
+
+    {% if block.settings.show_shipping %}
+      <a
+        href="/policies/shipping-policy"
+        class="ai-policy-links__link-{{ ai_gen_id }}"
+      >
+        Shipping Policy
+      </a>
+      {% if block.settings.show_terms %}
+        <span class="ai-policy-links__separator-{{ ai_gen_id }}">{{ block.settings.separator }}</span>
+      {% endif %}
+    {% endif %}
+
+    {% if block.settings.show_terms %}
+      <a
+        href="/policies/terms-of-service"
+        class="ai-policy-links__link-{{ ai_gen_id }}"
+      >
+        Terms of Service
+      </a>
+    {% endif %}
+  </div>
+</policy-links-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PolicyLinks{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+    }
+
+    customElements.define('policy-links-{{ ai_gen_id }}', PolicyLinks{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Policy links",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Policy links"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_privacy",
+      "label": "Show Privacy Policy",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_refund",
+      "label": "Show Refund Policy",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping",
+      "label": "Show Shipping Policy",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_terms",
+      "label": "Show Terms of Service",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Separator",
+      "default": "·"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "link_spacing",
+      "label": "Link spacing",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "link_opacity",
+      "label": "Link opacity",
+      "min": 0.3,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.6
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link",
+      "default": "#6b7280"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover",
+      "default": "#374151"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Policy links"
+    }
+  ]
+}
+{% endschema %}

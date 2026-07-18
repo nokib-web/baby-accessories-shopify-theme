@@ -1,0 +1,1169 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
+
+{% liquid
+  assign section_width = section.settings.section_width | default: 'page-width'
+%}
+<div class="hero2-section">
+  <div
+    class="section section--{{ section_width }}{% if section_width == 'custom' %} section--page-width section--custom-width{% endif %}"
+    style="
+      {% if section_width == 'custom' %}
+        --page-content-width: {{ section.settings.custom_max_width | default: 1400 }}px;
+        --page-width: calc({{ section.settings.custom_max_width | default: 1400 }}px + (var(--page-margin) * 2));
+      {% endif %}
+    "
+  >
+    <div class="hero2">
+      <div class="hero2__grid">
+
+      <div class="hero2__content">
+        {%- if section.settings.eyebrow_text != blank -%}
+          <p class="hero2__eyebrow">{{ section.settings.eyebrow_text }}</p>
+        {%- endif -%}
+
+        <h1 class="hero2__title">
+          {%- if section.settings.title_line1 != blank -%}
+            <span class="hero2__title-line1">{{ section.settings.title_line1 }}</span><br>
+          {%- endif -%}
+          {%- if section.settings.title_highlight != blank -%}
+            <span class="hero2__title-highlight">{{ section.settings.title_highlight }}</span>
+          {%- endif -%}
+          {%- if section.settings.title_line2 != blank -%}
+            <span class="hero2__title-line2">{{ section.settings.title_line2 }}</span>
+          {%- endif -%}
+        </h1>
+
+        {%- if section.settings.description != blank -%}
+          <div class="hero2__description">{{ section.settings.description }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.button_text != blank or section.settings.button_text_2 != blank -%}
+          <div class="hero2__buttons">
+            {%- if section.settings.button_text != blank -%}
+              <a href="{{ section.settings.button_link | default: '#' }}" class="hero2__btn hero2__btn--primary">
+                {{ section.settings.button_text }}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.button_text_2 != blank -%}
+              <a href="{{ section.settings.button_link_2 | default: '#' }}" class="hero2__btn hero2__btn--secondary">
+                {%- if section.settings.button_2_show_icon -%}
+                  <svg class="hero2__btn-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                {%- endif -%}
+                {{ section.settings.button_text_2 }}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="hero2__media">
+        {%- assign slider_blocks = section.blocks | where: 'type', 'slider_image' -%}
+        {%- if slider_blocks.size > 0 -%}
+          <div class="hero2__slider-wrapper" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div class="swiper hero2-swiper" id="hero2-swiper-{{ section.id }}" style="width: 100%; overflow: hidden;">
+              <div class="swiper-wrapper">
+                {%- for block in slider_blocks -%}
+                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                    {%- if block.settings.image -%}
+                      <img
+                        class="hero2__image"
+                        src="{{ block.settings.image | image_url: width: 1400 }}"
+                        srcset="{{ block.settings.image | image_url: width: 700 }} 700w,
+                                {{ block.settings.image | image_url: width: 1000 }} 1000w,
+                                {{ block.settings.image | image_url: width: 1400 }} 1400w"
+                        sizes="(min-width: 990px) 50vw, 100vw"
+                        alt="{{ block.settings.image.alt | default: section.settings.title_line1 | escape }}"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        loading="lazy"
+                      >
+                    {%- else -%}
+                      {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg hero2__image hero2__image-placeholder' }}
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
+            <div class="hero2-swiper-controls" id="hero2-controls-{{ section.id }}" style="display: flex; gap: 64px; margin-top: 16px; justify-content: center; align-items: center; position: relative; width: 100%;">
+              <div class="swiper-button-prev hero2-slider-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px; height:24px;"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
+              <div class="swiper-pagination hero2-slider-pagination" style="position: static; width: auto; margin: 0;"></div>
+              <div class="swiper-button-next hero2-slider-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px; height:24px;"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+            </div>
+          </div>
+        {%- elsif section.settings.image -%}
+          <img
+            class="hero2__image"
+            src="{{ section.settings.image | image_url: width: 1400 }}"
+            srcset="{{ section.settings.image | image_url: width: 700 }} 700w,
+                    {{ section.settings.image | image_url: width: 1000 }} 1000w,
+                    {{ section.settings.image | image_url: width: 1400 }} 1400w"
+            sizes="(min-width: 990px) 50vw, 100vw"
+            alt="{{ section.settings.image.alt | default: section.settings.title_line1 | escape }}"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+            loading="eager"
+          >
+        {%- else -%}
+          <div class="hero2__slider-wrapper" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <div class="swiper hero2-swiper" id="hero2-swiper-{{ section.id }}" style="width: 100%; overflow: hidden;">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg hero2__image hero2__image-placeholder' }}
+                </div>
+                <div class="swiper-slide">
+                  {{ 'product-2' | placeholder_svg_tag: 'placeholder-svg hero2__image hero2__image-placeholder' }}
+                </div>
+                <div class="swiper-slide">
+                  {{ 'product-3' | placeholder_svg_tag: 'placeholder-svg hero2__image hero2__image-placeholder' }}
+                </div>
+              </div>
+            </div>
+            <div class="hero2-swiper-controls" id="hero2-controls-{{ section.id }}" style="display: flex; gap: 64px; margin-top: 16px; justify-content: center; align-items: center; position: relative; width: 100%;">
+              <div class="swiper-button-prev hero2-slider-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px; height:24px;"><polyline points="15 18 9 12 15 6"></polyline></svg></div>
+              <div class="swiper-pagination hero2-slider-pagination" style="position: static; width: auto; margin: 0;"></div>
+              <div class="swiper-button-next hero2-slider-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px; height:24px;"><polyline points="9 18 15 12 9 6"></polyline></svg></div>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      {%- assign badge_blocks = section.blocks | where: 'type', 'badge' -%}
+      {%- if badge_blocks.size > 0 -%}
+        <div class="hero2__badges">
+          {%- for block in badge_blocks -%}
+            <div class="hero2__badge" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon -%}
+                <img
+                  class="hero2__badge-icon"
+                  src="{{ block.settings.icon | image_url: width: 60 }}"
+                  alt=""
+                  width="{{ block.settings.icon.width }}"
+                  height="{{ block.settings.icon.height }}"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              <span class="hero2__badge-text">
+                {%- if block.settings.title != blank -%}
+                  <span class="hero2__badge-title">{{ block.settings.title }}</span>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <span class="hero2__badge-description">{{ block.settings.description }}</span>
+                {%- endif -%}
+              </span>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --hero2-padding-top: {{ section.settings.padding_top }}px;
+    --hero2-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --hero2-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --hero2-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --hero2-padding-horizontal: {{ section.settings.padding_horizontal }}px;
+    --hero2-bg-color: {{ section.settings.bg_color }};
+    --hero2-min-height: {{ section.settings.min_height | default: 550 }}px;
+    --hero2-min-height-mobile: {{ section.settings.min_height_mobile | default: 400 }}px;
+
+    --hero2-eyebrow-size: {{ section.settings.eyebrow_font_size }}px;
+    --hero2-eyebrow-color: {{ section.settings.eyebrow_color }};
+    --hero2-eyebrow-weight: {{ section.settings.eyebrow_font_weight }};
+
+    --hero2-title-size: {{ section.settings.title_font_size }}px;
+    --hero2-title-size-mobile: {{ section.settings.title_font_size_mobile }}px;
+    --hero2-title-color: {{ section.settings.title_color }};
+    --hero2-title-weight: {{ section.settings.title_font_weight }};
+
+    --hero2-highlight-color: {{ section.settings.highlight_color }};
+
+    --hero2-desc-size: {{ section.settings.description_font_size }}px;
+    --hero2-desc-color: {{ section.settings.description_color }};
+    --hero2-desc-weight: {{ section.settings.description_font_weight }};
+    --hero2-desc-max-width: {{ section.settings.description_max_width }}px;
+
+    --hero2-btn-padding-h: {{ section.settings.button_padding_horizontal }}px;
+    --hero2-btn-padding-v: {{ section.settings.button_padding_vertical }}px;
+    --hero2-btn-font-size: {{ section.settings.button_font_size }}px;
+    --hero2-btn-color: {{ section.settings.button_color }};
+    --hero2-btn-weight: {{ section.settings.button_font_weight }};
+    --hero2-btn-bg: {{ section.settings.button_bg }};
+    --hero2-btn-hover-bg: {{ section.settings.button_hover_bg }};
+
+    --hero2-btn2-padding-h: {{ section.settings.button_2_padding_horizontal }}px;
+    --hero2-btn2-padding-v: {{ section.settings.button_2_padding_vertical }}px;
+    --hero2-btn2-font-size: {{ section.settings.button_2_font_size }}px;
+    --hero2-btn2-color: {{ section.settings.button_2_color }};
+    --hero2-btn2-weight: {{ section.settings.button_2_font_weight }};
+    --hero2-btn2-bg: {{ section.settings.button_2_bg }};
+    --hero2-btn2-hover-bg: {{ section.settings.button_2_hover_bg }};
+    --hero2-btn2-border: {{ section.settings.button_2_border_color }};
+
+    --hero2-badge-title-color: {{ section.settings.badge_title_color }};
+    --hero2-badge-desc-color: {{ section.settings.badge_description_color }};
+    --hero2-badge-divider-color: {{ section.settings.badge_divider_color }};
+
+    --hero2-badge-icon-size: {{ section.settings.badge_icon_size }}px;
+    --hero2-badge-icon-size-mobile: {{ section.settings.badge_icon_size_mobile }}px;
+    --hero2-badge-title-size: {{ section.settings.badge_title_font_size }}px;
+    --hero2-badge-title-size-mobile: {{ section.settings.badge_title_font_size_mobile }}px;
+    --hero2-badge-desc-size: {{ section.settings.badge_description_font_size }}px;
+    --hero2-badge-desc-size-mobile: {{ section.settings.badge_description_font_size_mobile }}px;
+
+    --hero2-image-width: {{ section.settings.image_width }}%;
+    --hero2-image-height: {{ section.settings.image_height }}px;
+    --hero2-image-width-mobile: {{ section.settings.image_width_mobile }}%;
+    --hero2-image-height-mobile: {{ section.settings.image_height_mobile }}px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2-section {
+    background-color: var(--hero2-bg-color);
+    {%- if section.settings.bg_image -%}
+    background-image: url('{{ section.settings.bg_image | image_url: width: 2400 }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    {%- endif -%}
+    border-radius: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .hero2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: var(--hero2-min-height);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: var(--hero2-padding-top) var(--hero2-padding-horizontal) var(--hero2-padding-bottom);
+  }
+
+  #shopify-section-{{ section.id }} .hero2__grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__content {
+    flex: 1 1 440px;
+    min-width: 300px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__media {
+    flex: 1 1 440px;
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__image {
+    display: block;
+    width: var(--hero2-image-width);
+    height: var(--hero2-image-height);
+    object-fit: contain;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__eyebrow {
+    font-size: var(--hero2-eyebrow-size);
+    color: var(--hero2-eyebrow-color);
+    font-weight: var(--hero2-eyebrow-weight);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 0 0 16px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__title {
+    font-size: var(--hero2-title-size-mobile);
+    color: var(--hero2-title-color);
+    font-weight: var(--hero2-title-weight);
+    line-height: 1.2;
+    margin: 0 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__title-highlight {
+    color: var(--hero2-highlight-color);
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-right: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__description {
+    font-size: var(--hero2-desc-size);
+    color: var(--hero2-desc-color);
+    font-weight: var(--hero2-desc-weight);
+    max-width: var(--hero2-desc-max-width);
+    line-height: 1.6;
+    margin: 0 0 32px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__description p {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    border-radius: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__btn--primary {
+    padding: var(--hero2-btn-padding-v) var(--hero2-btn-padding-h);
+    font-size: var(--hero2-btn-font-size);
+    font-weight: var(--hero2-btn-weight);
+    color: var(--hero2-btn-color);
+    background-color: var(--hero2-btn-bg);
+    border: 1px solid var(--hero2-btn-bg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__btn--primary:hover {
+    background-color: var(--hero2-btn-hover-bg);
+    border-color: var(--hero2-btn-hover-bg);
+  }
+
+  #shopify-section-{{ section.id }} .hero2__btn--secondary {
+    padding: var(--hero2-btn2-padding-v) var(--hero2-btn2-padding-h);
+    font-size: var(--hero2-btn2-font-size);
+    font-weight: var(--hero2-btn2-weight);
+    color: var(--hero2-btn2-color);
+    background-color: var(--hero2-btn2-bg);
+    border: 1px solid var(--hero2-btn2-border);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__btn--secondary:hover {
+    background-color: var(--hero2-btn2-hover-bg);
+  }
+
+  #shopify-section-{{ section.id }} .hero2__badges {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 48px;
+    row-gap: 16px;
+    margin-top: 32px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__badge-icon {
+    width: var(--hero2-badge-icon-size-mobile);
+    height: var(--hero2-badge-icon-size-mobile);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__badge-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__badge-title {
+    font-size: var(--hero2-badge-title-size-mobile);
+    font-weight: 600;
+    color: var(--hero2-badge-title-color);
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .hero2__badge-description {
+    font-size: var(--hero2-badge-desc-size-mobile);
+    color: var(--hero2-badge-desc-color);
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .hero2-slider-arrow {
+    position: static !important;
+    margin-top: 0 !important;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    color: var(--hero2-btn-bg) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .hero2-slider-arrow:hover {
+    color: var(--hero2-btn-hover-bg) !important;
+  }
+
+  #shopify-section-{{ section.id }} .hero2-slider-arrow:after {
+    display: none !important;
+  }
+
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} .hero2__title {
+      font-size: var(--hero2-title-size);
+    }
+
+    #shopify-section-{{ section.id }} .hero2__badge-icon {
+      width: var(--hero2-badge-icon-size);
+      height: var(--hero2-badge-icon-size);
+    }
+
+    #shopify-section-{{ section.id }} .hero2__badge-title {
+      font-size: var(--hero2-badge-title-size);
+    }
+
+    #shopify-section-{{ section.id }} .hero2__badge-description {
+      font-size: var(--hero2-badge-desc-size);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .hero2-slider-arrow {
+      display: none !important;
+    }
+
+    #shopify-section-{{ section.id }} .hero2 {
+      padding: var(--hero2-padding-top-mobile) var(--hero2-padding-horizontal) var(--hero2-padding-bottom-mobile);
+      min-height: var(--hero2-min-height-mobile);
+    }
+
+    #shopify-section-{{ section.id }} .hero2__grid {
+      flex-direction: column-reverse;
+      gap: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .hero2__content,
+    #shopify-section-{{ section.id }} .hero2__media {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    #shopify-section-{{ section.id }} .hero2__badges {
+      flex-direction: column;
+      row-gap: 12px;
+      margin-top: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .hero2__image {
+      width: var(--hero2-image-width-mobile);
+      height: var(--hero2-image-height-mobile);
+    }
+
+    {%- if section.settings.bg_image_mobile -%}
+    #shopify-section-{{ section.id }} .hero2-section {
+      background-image: url('{{ section.settings.bg_image_mobile | image_url: width: 1200 }}');
+    }
+    {%- endif -%}
+  }
+</style>
+
+<script>
+  (function() {
+    function initHeroSwiper() {
+      var swiperContainer = document.querySelector('#hero2-swiper-{{ section.id }}');
+      if (!swiperContainer) return;
+      
+      if (typeof Swiper === 'undefined') {
+        setTimeout(initHeroSwiper, 100);
+        return;
+      }
+      
+      if (swiperContainer.swiper) {
+        swiperContainer.swiper.destroy(true, true);
+      }
+      
+      new Swiper(swiperContainer, {
+        loop: true,
+        autoplay: {
+          delay: {{ section.settings.slider_speed | times: 1000 }},
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: swiperContainer.parentElement.querySelector('.swiper-pagination'),
+          clickable: true,
+        },
+        navigation: {
+          nextEl: swiperContainer.parentElement.querySelector('.swiper-button-next'),
+          prevEl: swiperContainer.parentElement.querySelector('.swiper-button-prev'),
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeroSwiper);
+    } else {
+      initHeroSwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function(e) {
+      if (e.detail.sectionId === '{{ section.id }}') {
+        setTimeout(initHeroSwiper, 100);
+      }
+    });
+    
+    document.addEventListener('shopify:block:select', function(e) {
+      if (e.detail.sectionId === '{{ section.id }}') {
+        setTimeout(initHeroSwiper, 100);
+      }
+    });
+    
+    document.addEventListener('shopify:block:deselect', function(e) {
+      if (e.detail.sectionId === '{{ section.id }}') {
+        setTimeout(initHeroSwiper, 100);
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero Highlight",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding horizontal",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        },
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "custom",
+          "label": "Custom Max Width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "custom_max_width",
+      "label": "Custom Max Width",
+      "min": 1400,
+      "max": 1900,
+      "step": 10,
+      "unit": "px",
+      "default": 1400
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum Height (desktop)",
+      "min": 300,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "default": 550
+    },
+    {
+      "type": "range",
+      "id": "min_height_mobile",
+      "label": "Minimum Height (mobile)",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f1f4f0"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Background image (mobile override)"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "slider_speed",
+      "label": "Slider autoplay speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Width (desktop)",
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Height (desktop)",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "default": 480
+    },
+    {
+      "type": "range",
+      "id": "image_width_mobile",
+      "label": "Width (mobile)",
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "image_height_mobile",
+      "label": "Height (mobile)",
+      "min": 150,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 280
+    },
+    {
+      "type": "header",
+      "content": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow text",
+      "default": "Nurturing Your Little Ones"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "select",
+      "id": "eyebrow_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title_line1",
+      "label": "Title line 1",
+      "default": "Organic Clothing &"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Title highlighted word",
+      "default": "Healthy"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlighted word color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "text",
+      "id": "title_line2",
+      "label": "Title line 2 (rest of line)",
+      "default": "Barefoot Shoes"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Font size (desktop)",
+      "min": 24,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "label": "Font size (mobile)",
+      "min": 20,
+      "max": 56,
+      "step": 2,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color",
+      "default": "#091208"
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Thoughtfully crafted from organic GOTS-certified cotton and natural materials, designed for your baby's ultimate comfort and healthy growth.</p>"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Color",
+      "default": "#333333"
+    },
+    {
+      "type": "select",
+      "id": "description_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "range",
+      "id": "description_max_width",
+      "label": "Max width",
+      "min": 200,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 420
+    },
+    {
+      "type": "header",
+      "content": "Primary button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Clothes"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "label": "Padding horizontal",
+      "min": 8,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "label": "Padding vertical",
+      "min": 6,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "select",
+      "id": "button_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Background",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg",
+      "label": "Hover background",
+      "default": "#1d301a"
+    },
+    {
+      "type": "header",
+      "content": "Secondary button"
+    },
+    {
+      "type": "text",
+      "id": "button_text_2",
+      "label": "Button text",
+      "default": "Why Barefoot Shoes"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_2_show_icon",
+      "label": "Show play icon",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "button_2_padding_horizontal",
+      "label": "Padding horizontal",
+      "min": 8,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "button_2_padding_vertical",
+      "label": "Padding vertical",
+      "min": 6,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_2_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "color",
+      "id": "button_2_color",
+      "label": "Text color",
+      "default": "#091208"
+    },
+    {
+      "type": "select",
+      "id": "button_2_font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "button_2_bg",
+      "label": "Background",
+      "default": "#00000000"
+    },
+    {
+      "type": "color",
+      "id": "button_2_hover_bg",
+      "label": "Hover background",
+      "default": "#00000010"
+    },
+    {
+      "type": "color",
+      "id": "button_2_border_color",
+      "label": "Border color",
+      "default": "#091208"
+    },
+    {
+      "type": "header",
+      "content": "Trust badges"
+    },
+    {
+      "type": "range",
+      "id": "badge_icon_size",
+      "label": "Icon size (desktop)",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "badge_icon_size_mobile",
+      "label": "Icon size (mobile)",
+      "min": 12,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "badge_title_font_size",
+      "label": "Title font size (desktop)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "badge_title_font_size_mobile",
+      "label": "Title font size (mobile)",
+      "min": 10,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "color",
+      "id": "badge_title_color",
+      "label": "Badge title color",
+      "default": "#091208"
+    },
+    {
+      "type": "range",
+      "id": "badge_description_font_size",
+      "label": "Description font size (desktop)",
+      "min": 9,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "badge_description_font_size_mobile",
+      "label": "Description font size (mobile)",
+      "min": 9,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "badge_description_color",
+      "label": "Badge description color",
+      "default": "#5c5c5c"
+    },
+    {
+      "type": "color",
+      "id": "badge_divider_color",
+      "label": "Divider color",
+      "default": "#d8cfc5"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "100% Organic Cotton"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "GOTS certified fabrics"
+        }
+      ]
+    },
+    {
+      "type": "slider_image",
+      "name": "Slider Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Highlight",
+      "blocks": [
+        { "type": "slider_image" },
+        { "type": "slider_image" },
+        { "type": "slider_image" },
+        { "type": "badge", "settings": { "title": "100% Organic Cotton", "description": "GOTS certified fabrics" } },
+        { "type": "badge", "settings": { "title": "Healthy Foot Development", "description": "Doctor-approved barefoot shoes" } },
+        { "type": "badge", "settings": { "title": "100% Non-Toxic", "description": "Safe food-grade baby teethers" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

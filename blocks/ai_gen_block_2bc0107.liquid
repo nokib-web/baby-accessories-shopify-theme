@@ -1,0 +1,603 @@
+{% doc %}
+  @prompt
+    Add a policy footer to the password page template that displays links for Privacy Policy, Return & Refund Policy, Terms of Service, and Shipping Policy. When a visitor clicks a link, the corresponding policy content opens in a modal overlay (lightbox style) directly on the password page — no navigation away from the page. The modal should have a close button, be mobile-friendly, and match a clean earthy/minimalist aesthetic. Pull the policy content from Shopify's built-in shop.privacy_policy, shop.refund_policy, shop.terms_of_service, and shop.shipping_policy objects so the content is always up to date.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-policy-footer-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.padding_top }}px 0 {{ block.settings.padding_bottom }}px;
+    background-color: {{ block.settings.background_color }};
+    text-align: center;
+  }
+
+  .ai-policy-footer__container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-policy-footer__heading-{{ ai_gen_id }} {
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.heading_size }}px;
+  }
+
+  .ai-policy-footer__links-{{ ai_gen_id }} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: {{ block.settings.link_spacing }}px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ai-policy-footer__link-{{ ai_gen_id }} {
+    color: {{ block.settings.link_color }};
+    text-decoration: {{ block.settings.link_underline }};
+    font-size: {{ block.settings.link_size }}px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .ai-policy-footer__link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  .ai-policy-footer__separator-{{ ai_gen_id }} {
+    color: {{ block.settings.separator_color }};
+    user-select: none;
+  }
+
+  .ai-policy-modal-{{ ai_gen_id }} {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .ai-policy-modal-{{ ai_gen_id }}.active {
+    display: flex;
+  }
+
+  .ai-policy-modal__overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ block.settings.overlay_color }};
+    opacity: {{ block.settings.overlay_opacity }};
+  }
+
+  .ai-policy-modal__content-{{ ai_gen_id }} {
+    position: relative;
+    background-color: {{ block.settings.modal_background }};
+    border-radius: {{ block.settings.modal_border_radius }}px;
+    max-width: {{ block.settings.modal_max_width }}px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: {{ block.settings.modal_padding }}px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .ai-policy-modal__header-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid {{ block.settings.modal_border_color }};
+  }
+
+  .ai-policy-modal__title-{{ ai_gen_id }} {
+    margin: 0;
+    color: {{ block.settings.modal_text_color }};
+    font-size: {{ block.settings.modal_title_size }}px;
+  }
+
+  .ai-policy-modal__close-{{ ai_gen_id }} {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: {{ block.settings.modal_text_color }};
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    line-height: 1;
+  }
+
+  .ai-policy-modal__close-{{ ai_gen_id }}:hover {
+    opacity: 1;
+  }
+
+  .ai-policy-modal__body-{{ ai_gen_id }} {
+    color: {{ block.settings.modal_text_color }};
+    font-size: {{ block.settings.modal_body_size }}px;
+    line-height: 1.6;
+  }
+
+  .ai-policy-modal__body-{{ ai_gen_id }} h1,
+  .ai-policy-modal__body-{{ ai_gen_id }} h2,
+  .ai-policy-modal__body-{{ ai_gen_id }} h3,
+  .ai-policy-modal__body-{{ ai_gen_id }} h4,
+  .ai-policy-modal__body-{{ ai_gen_id }} h5,
+  .ai-policy-modal__body-{{ ai_gen_id }} h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: {{ block.settings.modal_text_color }};
+  }
+
+  .ai-policy-modal__body-{{ ai_gen_id }} p {
+    margin-bottom: 1em;
+  }
+
+  .ai-policy-modal__body-{{ ai_gen_id }} ul,
+  .ai-policy-modal__body-{{ ai_gen_id }} ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+  }
+
+  .ai-policy-modal__body-{{ ai_gen_id }} a {
+    color: {{ block.settings.link_color }};
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-policy-footer__links-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: {{ block.settings.link_spacing | divided_by: 2 }}px;
+    }
+
+    .ai-policy-footer__separator-{{ ai_gen_id }} {
+      display: none;
+    }
+
+    .ai-policy-modal__content-{{ ai_gen_id }} {
+      max-height: 90vh;
+      padding: {{ block.settings.modal_padding | times: 0.7 }}px;
+    }
+
+    .ai-policy-modal__title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.modal_title_size | times: 0.8 }}px;
+    }
+
+    .ai-policy-modal__body-{{ ai_gen_id }} {
+      font-size: {{ block.settings.modal_body_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<policy-footer-{{ ai_gen_id }} class="ai-policy-footer-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-policy-footer__container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-policy-footer__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    <ul class="ai-policy-footer__links-{{ ai_gen_id }}">
+      {% if shop.privacy_policy %}
+        <li>
+          <button
+            class="ai-policy-footer__link-{{ ai_gen_id }}"
+            data-policy="privacy"
+            aria-label="View privacy policy"
+          >
+            {{ block.settings.privacy_label }}
+          </button>
+        </li>
+        {% if shop.refund_policy or shop.terms_of_service or shop.shipping_policy %}
+          <li class="ai-policy-footer__separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</li>
+        {% endif %}
+      {% endif %}
+
+      {% if shop.refund_policy %}
+        <li>
+          <button
+            class="ai-policy-footer__link-{{ ai_gen_id }}"
+            data-policy="refund"
+            aria-label="View return and refund policy"
+          >
+            {{ block.settings.refund_label }}
+          </button>
+        </li>
+        {% if shop.terms_of_service or shop.shipping_policy %}
+          <li class="ai-policy-footer__separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</li>
+        {% endif %}
+      {% endif %}
+
+      {% if shop.terms_of_service %}
+        <li>
+          <button
+            class="ai-policy-footer__link-{{ ai_gen_id }}"
+            data-policy="terms"
+            aria-label="View terms of service"
+          >
+            {{ block.settings.terms_label }}
+          </button>
+        </li>
+        {% if shop.shipping_policy %}
+          <li class="ai-policy-footer__separator-{{ ai_gen_id }}" aria-hidden="true">{{ block.settings.separator }}</li>
+        {% endif %}
+      {% endif %}
+
+      {% if shop.shipping_policy %}
+        <li>
+          <button
+            class="ai-policy-footer__link-{{ ai_gen_id }}"
+            data-policy="shipping"
+            aria-label="View shipping policy"
+          >
+            {{ block.settings.shipping_label }}
+          </button>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="ai-policy-modal-{{ ai_gen_id }}" role="dialog" aria-modal="true" aria-labelledby="ai-policy-modal-title-{{ ai_gen_id }}">
+    <div class="ai-policy-modal__overlay-{{ ai_gen_id }}"></div>
+    <div class="ai-policy-modal__content-{{ ai_gen_id }}">
+      <div class="ai-policy-modal__header-{{ ai_gen_id }}">
+        <h3 class="ai-policy-modal__title-{{ ai_gen_id }}" id="ai-policy-modal-title-{{ ai_gen_id }}"></h3>
+        <button class="ai-policy-modal__close-{{ ai_gen_id }}" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="ai-policy-modal__body-{{ ai_gen_id }}"></div>
+    </div>
+  </div>
+</policy-footer-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class PolicyFooter{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.policies = {
+          privacy: {
+            title: '{{ shop.privacy_policy.title}}',
+            content: `{{ shop.privacy_policy.body}}`
+          },
+          refund: {
+            title: '{{ shop.refund_policy.title}}',
+            content: `{{ shop.refund_policy.body}}`
+          },
+          terms: {
+            title: '{{ shop.terms_of_service.title}}',
+            content: `{{ shop.terms_of_service.body}}`
+          },
+          shipping: {
+            title: '{{ shop.shipping_policy.title}}',
+            content: `{{ shop.shipping_policy.body}}`
+          }
+        };
+      }
+
+      connectedCallback() {
+        this.modal = this.querySelector('.ai-policy-modal-{{ ai_gen_id }}');
+        this.modalTitle = this.querySelector('.ai-policy-modal__title-{{ ai_gen_id }}');
+        this.modalBody = this.querySelector('.ai-policy-modal__body-{{ ai_gen_id }}');
+        this.closeButton = this.querySelector('.ai-policy-modal__close-{{ ai_gen_id }}');
+        this.overlay = this.querySelector('.ai-policy-modal__overlay-{{ ai_gen_id }}');
+
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        const policyLinks = this.querySelectorAll('[data-policy]');
+        
+        policyLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const policyType = e.currentTarget.getAttribute('data-policy');
+            this.openModal(policyType);
+          });
+        });
+
+        this.closeButton.addEventListener('click', () => this.closeModal());
+        this.overlay.addEventListener('click', () => this.closeModal());
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+            this.closeModal();
+          }
+        });
+      }
+
+      openModal(policyType) {
+        const policy = this.policies[policyType];
+        if (!policy) return;
+
+        this.modalTitle.textContent = policy.title;
+        this.modalBody.innerHTML = policy.content;
+        this.modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        this.closeButton.focus();
+      }
+
+      closeModal() {
+        this.modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    customElements.define('policy-footer-{{ ai_gen_id }}', PolicyFooter{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Policy footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Policies"
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Heading spacing",
+      "min": 0,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "text",
+      "id": "privacy_label",
+      "label": "Privacy policy label",
+      "default": "Privacy Policy"
+    },
+    {
+      "type": "text",
+      "id": "refund_label",
+      "label": "Return & refund label",
+      "default": "Return & Refund Policy"
+    },
+    {
+      "type": "text",
+      "id": "terms_label",
+      "label": "Terms of service label",
+      "default": "Terms of Service"
+    },
+    {
+      "type": "text",
+      "id": "shipping_label",
+      "label": "Shipping policy label",
+      "default": "Shipping Policy"
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Link separator",
+      "default": "|"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "link_spacing",
+      "label": "Link spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Footer style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f1f4f0"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#091208"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#091208"
+    },
+    {
+      "type": "range",
+      "id": "link_size",
+      "label": "Link size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "link_underline",
+      "label": "Link underline",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "underline",
+          "label": "Underline"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "header",
+      "content": "Modal style"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "type": "color",
+      "id": "modal_background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "modal_text_color",
+      "label": "Text",
+      "default": "#091208"
+    },
+    {
+      "type": "color",
+      "id": "modal_border_color",
+      "label": "Border",
+      "default": "#f1f4f0"
+    },
+    {
+      "type": "range",
+      "id": "modal_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "modal_max_width",
+      "label": "Max width",
+      "min": 400,
+      "max": 900,
+      "step": 50,
+      "unit": "px",
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "modal_padding",
+      "label": "Padding",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "modal_title_size",
+      "label": "Title size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "modal_body_size",
+      "label": "Body size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "Policy footer"
+    }
+  ]
+}
+{% endschema %}

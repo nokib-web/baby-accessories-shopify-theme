@@ -1,0 +1,1281 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_p9CmMG": {
+      "type": "hero",
+      "disabled": true,
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/Copy_of_Little_leaf_baby_company_ca06afc4-93c4-4c07-95d9-4184fd5c36a4.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": true,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 15,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 5,
+        "background_color": "{{ settings.color_palette.color9 }}",
+        "toggle_overlay": true,
+        "overlay_color": "#0303033b",
+        "overlay_style": "gradient",
+        "gradient_direction": "to bottom",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 24,
+        "padding-block-end": 0
+      }
+    },
+    "hero_highlight_CFmN9h": {
+      "type": "hero-highlight",
+      "blocks": {
+        "slider_image_Ye4jic": {
+          "type": "slider_image",
+          "settings": {
+            "image": "shopify://shop_images/banner-1.webp"
+          }
+        },
+        "slider_image_k7w6Gd": {
+          "type": "slider_image",
+          "settings": {
+            "image": "shopify://shop_images/banner-2.webp"
+          }
+        },
+        "slider_image_mdGW9r": {
+          "type": "slider_image",
+          "settings": {
+            "image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp"
+          }
+        },
+        "slider_image_RxhGYr": {
+          "type": "slider_image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/2fc390_dad9004940164a85aa38e2a5960a65eb_mv2.webp"
+          }
+        },
+        "badge_tVMrPJ": {
+          "type": "badge",
+          "settings": {
+            "title": "100% Organic Cotton",
+            "description": "GOTS certified fabrics"
+          }
+        },
+        "badge_iKMN8E": {
+          "type": "badge",
+          "settings": {
+            "title": "Healthy Foot Development",
+            "description": "Doctor-approved barefoot shoes"
+          }
+        },
+        "badge_eNGceh": {
+          "type": "badge",
+          "settings": {
+            "title": "100% Non-Toxic",
+            "description": "Safe food-grade baby teethers"
+          }
+        }
+      },
+      "block_order": [
+        "slider_image_Ye4jic",
+        "slider_image_k7w6Gd",
+        "slider_image_mdGW9r",
+        "slider_image_RxhGYr",
+        "badge_tVMrPJ",
+        "badge_iKMN8E",
+        "badge_eNGceh"
+      ],
+      "name": "Hero Highlight",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_horizontal": 0,
+        "section_width": "custom",
+        "custom_max_width": 1520,
+        "min_height": 550,
+        "min_height_mobile": 400,
+        "bg_color": "#f1f4f0",
+        "bg_image": "shopify://shop_images/hero-bg.webp",
+        "slider_speed": 5,
+        "image_width": 100,
+        "image_height": 480,
+        "image_width_mobile": 90,
+        "image_height_mobile": 280,
+        "eyebrow_text": "Nurturing Your Little Ones",
+        "eyebrow_font_size": 13,
+        "eyebrow_color": "#2e4a29",
+        "eyebrow_font_weight": "600",
+        "title_line1": "Organic Clothing &",
+        "title_highlight": "Healthy",
+        "highlight_color": "#2e4a29",
+        "title_line2": "Barefoot Shoes",
+        "title_font_size": 52,
+        "title_font_size_mobile": 34,
+        "title_color": "#091208",
+        "title_font_weight": "400",
+        "description": "<p>Thoughtfully crafted from organic GOTS-certified cotton and natural materials, designed for your baby's ultimate comfort and healthy growth.</p>",
+        "description_font_size": 16,
+        "description_color": "#333333",
+        "description_font_weight": "400",
+        "description_max_width": 420,
+        "button_text": "Shop Clothes",
+        "button_link": "",
+        "button_padding_horizontal": 28,
+        "button_padding_vertical": 16,
+        "button_font_size": 13,
+        "button_color": "#ffffff",
+        "button_font_weight": "600",
+        "button_bg": "#2e4a29",
+        "button_hover_bg": "#1d301a",
+        "button_text_2": "Why Barefoot Shoes",
+        "button_link_2": "",
+        "button_2_show_icon": false,
+        "button_2_padding_horizontal": 28,
+        "button_2_padding_vertical": 16,
+        "button_2_font_size": 13,
+        "button_2_color": "#091208",
+        "button_2_font_weight": "600",
+        "button_2_bg": "rgba(0,0,0,0)",
+        "button_2_hover_bg": "#0000000f",
+        "button_2_border_color": "#091208",
+        "badge_icon_size": 22,
+        "badge_icon_size_mobile": 20,
+        "badge_title_font_size": 13,
+        "badge_title_font_size_mobile": 13,
+        "badge_title_color": "#091208",
+        "badge_description_font_size": 12,
+        "badge_description_font_size_mobile": 12,
+        "badge_description_color": "#5c5c5c",
+        "badge_divider_color": "#d8cfc5"
+      }
+    },
+    "collection_circle_slider_home": {
+      "type": "collection-circle-slider",
+      "blocks": {
+        "block_1": {
+          "type": "collection",
+          "settings": {
+            "collection": "100-cotton-bathrobes-and-gift-sets",
+            "title": "Better Rewards"
+          }
+        },
+        "block_2": {
+          "type": "collection",
+          "settings": {
+            "collection": "100-organic-cotton-50-organic-cotton-and-50-modal",
+            "title": "Shop Better"
+          }
+        },
+        "block_3": {
+          "type": "collection",
+          "settings": {
+            "collection": "all-products",
+            "title": "Baby Travel & Safety"
+          }
+        },
+        "block_4": {
+          "type": "collection",
+          "settings": {
+            "collection": "hopfrog-barefoot-shoes-multimix",
+            "title": "Nursery & Accessories"
+          }
+        },
+        "block_5": {
+          "type": "collection",
+          "settings": {
+            "collection": "teethers-and-soothers",
+            "title": "Baby Car Seats"
+          }
+        },
+        "block_6": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "teethers-and-soothers",
+            "title": "Baby Toys"
+          }
+        },
+        "block_7": {
+          "type": "collection",
+          "settings": {
+            "collection": "100-organic-cotton",
+            "title": "Home & Safety"
+          }
+        }
+      },
+      "block_order": [
+        "block_1",
+        "block_2",
+        "block_3",
+        "block_4",
+        "block_5",
+        "block_6",
+        "block_7"
+      ],
+      "settings": {
+        "heading": "Shop By Category",
+        "subheading": "Explore our curated collections",
+        "section_width": "custom",
+        "custom_max_width": 1600,
+        "image_size": 130,
+        "gap_between_elements": 24,
+        "speed": 50,
+        "movement_direction": "normal",
+        "heading_color": "",
+        "text_color": "",
+        "background_color": "",
+        "background_gradient": "",
+        "padding-block-start": 36,
+        "padding-block-end": 36
+      }
+    },
+    "product_list_themegen": {
+      "type": "collection-product-slider",
+      "settings": {
+        "heading": "Save Big on Baby Essentials",
+        "heading_color": "#333333",
+        "collection": "teethers-and-soothers",
+        "max_products": 8,
+        "section_width": "custom",
+        "custom_max_width": 1680,
+        "min_height": 500,
+        "min_height_mobile": 350,
+        "bg_color": "#ffffff",
+        "bg_gradient": "",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "promo_with_products_default": {
+      "type": "promo-with-products",
+      "blocks": {
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "background_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_VEfXp3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_bXVgVR": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_86QeTN": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "text_color": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_VEfXp3",
+            "product_title_bXVgVR",
+            "price_86QeTN"
+          ]
+        }
+      },
+      "settings": {
+        "section_width": "custom",
+        "custom_max_width": 1600,
+        "section_bg_color": "#ffffff",
+        "promo_image": "shopify://shop_images/04.webp",
+        "promo_overlay_color": "#000000",
+        "promo_overlay_opacity": 20,
+        "promo_title": "Our HopFrog Barefoot Shoes MultiMix",
+        "promo_subtitle": "",
+        "promo_button_text": "Explore more",
+        "promo_button_link": "shopify://collections/hopfrog-barefoot-shoes-multimix",
+        "promo_text_color": "#ffffff",
+        "button_bg_color": "#2e4a29",
+        "button_text_color": "#ffffff",
+        "collection": "hopfrog-barefoot-shoes-multimix",
+        "max_products": 4,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "product_list_BzMgwj": {
+      "type": "product-list",
+      "blocks": {
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_m4JiGN": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_list_button_eNNVJr": {
+              "type": "_product-list-button",
+              "name": "t:names.product_list_button",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "button-unstyled",
+                "custom_button_background": "{{ settings.color_palette.foreground }}",
+                "custom_button_text": "{{ settings.color_palette.background }}",
+                "custom_button_border": "{{ settings.color_palette.background }}",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_m4JiGN",
+            "product_list_button_eNNVJr"
+          ]
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "background_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_VEfXp3": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_bXVgVR": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_86QeTN": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "text_color": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_VEfXp3",
+            "product_title_bXVgVR",
+            "price_86QeTN"
+          ]
+        }
+      },
+      "disabled": true,
+      "name": "t:names.products_grid",
+      "settings": {
+        "collection": "hopfrog-barefoot-shoes-multimix",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "custom_max_width": 1400,
+        "min_height": 400,
+        "min_height_mobile": 300,
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "background_color": "{{ settings.color_palette.color9 }}",
+        "background_gradient": "",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "section_x8mrnx": {
+      "type": "section",
+      "blocks": {
+        "text_pH8qby": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>Our shop</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "show_social_icons": false,
+            "facebook_url": "",
+            "instagram_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
+          },
+          "blocks": {}
+        },
+        "text_eFMntb": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Prioritize Health and Sustainability with Our Organic Baby Essentials.</h2>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "show_social_icons": false,
+            "facebook_url": "",
+            "instagram_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
+          },
+          "blocks": {}
+        },
+        "button_TmU98M": {
+          "type": "button",
+          "settings": {
+            "label": "Shop now →",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-unstyled",
+            "custom_button_background": "{{ settings.color_palette.foreground }}",
+            "custom_button_text": "{{ settings.color_palette.background }}",
+            "custom_button_border": "{{ settings.color_palette.background }}",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_pH8qby",
+        "text_eFMntb",
+        "button_TmU98M"
+      ],
+      "name": "t:names.pull_quote",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.background }}",
+        "video_position": "cover",
+        "background_image": "shopify://shop_images/hero-bg.webp",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 64,
+        "padding-block-end": 64
+      }
+    },
+    "collection_product_slider_6iVVTe": {
+      "type": "collection-product-slider",
+      "name": "Collection Product Slider",
+      "settings": {
+        "heading": "Explore Our Featured Collection",
+        "heading_color": "#333333",
+        "collection": "all-products",
+        "max_products": 8,
+        "section_width": "custom",
+        "custom_max_width": 1620,
+        "min_height": 500,
+        "min_height_mobile": 350,
+        "bg_color": "#ffffff",
+        "bg_gradient": "",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "media_with_content_xMM9EF": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/2fc390_a2b4f58588044477904ea00d17cb84ca_mv2_746c01c1-44e3-4ea2-9731-47a235eee6e8.avif",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "text_tgFN9e": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Eco-friendly materials</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "show_social_icons": false,
+                "facebook_url": "",
+                "instagram_url": "",
+                "youtube_url": "",
+                "tiktok_url": "",
+                "twitter_url": ""
+              },
+              "blocks": {}
+            },
+            "text_HqcftD": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Safe for babies and the planet.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "show_social_icons": false,
+                "facebook_url": "",
+                "instagram_url": "",
+                "youtube_url": "",
+                "tiktok_url": "",
+                "twitter_url": ""
+              },
+              "blocks": {}
+            },
+            "button_dDjrqQ": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/100-organic-cotton-50-organic-cotton-and-50-modal",
+                "open_in_new_tab": false,
+                "style_class": "button-custom",
+                "custom_button_background": "{{ settings.color_palette.color2 }}",
+                "custom_button_text": "{{ settings.color_palette.color3 }}",
+                "custom_button_border": "{{ settings.color_palette.color2 }}",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_tgFN9e",
+            "text_HqcftD",
+            "button_dDjrqQ"
+          ]
+        }
+      },
+      "disabled": true,
+      "custom_css": [],
+      "name": "t:names.media_with_text",
+      "settings": {
+        "media_position": "left",
+        "media_width": "wide",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "extend_media": true,
+        "background_color": "{{ settings.color_palette.color9 }}",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "media_with_content_nrnzPh": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/cuter-baby.png",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "text_4BbAqH": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Safe and soothing relief</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "show_social_icons": false,
+                "facebook_url": "",
+                "instagram_url": "",
+                "youtube_url": "",
+                "tiktok_url": "",
+                "twitter_url": ""
+              },
+              "blocks": {}
+            },
+            "text_tKc49J": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Crafted from 100% natural rubber, providing gentle comfort for teething infants.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "show_social_icons": false,
+                "facebook_url": "",
+                "instagram_url": "",
+                "youtube_url": "",
+                "tiktok_url": "",
+                "twitter_url": ""
+              },
+              "blocks": {}
+            },
+            "button_AP3RH4": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/teethers-and-soothers",
+                "open_in_new_tab": false,
+                "style_class": "button-custom",
+                "custom_button_background": "{{ settings.color_palette.color9 }}",
+                "custom_button_text": "{{ settings.color_palette.color10 }}",
+                "custom_button_border": "{{ settings.color_palette.color9 }}",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_4BbAqH",
+            "text_tKc49J",
+            "button_AP3RH4"
+          ]
+        }
+      },
+      "disabled": true,
+      "name": "t:names.media_with_text",
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "extend_media": true,
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "1782409436ac781b8f": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_f3a6535_gMyEGc": {
+          "type": "ai_gen_block_f3a6535",
+          "settings": {
+            "desktop_width_percent": 100,
+            "vertical_padding": 32,
+            "link_spacing": 16,
+            "font_size": 12,
+            "separator": "·",
+            "background_color": "#ffffff",
+            "link_color": "#6b7280",
+            "link_hover_color": "#1f2937",
+            "link_opacity": 0.7,
+            "separator_color": "#9ca3af",
+            "separator_opacity": 0.5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_f3a6535_gMyEGc"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.background }}",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "17824224055e6b529a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2bc0107_GFHj3b": {
+          "type": "ai_gen_block_2bc0107",
+          "settings": {
+            "heading": "Our Policies",
+            "heading_spacing": 20,
+            "privacy_label": "Privacy Policy",
+            "refund_label": "Return & Refund Policy",
+            "terms_label": "Terms of Service",
+            "shipping_label": "Shipping Policy",
+            "separator": "|",
+            "desktop_width_percent": 100,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "link_spacing": 20,
+            "background_color": "#f1f4f0",
+            "text_color": "#091208",
+            "heading_size": 18,
+            "link_color": "#2e4a29",
+            "link_hover_color": "#091208",
+            "link_size": 14,
+            "link_underline": "none",
+            "separator_color": "#2e4a29",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0.5,
+            "modal_background": "#ffffff",
+            "modal_text_color": "#091208",
+            "modal_border_color": "#f1f4f0",
+            "modal_border_radius": 8,
+            "modal_max_width": 700,
+            "modal_padding": 40,
+            "modal_title_size": 24,
+            "modal_body_size": 14
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2bc0107_GFHj3b"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.background }}",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "178242362362395e24": {
+      "type": "_blocks",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.background }}",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "brand_logo_slider_WhpFKC": {
+      "type": "brand-logo-slider",
+      "blocks": {
+        "brand_logo_tRAkNM": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/alecto.webp",
+            "link": ""
+          }
+        },
+        "brand_logo_zHTmTF": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/logo-12_7bb4b0f1-9986-4e57-89d2-f6cf343d551b.png",
+            "link": ""
+          }
+        },
+        "brand_logo_X4nDQw": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/chelino-platinum.png",
+            "link": ""
+          }
+        },
+        "brand_logo_cCbXar": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/logo-23_ca7c8633-e617-4092-a8b9-2a67f0a5c58b.png",
+            "link": ""
+          }
+        },
+        "brand_logo_nBMYrB": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/cybex_-_Copy.webp",
+            "link": ""
+          }
+        },
+        "brand_logo_rE9TU3": {
+          "type": "brand_logo",
+          "settings": {
+            "image": "shopify://shop_images/logo-13_76ecf545-4a4d-4eb5-91de-82532e778a82.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_logo_tRAkNM",
+        "brand_logo_zHTmTF",
+        "brand_logo_X4nDQw",
+        "brand_logo_cCbXar",
+        "brand_logo_nBMYrB",
+        "brand_logo_rE9TU3"
+      ],
+      "name": "Brand Logo Slider",
+      "settings": {
+        "heading": "Our Favourite Brands",
+        "heading_color": "#000000",
+        "logo_height": 150,
+        "section_width": "custom",
+        "custom_max_width": 1600,
+        "min_height": 200,
+        "bg_color": "{{ settings.color_palette.foreground }}",
+        "bg_image": "shopify://shop_images/cta-bg.webp",
+        "bg_gradient": "",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "marquee_KN4PYb": {
+      "type": "marquee",
+      "blocks": {
+        "text_kFiJUi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Experience a world where comfort meets nature. Discover the joy of soothing your baby’s teething journey.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "show_social_icons": false,
+            "facebook_url": "",
+            "instagram_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_kFiJUi"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "reverse",
+        "background_color": "{{ settings.color_palette.color8 }}",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
+      }
+    }
+  },
+  "order": [
+    "hero_p9CmMG",
+    "hero_highlight_CFmN9h",
+    "collection_circle_slider_home",
+    "product_list_themegen",
+    "promo_with_products_default",
+    "product_list_BzMgwj",
+    "section_x8mrnx",
+    "collection_product_slider_6iVVTe",
+    "media_with_content_xMM9EF",
+    "media_with_content_nrnzPh",
+    "1782409436ac781b8f",
+    "17824224055e6b529a",
+    "178242362362395e24",
+    "brand_logo_slider_WhpFKC",
+    "marquee_KN4PYb"
+  ]
+}

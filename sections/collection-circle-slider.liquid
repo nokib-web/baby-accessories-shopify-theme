@@ -1,0 +1,380 @@
+<script
+  src="{{ 'marquee.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  style="
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    {% elsif section.settings.background_gradient != blank %}
+      background: {{ section.settings.background_gradient }};
+    {% endif %}
+  "
+></div>
+
+<div
+  class="section section--{{ section.settings.section_width }}{% if section.settings.section_width == 'custom' %} section--page-width section--custom-width{% endif %}{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %} spacing-style"
+  style="
+    {%- render 'spacing-style', settings: section.settings -%};
+    {% if section.settings.section_width == 'custom' %}max-width: {{ section.settings.custom_max_width }}px; margin: 0 auto;{% endif %}
+  "
+>
+  {% if section.settings.heading != blank or section.settings.subheading != blank %}
+    <div class="collection-circle-slider__header text-center" style="margin-bottom: var(--padding-xl); display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      {% if section.settings.heading != blank %}
+        <h2 class="collection-circle-slider__heading" style="margin: 0; color: {{ section.settings.heading_color | default: 'inherit' }}; font-family: var(--font-heading--family); font-weight: var(--font-heading--weight);">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="collection-circle-slider__subheading" style="margin: 0; color: {{ section.settings.text_color | default: 'inherit' }}; opacity: 0.8; font-size: 1.5rem;">
+          {{ section.settings.subheading }}
+        </p>
+      {% endif %}
+      <div class="heading-line" style="width: 60px; height: 3px; background-color: var(--menu-top-level-font-hover-color, #2e4a29); margin-top: 8px; border-radius: 2px;"></div>
+    </div>
+  {% endif %}
+
+  <marquee-component
+    class="gap-style"
+    style="
+      {% render 'gap-style', value: section.settings.gap_between_elements, name: 'marquee-gap' %}
+      --marquee-direction: {{ section.settings.movement_direction }};
+    "
+    data-speed-factor="{{ section.settings.speed }}"
+    data-movement-direction="{{ section.settings.movement_direction }}"
+  >
+    <div
+      class="marquee__wrapper"
+      ref="wrapper"
+    >
+      <div
+        class="marquee__content"
+        ref="content"
+      >
+        <div
+          class="marquee__repeated-items"
+          ref="marqueeItems[]"
+          style="gap: var(--marquee-gap);"
+        >
+          {% for block in section.blocks %}
+            {% liquid
+              assign collection = block.settings.collection
+              assign image = block.settings.image | default: collection.featured_image
+              assign title = block.settings.title | default: collection.title
+              assign url = collection.url
+            %}
+            <a href="{{ url | default: '#' }}" class="collection-circle__item" style="color: {{ section.settings.text_color | default: 'inherit' }};" {{ block.shopify_attributes }}>
+              <div class="collection-circle__image-wrapper" style="--circle-size: {{ section.settings.image_size }}px;">
+                {% if image != blank %}
+                  {{ image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'collection-circle__image' }}
+                {% else %}
+                  {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+              </div>
+              <span class="collection-circle__title">{{ title | default: 'Collection' }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </marquee-component>
+</div>
+
+{% stylesheet %}
+  marquee-component {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee__wrapper {
+    display: flex;
+    gap: var(--marquee-gap);
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  .marquee__content {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap);
+  }
+
+  .marquee__repeated-items {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap);
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    marquee-component:not([data-disabled]) .marquee__wrapper {
+      animation: marquee-motion var(--marquee-speed) linear infinite var(--marquee-direction);
+    }
+  }
+
+  @keyframes marquee-motion {
+    to {
+      transform: translate3d(calc(-50% - (var(--marquee-gap) / 2)), 0, 0);
+    }
+  }
+
+  .collection-circle__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    gap: 12px;
+    width: max-content;
+  }
+
+  .collection-circle__image-wrapper {
+    width: var(--circle-size, 130px);
+    height: var(--circle-size, 130px);
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+  }
+
+  .collection-circle__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collection-circle__title {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 150px;
+    word-break: break-word;
+    white-space: normal;
+    transition: color 0.2s ease;
+  }
+
+  .collection-circle__item:hover .collection-circle__image-wrapper {
+    transform: scale(1.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .collection-circle__item:hover .collection-circle__title {
+    color: var(--menu-top-level-font-hover-color, #2e4a29) !important;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Collection Circle Slider",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop By Category"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Explore our curated collections"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        },
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "custom",
+          "label": "Custom Max Width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "custom_max_width",
+      "label": "Custom Max Width",
+      "min": 1400,
+      "max": 1900,
+      "step": 10,
+      "unit": "px",
+      "default": 1400
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "label": "Circle Image Size",
+      "min": 100,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 130
+    },
+    {
+      "type": "range",
+      "id": "gap_between_elements",
+      "label": "Gap between elements",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 25,
+      "info": "Higher means faster marquee animation"
+    },
+    {
+      "type": "select",
+      "id": "movement_direction",
+      "label": "Movement Direction",
+      "options": [
+        {
+          "value": "reverse",
+          "label": "Right to Left"
+        },
+        {
+          "value": "normal",
+          "label": "Left to Right"
+        }
+      ],
+      "default": "reverse"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background Gradient"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection Circle",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom Image Override"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title Override"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Circle Slider",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,232 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>Why HopFrog Barefoot Shoes</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_NTtkD3": {
+      "type": "section",
+      "blocks": {
+        "image_btGrVf": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "link": "",
+            "image_ratio": "square",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "group_EndFhd": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_n6rb8K": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Natural Foot Development for Growing Children</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_Uidqpe": {
+              "type": "text",
+              "settings": {
+                "text": "<h3>The HopFrog Difference</h3><p>HopFrog Barefoot Shoes are thoughtfully designed to support your child's natural development while providing the protection and comfort they need. Our commitment to quality and innovation ensures that every step your child takes is supported by footwear that truly understands growing feet.</p><h3>Natural Foot Development</h3><p>Children's feet are still developing, and the right footwear plays a crucial role in this process. HopFrog Barefoot Shoes are engineered to allow natural foot development by mimicking the barefoot experience while providing essential protection. This approach supports the natural biomechanics of growing feet, allowing them to develop strength and proper alignment from an early age.</p><h3>Wide Toe Box for Healthy Growth</h3><p>Our signature wide toe box design gives children's toes room to spread naturally, promoting healthy foot development and preventing the common issues associated with restrictive footwear. This spacious design accommodates the natural width variations in children's feet and allows for unrestricted toe movement, which is essential for balance and proprioception.</p><h3>Flexible Soles That Mimic Barefoot Walking</h3><p>The flexible sole construction of HopFrog shoes allows your child's feet to move naturally, just as they would when walking barefoot. This flexibility encourages the foot's natural rolling motion and engages the intrinsic foot muscles, promoting strength and coordination. The sole bends where the foot bends, providing authentic barefoot sensation with protective coverage.</p><h3>Promotes Balance and Posture</h3><p>Proper footwear is fundamental to developing good posture and balance. HopFrog Barefoot Shoes support natural alignment from the ground up, helping children develop confident, balanced movement patterns. The minimal heel-to-toe drop encourages proper spinal alignment and engages core stabilizer muscles, contributing to better overall posture as children grow.</p><h3>Lightweight and Comfortable</h3><p>We believe children should barely notice they're wearing shoes. HopFrog Barefoot Shoes are crafted from premium, lightweight materials that feel like a second skin. The minimal weight reduces fatigue during active play and exploration, allowing children to move freely and comfortably throughout their day.</p><h3>Supports Proper Gait Development</h3><p>The natural gait development of children is supported by footwear that allows unrestricted movement. HopFrog shoes encourage a natural heel-to-toe walking pattern without artificial support structures that can interfere with proper gait development. This support helps establish healthy movement patterns that benefit children throughout their lives.</p><h3>Quality Construction You Can Trust</h3><p>Every pair of HopFrog Barefoot Shoes is crafted with meticulous attention to detail using premium, non-toxic materials. We source responsibly and construct our shoes to withstand the active play of childhood while maintaining their integrity and performance. Our commitment to quality means you're investing in footwear that supports your child's health and development.</p><h3>The HopFrog Promise</h3><p>We understand that parents want the best for their children. That's why HopFrog Barefoot Shoes combine scientific understanding of foot development with premium craftsmanship. Our shoes are designed not just to fit children's feet, but to support their natural growth, movement, and development during these critical years.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "button_64dqMh": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_n6rb8K",
+            "text_Uidqpe",
+            "button_64dqMh"
+          ]
+        }
+      },
+      "block_order": [
+        "image_btGrVf",
+        "group_EndFhd"
+      ],
+      "name": "t:names.image_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "image",
+        "background_color": "{{ settings.color_palette.background }}",
+        "video_position": "cover",
+        "background_image": "shopify://shop_images/leafy-background-pattern.png",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_NTtkD3"
+  ]
+}

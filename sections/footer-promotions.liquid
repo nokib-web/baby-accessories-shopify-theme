@@ -1,0 +1,474 @@
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .footer-promotions__container {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  .footer-promotions__features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer-promotions__features {
+      gap: 48px;
+    }
+  }
+
+  .footer-promotions__feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-promotions__feature-icon {
+    width: {{ section.settings.icon_size }}px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+  }
+
+  .footer-promotions__feature-icon img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .footer-promotions__feature-icon svg {
+    width: 100%;
+    height: auto;
+    fill: currentColor;
+  }
+
+  .footer-promotions__feature-text {
+    max-width: 100px;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .footer-promotions__divider {
+    border: none;
+    border-top: 1px solid var(--color-foreground, currentColor);
+    opacity: 0.2;
+    margin: 30px 0;
+  }
+
+  .footer-promotions__newsletter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+  }
+
+  .footer-promotions__newsletter-heading {
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .footer-promotions__form-wrapper {
+    flex-grow: 1;
+    max-width: 500px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .footer-promotions__form {
+    display: flex;
+    width: 100%;
+  }
+
+  .footer-promotions__input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: 1px solid var(--custom-input-border, var(--color-input-border, var(--color-foreground, #ccc)));
+    background-color: var(--custom-input-bg, var(--color-input-background, var(--color-background, #fff)));
+    color: var(--custom-input-text, var(--color-input-text, var(--color-foreground, #333)));
+    border-radius: 0;
+    outline: none;
+  }
+
+  .footer-promotions__button {
+    margin-left: 0;
+    white-space: nowrap;
+    background-color: var(--custom-btn-bg, var(--button-background-color));
+    color: var(--custom-btn-text, var(--button-color));
+    border: none;
+    border-radius: 0;
+  }
+
+  .bg-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .bg-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 749px) {
+    .footer-promotions__features {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .footer-promotions__newsletter {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .footer-promotions__form-wrapper {
+      max-width: 100%;
+    }
+    .footer-promotions__form {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-promotions__button {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+{%- endstyle -%}
+
+<div class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}">
+  {% if section.settings.background_image != blank %}
+    <div class="bg-image-wrapper">
+      {{ section.settings.background_image | image_url: width: 2000 | image_tag: loading: 'lazy' }}
+    </div>
+  {% endif %}
+</div>
+
+<div class="section section--{{ section.settings.section_width }}{% if section.settings.section_width == 'custom' %} section--page-width section--custom-width{% endif %}{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %} section-{{ section.id }}-padding" {% if section.settings.section_width == 'custom' %}style="max-width: {{ section.settings.custom_max_width }}px; margin: 0 auto;"{% endif %}>
+  <div class="footer-promotions__container">
+    
+    {%- if section.blocks.size > 0 -%}
+      <div class="footer-promotions__features">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'feature' -%}
+            <div class="footer-promotions__feature" {{ block.shopify_attributes }}>
+              <div class="footer-promotions__feature-icon">
+                {%- if block.settings.custom_image != blank -%}
+                  {{ block.settings.custom_image | image_url: width: 200 | image_tag: loading: 'lazy' }}
+                {%- elsif block.settings.svg_icon != blank -%}
+                  {{ block.settings.svg_icon }}
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12l5 5L20 7"></path>
+                  </svg>
+                {%- endif -%}
+              </div>
+              {%- if block.settings.text != blank -%}
+                <div class="footer-promotions__feature-text {{ block.settings.text_preset }}">
+                  {{ block.settings.text }}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_newsletter -%}
+      {%- if section.blocks.size > 0 -%}
+        <hr class="footer-promotions__divider">
+      {%- endif -%}
+
+      <div class="footer-promotions__newsletter">
+        {%- if section.settings.newsletter_heading != blank -%}
+          <div class="footer-promotions__newsletter-heading {{ section.settings.heading_preset }}">
+            {{ section.settings.newsletter_heading }}
+          </div>
+        {%- endif -%}
+        
+        <div class="footer-promotions__form-wrapper" style="
+          {% if section.settings.input_bg_color != blank %}--custom-input-bg: {{ section.settings.input_bg_color }};{% endif %}
+          {% if section.settings.input_border_color != blank %}--custom-input-border: {{ section.settings.input_border_color }};{% endif %}
+          {% if section.settings.input_text_color != blank %}--custom-input-text: {{ section.settings.input_text_color }};{% endif %}
+          {% if section.settings.btn_bg_color != blank %}--custom-btn-bg: {{ section.settings.btn_bg_color }};{% endif %}
+          {% if section.settings.btn_text_color != blank %}--custom-btn-text: {{ section.settings.btn_text_color }};{% endif %}
+        ">
+          {% form 'customer', class: 'footer-promotions__form' %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input
+              id="NewsletterForm--{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="footer-promotions__input {{ section.settings.input_preset }}"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              placeholder="{{ section.settings.newsletter_placeholder }}"
+              required
+            >
+            <button type="submit" class="button footer-promotions__button" name="commit">
+              {{ section.settings.button_label }}
+            </button>
+          {% endform %}
+        </div>
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer Promotions",
+  "class": "section-wrapper",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "custom",
+          "label": "Custom Max Width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "custom_max_width",
+      "min": 1400,
+      "max": 1900,
+      "step": 50,
+      "unit": "px",
+      "label": "Custom Max Width",
+      "default": 1600
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "{{ settings.color_palette.color9 }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Icon/Image Size",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Newsletter Signup"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show Newsletter Signup",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter Heading",
+      "default": "Get the latest news & the best offers"
+    },
+    {
+      "type": "select",
+      "id": "heading_preset",
+      "label": "Heading Font Preset",
+      "options": [
+        {"value": "h1", "label": "H1"},
+        {"value": "h2", "label": "H2"},
+        {"value": "h3", "label": "H3"},
+        {"value": "h4", "label": "H4"},
+        {"value": "h5", "label": "H5"},
+        {"value": "paragraph", "label": "Paragraph"}
+      ],
+      "default": "h3"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Input Placeholder",
+      "default": "Email Address"
+    },
+    {
+      "type": "select",
+      "id": "input_preset",
+      "label": "Input Font Preset",
+      "options": [
+        {"value": "paragraph", "label": "Paragraph"},
+        {"value": "h5", "label": "H5"}
+      ],
+      "default": "paragraph"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Subscribe →"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter Colors (Optional)"
+    },
+    {
+      "type": "color",
+      "id": "input_bg_color",
+      "label": "Input Background"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input Border"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input Text"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button Background"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Image/Logo"
+        },
+        {
+          "type": "html",
+          "id": "svg_icon",
+          "label": "SVG Icon Code",
+          "info": "Paste raw SVG code here if you prefer SVGs."
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free Delivery"
+        },
+        {
+          "type": "select",
+          "id": "text_preset",
+          "label": "Text Font Preset",
+          "options": [
+            {"value": "h4", "label": "H4"},
+            {"value": "h5", "label": "H5"},
+            {"value": "paragraph", "label": "Paragraph"}
+          ],
+          "default": "paragraph"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer Promotions",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Free Delivery"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Secure Payment"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Click & Collect"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
