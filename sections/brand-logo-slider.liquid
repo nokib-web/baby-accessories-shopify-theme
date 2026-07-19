@@ -40,7 +40,7 @@
     }
   }
 
-  #brand-slider-swiper-{{ section.id }} .swiper-wrapper {
+  #brand-slider-swiper-{{ section.id }}.swiper-marquee-active .swiper-wrapper {
     transition-timing-function: linear !important;
   }
 
@@ -203,36 +203,51 @@
 
         <div class="swiper brand-slider-swiper" id="brand-slider-swiper-{{ section.id }}">
           <div class="swiper-wrapper">
-            {%- for block in section.blocks -%}
-              <div class="swiper-slide" {{ block.shopify_attributes }}>
-                {%- if block.settings.link != blank -%}
-                  <a href="{{ block.settings.link }}" class="brand-logo-item" style="display: flex; width: 100%;">
+            {%- if section.blocks.size > 0 -%}
+              {%- assign repeat_count = 1 -%}
+              {%- if section.blocks.size < 18 -%}
+                {%- if section.blocks.size < 5 -%}
+                  {%- assign repeat_count = 5 -%}
+                {%- elsif section.blocks.size < 9 -%}
+                  {%- assign repeat_count = 3 -%}
                 {%- else -%}
-                  <div class="brand-logo-item">
+                  {%- assign repeat_count = 2 -%}
                 {%- endif -%}
+              {%- endif -%}
 
-                {%- if block.settings.image != blank -%}
-                  <img
-                    class="brand-logo-item__image"
-                    src="{{ block.settings.image | image_url: width: 400 }}"
-                    alt="{{ block.settings.image.alt | default: 'Brand Logo' }}"
-                    loading="lazy"
-                    width="150"
-                  >
-                {%- else -%}
-                  <!-- Elegant name placeholder matching user screenshot -->
-                  <div class="brand-logo-item__placeholder">
-                    Brand Logo
-                  </div>
-                {%- endif -%}
+              {%- for i in (1..repeat_count) -%}
+                {%- for block in section.blocks -%}
+                  <div class="swiper-slide" {% if i == 1 %}{{ block.shopify_attributes }}{% endif %}>
+                    {%- if block.settings.link != blank -%}
+                      <a href="{{ block.settings.link }}" class="brand-logo-item" style="display: flex; width: 100%;">
+                    {%- else -%}
+                      <div class="brand-logo-item">
+                    {%- endif -%}
 
-                {%- if block.settings.link != blank -%}
-                  </a>
-                {%- else -%}
+                    {%- if block.settings.image != blank -%}
+                      <img
+                        class="brand-logo-item__image"
+                        src="{{ block.settings.image | image_url: width: 400 }}"
+                        alt="{{ block.settings.image.alt | default: 'Brand Logo' }}"
+                        loading="lazy"
+                        width="150"
+                      >
+                    {%- else -%}
+                      <!-- Elegant name placeholder matching user screenshot -->
+                      <div class="brand-logo-item__placeholder">
+                        Brand Logo
+                      </div>
+                    {%- endif -%}
+
+                    {%- if block.settings.link != blank -%}
+                      </a>
+                    {%- else -%}
+                      </div>
+                    {%- endif -%}
                   </div>
-                {%- endif -%}
-              </div>
-            {%- endfor -%}
+                {%- endfor -%}
+              {%- endfor -%}
+            {%- endif -%}
           </div>
         </div>
       </div>
@@ -254,18 +269,21 @@
       if (swiperContainer.swiper) {
         swiperContainer.swiper.destroy(true, true);
       }
-      
-      new Swiper(swiperContainer, {
+
+      var autoplayEnabled = {{ section.settings.autoplay_enable | default: true }};
+      var autoplayMode = "{{ section.settings.autoplay_mode | default: 'continuous' }}";
+      var marqueeSpeed = {{ section.settings.marquee_speed | default: 4000 }};
+      var slideDelay = {{ section.settings.slide_delay | default: 3 | times: 1000 }};
+      var direction = "{{ section.settings.autoplay_direction | default: 'rtl' }}";
+      var pauseOnHover = {{ section.settings.pause_on_hover | default: true }};
+      var dragToSlide = {{ section.settings.drag_to_slide | default: true }};
+
+      var swiperOptions = {
         slidesPerView: 6,
         spaceBetween: 24,
         loop: true,
         loopAdditionalSlides: 6,
-        allowTouchMove: true,
-        autoplay: {
-          delay: 0,
-          disableOnInteraction: false,
-        },
-        speed: 4000, // slow, premium continuous marquee speed
+        allowTouchMove: dragToSlide,
         navigation: {
           nextEl: '.swiper-button-next-{{ section.id }}',
           prevEl: '.swiper-button-prev-{{ section.id }}',
@@ -288,7 +306,34 @@
             spaceBetween: 24
           }
         }
-      });
+      };
+
+      if (autoplayEnabled) {
+        var delayVal = autoplayMode === 'continuous' ? 0 : slideDelay;
+        var speedVal = autoplayMode === 'continuous' ? marqueeSpeed : 400;
+
+        swiperOptions.speed = speedVal;
+        swiperOptions.autoplay = {
+          delay: delayVal,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: pauseOnHover,
+          reverseDirection: direction === 'ltr'
+        };
+      }
+
+      var swiper = new Swiper(swiperContainer, swiperOptions);
+
+      if (autoplayEnabled && autoplayMode === 'continuous') {
+        swiperContainer.classList.add('swiper-marquee-active');
+
+        swiper.on('autoplayPause', function() {
+          swiperContainer.classList.remove('swiper-marquee-active');
+        });
+
+        swiper.on('autoplayResume', function() {
+          swiperContainer.classList.add('swiper-marquee-active');
+        });
+      }
     }
 
     if (document.readyState === 'loading') {
@@ -353,7 +398,79 @@
     },
     {
       "type": "header",
-      "content": "Section Layout"
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_enable",
+      "label": "Enable Autoplay",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "autoplay_mode",
+      "label": "Autoplay Mode",
+      "options": [
+        {
+          "value": "continuous",
+          "label": "Continuous Scroll (Marquee)"
+        },
+        {
+          "value": "slide",
+          "label": "Slide by Slide"
+        }
+      ],
+      "default": "continuous"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Marquee Speed / Transition Duration",
+      "min": 1000,
+      "max": 10000,
+      "step": 500,
+      "unit": "ms",
+      "default": 4000,
+      "info": "Time taken to slide from one logo to next. Lower value = faster speed."
+    },
+    {
+      "type": "range",
+      "id": "slide_delay",
+      "label": "Slide Delay (Slide-by-Slide mode only)",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 3,
+      "info": "Time spent on each slide before moving to the next."
+    },
+    {
+      "type": "select",
+      "id": "autoplay_direction",
+      "label": "Autoplay Direction",
+      "options": [
+        {
+          "value": "rtl",
+          "label": "Right to Left"
+        },
+        {
+          "value": "ltr",
+          "label": "Left to Right"
+        }
+      ],
+      "default": "rtl"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on Hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "drag_to_slide",
+      "label": "Enable Mouse Drag / Touch Swipe",
+      "default": true
     },
     {
       "type": "select",
