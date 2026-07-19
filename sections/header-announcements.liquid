@@ -1,14 +1,69 @@
 
 
-{% if section.blocks.size > 1 %}
-  <script
-    src="{{ 'announcement-bar.js' | asset_url }}"
-    type="module"
-    fetchpriority="low"
-  ></script>
-{% endif %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
+
+<style>
+  #announcement-bar-swiper-{{ section.id }} {
+    overflow: hidden;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  #announcement-bar-swiper-{{ section.id }} .announcement-bar__slides {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin-inline: auto !important;
+    grid: none !important;
+    align-items: center !important;
+  }
+
+  #announcement-bar-swiper-{{ section.id }} .announcement-bar__slide {
+    flex-shrink: 0 !important;
+    width: 100%;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: none !important;
+    position: relative !important;
+    grid-area: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #announcement-bar-swiper-{{ section.id }}.autoplay-mode-continuous .announcement-bar__slide {
+    width: auto !important;
+    padding: 0 80px !important;
+    white-space: nowrap !important;
+  }
+
+  #announcement-bar-swiper-{{ section.id }} .slideshow-control {
+    z-index: 10 !important;
+    pointer-events: auto !important;
+  }
+
+  #announcement-bar-swiper-{{ section.id }} slideshow-arrows {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    pointer-events: none !important;
+    inset: 0 !important;
+  }
+
+  #announcement-bar-swiper-{{ section.id }}.autoplay-mode-continuous slideshow-arrows {
+    display: none !important;
+  }
+
+  #announcement-bar-swiper-{{ section.id }}.swiper-marquee-active .swiper-wrapper {
+    transition-timing-function: linear !important;
+  }
+</style>
 
 <div class="section-background color-custom-{{ section.id }}"></div>
 <aside
@@ -16,28 +71,43 @@
   style="{% render 'spacing-padding', settings: section.settings %}; --border-bottom-width: {{ section.settings.divider_width }}px;{% if section.settings.divider_color != blank %} --color-border: {{ section.settings.divider_color }};{% endif %}"
 >
   {% liquid
-    assign autoplay = false
     assign show_arrows = false
     if section.blocks.size > 1
-      assign autoplay = true
       assign show_arrows = true
     endif
   %}
 
-  <announcement-bar-component
-    class="announcement-bar__slider"
-    {% if autoplay == true %}
-      autoplay="{{ section.settings.speed }}" aria-live="polite"
-    {% endif %}
+  {%- capture blocks_content -%}
+    {% content_for 'blocks' %}
+  {%- endcapture -%}
+
+  <div
+    class="announcement-bar__slider swiper {% if section.settings.autoplay_enable and section.settings.autoplay_mode == 'continuous' %}autoplay-mode-continuous{% endif %}"
+    id="announcement-bar-swiper-{{ section.id }}"
   >
     {% if show_arrows %}
       {% render 'slideshow-arrows', icon_style: 'chevron' %}
     {% endif %}
 
-    <div class="announcement-bar__slides">
-      {% content_for 'blocks' %}
+    <div class="announcement-bar__slides swiper-wrapper">
+      {%- if section.blocks.size > 0 -%}
+        {%- assign repeat_count = 1 -%}
+        {%- if section.settings.autoplay_enable and section.settings.autoplay_mode == 'continuous' and section.blocks.size < 12 -%}
+          {%- if section.blocks.size < 3 -%}
+            {%- assign repeat_count = 8 -%}
+          {%- elsif section.blocks.size < 6 -%}
+            {%- assign repeat_count = 4 -%}
+          {%- else -%}
+            {%- assign repeat_count = 2 -%}
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- for i in (1..repeat_count) -%}
+          {{ blocks_content }}
+        {%- endfor -%}
+      {%- endif -%}
     </div>
-  </announcement-bar-component>
+  </div>
 </aside>
 
 {% stylesheet %}
@@ -125,6 +195,89 @@
   }
 {% endstylesheet %}
 
+<script>
+  (function() {
+    function initAnnouncementSwiper() {
+      var swiperContainer = document.querySelector('#announcement-bar-swiper-{{ section.id }}');
+      if (!swiperContainer) return;
+      
+      if (typeof Swiper === 'undefined') {
+        setTimeout(initAnnouncementSwiper, 100);
+        return;
+      }
+      
+      if (swiperContainer.swiper) {
+        swiperContainer.swiper.destroy(true, true);
+      }
+
+      var autoplayEnabled = {{ section.settings.autoplay_enable | default: true }};
+      var autoplayMode = "{{ section.settings.autoplay_mode | default: 'slide' }}";
+      var marqueeSpeed = {{ section.settings.marquee_speed | default: 4000 }};
+      var slideDelay = {{ section.settings.slide_delay | default: 5 | times: 1000 }};
+      var direction = "{{ section.settings.autoplay_direction | default: 'rtl' }}";
+      var pauseOnHover = {{ section.settings.pause_on_hover | default: true }};
+      var dragToSlide = {{ section.settings.drag_to_slide | default: true }};
+
+      var slidesCount = swiperContainer.querySelectorAll('.announcement-bar__slide').length;
+      if (slidesCount <= 1) {
+        var arrows = swiperContainer.querySelector('slideshow-arrows');
+        if (arrows) arrows.style.display = 'none';
+        return;
+      }
+
+      var swiperOptions = {
+        slidesPerView: autoplayMode === 'continuous' ? 'auto' : 1,
+        spaceBetween: autoplayMode === 'continuous' ? 0 : 0,
+        loop: true,
+        allowTouchMove: dragToSlide,
+        navigation: {
+          nextEl: '#announcement-bar-swiper-{{ section.id }} .slideshow-control--next',
+          prevEl: '#announcement-bar-swiper-{{ section.id }} .slideshow-control--previous',
+        }
+      };
+
+      if (autoplayEnabled) {
+        var delayVal = autoplayMode === 'continuous' ? 0 : slideDelay;
+        var speedVal = autoplayMode === 'continuous' ? marqueeSpeed : 400;
+
+        swiperOptions.speed = speedVal;
+        swiperOptions.autoplay = {
+          delay: delayVal,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: pauseOnHover,
+          reverseDirection: direction === 'ltr'
+        };
+      }
+
+      var swiper = new Swiper(swiperContainer, swiperOptions);
+
+      if (autoplayEnabled && autoplayMode === 'continuous') {
+        swiperContainer.classList.add('swiper-marquee-active');
+
+        swiper.on('autoplayPause', function() {
+          swiperContainer.classList.remove('swiper-marquee-active');
+        });
+
+        swiper.on('autoplayResume', function() {
+          swiperContainer.classList.add('swiper-marquee-active');
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAnnouncementSwiper);
+    } else {
+      initAnnouncementSwiper();
+    }
+
+    document.addEventListener('shopify:section:load', function(e) {
+      if (e.detail.sectionId === '{{ section.id }}') {
+        setTimeout(initAnnouncementSwiper, 100);
+      }
+    });
+  })();
+</script>
+
 {% schema %}
 {
   "name": "t:names.announcement_bar",
@@ -138,13 +291,80 @@
   },
   "settings": [
     {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_enable",
+      "label": "Enable Autoplay",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "autoplay_mode",
+      "label": "Autoplay Mode",
+      "options": [
+        {
+          "value": "continuous",
+          "label": "Continuous Scroll (Marquee)"
+        },
+        {
+          "value": "slide",
+          "label": "Slide by Slide"
+        }
+      ],
+      "default": "continuous"
+    },
+    {
       "type": "range",
-      "id": "speed",
-      "label": "t:settings.scroll_speed",
-      "min": 2,
+      "id": "marquee_speed",
+      "label": "Marquee Speed / Transition Duration",
+      "min": 1000,
+      "max": 9000,
+      "step": 500,
+      "unit": "ms",
+      "default": 4000,
+      "info": "Time taken to slide from one announcement to next. Lower value = faster speed."
+    },
+    {
+      "type": "range",
+      "id": "slide_delay",
+      "label": "Slide Delay (Slide-by-Slide mode only)",
+      "min": 1,
       "max": 10,
+      "step": 1,
+      "unit": "s",
       "default": 5,
-      "unit": "sec"
+      "info": "Time spent on each slide before moving to the next."
+    },
+    {
+      "type": "select",
+      "id": "autoplay_direction",
+      "label": "Autoplay Direction",
+      "options": [
+        {
+          "value": "rtl",
+          "label": "Right to Left"
+        },
+        {
+          "value": "ltr",
+          "label": "Left to Right"
+        }
+      ],
+      "default": "rtl"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on Hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "drag_to_slide",
+      "label": "Enable Mouse Drag / Touch Swipe",
+      "default": true
     },
     {
       "type": "header",
