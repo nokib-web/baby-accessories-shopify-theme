@@ -35,7 +35,7 @@
         "feature_1": {
           "type": "feature",
           "settings": {
-            "custom_image": "shopify://shop_images/fast-delivery_1.png",
+            "custom_image": "shopify://shop_images/brand.png",
             "svg_icon": "",
             "text": "Fast & Secure",
             "text_preset": "paragraph"

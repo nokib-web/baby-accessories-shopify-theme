@@ -84,21 +84,24 @@
           "type": "feature",
           "settings": {
             "title": "The HopFrog Difference",
-            "description": "<p>Thoughtfully designed to support your child's natural development while providing the protection and comfort they need every day.</p>"
+            "description": "<p>Thoughtfully designed to support your child's natural development while providing the protection and comfort they need every day.</p>",
+            "icon_image": "shopify://shop_images/configuration.png"
           }
         },
         "feat_2": {
           "type": "feature",
           "settings": {
             "title": "Natural Foot Development",
-            "description": "<p>Children's feet are still developing, and the right footwear plays a crucial role in this process.</p>"
+            "description": "<p>Children's feet are still developing, and the right footwear plays a crucial role in this process.</p>",
+            "icon_image": "shopify://shop_images/leaf.png"
           }
         },
         "feat_3": {
           "type": "feature",
           "settings": {
             "title": "Wide Toe Box for Healthy Growth",
-            "description": "<p>Our signature wide toe box design gives children's toes room to spread naturally, promoting healthy foot development.</p>"
+            "description": "<p>Our signature wide toe box design gives children's toes room to spread naturally, promoting healthy foot development.</p>",
+            "icon_image": "shopify://shop_images/box.png"
           }
         },
         "feat_4": {
@@ -113,42 +116,48 @@
           "type": "feature",
           "settings": {
             "title": "Promotes Balance and Posture",
-            "description": "<p>Proper footwear is fundamental to developing good posture and balance, supporting natural alignment from the ground up.</p>"
+            "description": "<p>Proper footwear is fundamental to developing good posture and balance, supporting natural alignment from the ground up.</p>",
+            "icon_image": "shopify://shop_images/stability.png"
           }
         },
         "feat_6": {
           "type": "feature",
           "settings": {
             "title": "Lightweight and Comfortable",
-            "description": "<p>Crafted from premium, lightweight materials that feel like a second skin, so children can explore freely and comfortably.</p>"
+            "description": "<p>Crafted from premium, lightweight materials that feel like a second skin, so children can explore freely and comfortably.</p>",
+            "icon_image": "shopify://shop_images/03_ac89df38-9aab-408a-a319-a56d6970cdf2.webp"
           }
         },
         "feat_7": {
           "type": "feature",
           "settings": {
             "title": "Supports Proper Gait Development",
-            "description": "<p>Encourages a natural heel-to-toe walking pattern, supporting unrestricted movement and healthy muscle development.</p>"
+            "description": "<p>Encourages a natural heel-to-toe walking pattern, supporting unrestricted movement and healthy muscle development.</p>",
+            "icon_image": "shopify://shop_images/trustworthiness.png"
           }
         },
         "feat_8": {
           "type": "feature",
           "settings": {
             "title": "Quality Construction You Can Trust",
-            "description": "<p>Made with meticulous attention to detail using premium, non-toxic materials for durability, safety and peace of mind.</p>"
+            "description": "<p>Made with meticulous attention to detail using premium, non-toxic materials for durability, safety and peace of mind.</p>",
+            "icon_image": "shopify://shop_images/income.png"
           }
         },
         "feat_9": {
           "type": "feature",
           "settings": {
             "title": "The HopFrog Promise",
-            "description": "<p>We combine scientific understanding of foot development with premium craftsmanship because your child deserves the best.</p>"
+            "description": "<p>We combine scientific understanding of foot development with premium craftsmanship because your child deserves the best.</p>",
+            "icon_image": "shopify://shop_images/brand.png"
           }
         },
         "feat_10": {
           "type": "feature",
           "settings": {
             "title": "Better for Your Child. Better for Our Planet.",
-            "description": "<p>Choosing organic cotton means choosing a healthier future for your child and a more sustainable planet for generations to come.</p>"
+            "description": "<p>Choosing organic cotton means choosing a healthier future for your child and a more sustainable planet for generations to come.</p>",
+            "icon_image": "shopify://shop_images/non-toxic.png"
           }
         }
       },

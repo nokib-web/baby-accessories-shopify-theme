@@ -225,6 +225,7 @@
         "org_1": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/trustworthiness.png",
             "title": "Gentle Where It Matters Most",
             "text": "Our babywear is made from GOTS-certified organic cotton — a certification that ensures the entire process, from farming to final garment, avoids harsh chemicals, toxic dyes and irritants. The result is not only softer fabric, but calmer comfort."
           }
@@ -232,6 +233,7 @@
         "org_2": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/leaf.png",
             "title": "Safe, Comfort, Naturally",
             "text": "Babies explore the world with their mouths — which is why our teethers are 100% natural. Made from pure natural materials and free from gels, plastics and hidden fillers, they offer soothing relief."
           }
@@ -239,6 +241,7 @@
         "org_3": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/configuration.png",
             "title": "More Than Clothing — A Beginning",
             "text": "Choosing organic is not about perfection. It’s about intention. By surrounding your baby with natural materials you are reducing exposure to unnecessary chemicals, supporting responsible farming and ethical production."
           }
@@ -266,6 +269,7 @@
         "bf_1": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/healthy-living.png",
             "title": "Made to Move Naturally",
             "text": "Our barefoot shoes support natural foot movement, building strength and balance from the ground up."
           }
@@ -273,6 +277,7 @@
         "bf_2": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/brand.png",
             "title": "Why Barefoot Matters",
             "text": "Wide toe boxes, flexible soles, and zero drop — helping little feet grow strong and healthy."
           }
@@ -280,6 +285,7 @@
         "bf_3": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/03_ac89df38-9aab-408a-a319-a56d6970cdf2.webp",
             "title": "Designed for Growing Feet",
             "text": "Lightweight, breathable, and thoughtfully crafted for every adventure, every day."
           }
@@ -308,6 +314,7 @@
         "md_1": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/non-toxic.png",
             "title": "Why Modal Matters",
             "text": "Modal is ultra soft, breathable and gentle on sensitive skin — perfect for everyday comfort."
           }
@@ -315,6 +322,7 @@
         "md_2": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/trustworthiness.png",
             "title": "Gentle and Thoughtfully Produced",
             "text": "Made from beech tree fibers using eco-friendly processes that are better for baby and the planet."
           }
@@ -322,6 +330,7 @@
         "md_3": {
           "type": "list_item",
           "settings": {
+            "icon": "shopify://shop_images/stability.png",
             "title": "Comfort That Lasts",
             "text": "Smooth, durable, and designed to keep your little one cozy all day and night."
           }
