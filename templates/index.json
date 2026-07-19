@@ -219,6 +219,73 @@
         "padding-block-end": 28
       }
     },
+    "homepage_shop_by_stage": {
+      "type": "homepage-shop-by-stage",
+      "blocks": {
+        "stage_1": {
+          "type": "stage",
+          "settings": {
+            "image": "shopify://shop_images/hubble-morkov-prorezyvatel-v-ruke-detal_2cdd74e9-3e08-45d5-841c-bb2d51d060d5.webp",
+            "age": "0-6 Months",
+            "title": "Tiny Explorers",
+            "description": "GOTS certified organic cotton clothes and chemical-free teethers for soft skins.",
+            "link": "shopify://collections/all"
+          }
+        },
+        "stage_2": {
+          "type": "stage",
+          "settings": {
+            "image": "shopify://shop_images/2fc390_dad9004940164a85aa38e2a5960a65eb_mv2.webp",
+            "age": "6-12 Months",
+            "title": "Active Crawlers",
+            "description": "Flexible wear built for mobility and teethers with textured sensory surfaces.",
+            "link": "shopify://collections/all"
+          }
+        },
+        "stage_3": {
+          "type": "stage",
+          "settings": {
+            "image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp",
+            "age": "12-24M",
+            "title": "First Steps",
+            "description": "Orthopedic-approved barefoot shoes and active organic sets for safe walking.",
+            "link": "shopify://collections/all"
+          }
+        },
+        "stage_iNYrND": {
+          "type": "stage",
+          "settings": {
+            "image": "shopify://shop_images/03_ac89df38-9aab-408a-a319-a56d6970cdf2.webp",
+            "age": "24-48M+",
+            "title": "Growing Essentials",
+            "description": "Gentle organic clothing & non-toxic teethers designed for comfort and sensory exploration.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "stage_1",
+        "stage_2",
+        "stage_3",
+        "stage_iNYrND"
+      ],
+      "settings": {
+        "heading": "Shop by Baby's Stage",
+        "subheading": "Find exactly what your little explorer needs for their developmental journey.",
+        "heading_color": "{{ settings.color_palette.color8 }}",
+        "accent_color": "#2e4a29",
+        "heading_font_size": 32,
+        "heading_font_size_mobile": 24,
+        "bg_color": "#ffffff",
+        "card_bg_color": "#f4f6f1",
+        "section_width": "custom",
+        "custom_max_width": 1600,
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
     "product_list_themegen": {
       "type": "collection-product-slider",
       "settings": {
@@ -499,6 +566,44 @@
         "padding_bottom_mobile": 32
       }
     },
+    "homepage_barefoot_comparison": {
+      "type": "homepage-barefoot-comparison",
+      "settings": {
+        "heading": "Why Barefoot Shoes?",
+        "description": "Traditional rigid shoes can restrict healthy baby foot development. Here's why orthopedic experts recommend barefoot footwear.",
+        "heading_color": "{{ settings.color_palette.color8 }}",
+        "accent_color": "#2e4a29",
+        "btn_hover_bg": "#1d301a",
+        "heading_font_size": 32,
+        "heading_font_size_mobile": 24,
+        "trad_title": "Traditional Baby Shoes",
+        "trad_image": "shopify://shop_images/images_3.webp",
+        "trad_item_1_title": "Narrow Toe Box",
+        "trad_item_1_desc": "Pinches baby toes, leading to misalignment, blisters, and potential future foot deformities.",
+        "trad_item_2_title": "Stiff & Heavy Soles",
+        "trad_item_2_desc": "Restricts natural foot flexing. Weakens arches and ankle muscles, causing dependency on shoe support.",
+        "trad_item_3_title": "Elevated Heels (Drop)",
+        "trad_item_3_desc": "Alters natural posture, throwing off body balance and putting unnecessary stress on toddler knees and hips.",
+        "bf_title": "Little Leaf Barefoot Shoes",
+        "bf_image": "shopify://shop_images/AngelBanner_1.webp",
+        "badge_label": "Healthy Growth",
+        "bf_item_1_title": "Wide, Foot-Shaped Toe Box",
+        "bf_item_1_desc": "Gives toes ample room to splay naturally, providing excellent stability, balance, and straight toe alignment.",
+        "bf_item_2_title": "Ultra-Flexible, Thin Soles",
+        "bf_item_2_desc": "Rolls easily in any direction. Mimics walking barefoot to build natural foot strength, arch structure, and sensory feedback.",
+        "bf_item_3_title": "Zero Heel-to-Toe Drop",
+        "bf_item_3_desc": "Flat sole design supports natural alignment of spine, hips, and knees. Fosters ideal walking posture.",
+        "cta_link": "shopify://collections/hopfrog-barefoot-shoes-multimix",
+        "cta_label": "Shop Healthy Barefoot Shoes",
+        "bg_color": "#f4f6f1",
+        "section_width": "custom",
+        "custom_max_width": 1600,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48
+      }
+    },
     "brand_logo_slider_WhpFKC": {
       "type": "brand-logo-slider",
       "blocks": {
@@ -577,66 +682,6 @@
         "padding_bottom": 48,
         "padding_top_mobile": 32,
         "padding_bottom_mobile": 32
-      }
-    },
-    "homepage_shop_by_stage": {
-      "type": "homepage-shop-by-stage",
-      "blocks": {
-        "stage_1": {
-          "type": "stage",
-          "settings": {
-            "image": "shopify://shop_images/banner-1.webp",
-            "age": "0-6 Months",
-            "title": "Tiny Explorers",
-            "description": "GOTS certified organic cotton clothes and chemical-free teethers for soft skins.",
-            "link": "shopify://collections/all"
-          }
-        },
-        "stage_2": {
-          "type": "stage",
-          "settings": {
-            "image": "shopify://shop_images/banner-2.webp",
-            "age": "6-12 Months",
-            "title": "Active Crawlers",
-            "description": "Flexible wear built for mobility and teethers with textured sensory surfaces.",
-            "link": "shopify://collections/all"
-          }
-        },
-        "stage_3": {
-          "type": "stage",
-          "settings": {
-            "image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp",
-            "age": "12-24M+",
-            "title": "First Steps",
-            "description": "Orthopedic-approved barefoot shoes and active organic sets for safe walking.",
-            "link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "stage_1",
-        "stage_2",
-        "stage_3"
-      ],
-      "settings": {
-        "heading": "Shop by Baby's Stage",
-        "subheading": "Find exactly what your little explorer needs for their developmental journey.",
-        "bg_color": "#ffffff",
-        "card_bg_color": "#f4f6f1",
-        "section_width": "custom",
-        "custom_max_width": 1600
-      }
-    },
-    "homepage_barefoot_comparison": {
-      "type": "homepage-barefoot-comparison",
-      "settings": {
-        "heading": "Why Barefoot Shoes?",
-        "description": "Traditional rigid shoes can restrict healthy baby foot development. Here's why orthopedic experts recommend barefoot footwear.",
-        "bg_color": "#f4f6f1",
-        "section_width": "custom",
-        "custom_max_width": 1600,
-        "cta_link": "shopify://collections/all",
-        "cta_label": "Shop Healthy Barefoot Shoes"
       }
     }
   },
