@@ -158,7 +158,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>At <strong>Little Leaf Baby Company</strong>, we believe that the gentlest touch begins with nature. We're passionate about providing South African parents with premium-quality baby essentials responsibly sourced and consciously crafted from organic and natural materials that are as kind to your baby's delicate skin as they are to our planet<br/><br/></p>",
+            "text": "<p>At <a href=\"/\" title=\"/\"><strong>Little Leaf Baby Company</strong></a>, we believe that the gentlest touch begins with nature. We're passionate about providing South African parents with premium-quality baby essentials responsibly sourced and consciously crafted from organic and natural materials that are as kind to your baby's delicate skin as they are to our planet<br/><br/></p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
