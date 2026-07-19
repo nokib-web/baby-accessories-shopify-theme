@@ -578,15 +578,77 @@
         "padding_top_mobile": 32,
         "padding_bottom_mobile": 32
       }
+    },
+    "homepage_shop_by_stage": {
+      "type": "homepage-shop-by-stage",
+      "blocks": {
+        "stage_1": {
+          "type": "stage",
+          "settings": {
+            "image": "shopify://shop_images/banner-1.webp",
+            "age": "0-6 Months",
+            "title": "Tiny Explorers",
+            "description": "GOTS certified organic cotton clothes and chemical-free teethers for soft skins.",
+            "link": "shopify://collections/all"
+          }
+        },
+        "stage_2": {
+          "type": "stage",
+          "settings": {
+            "image": "shopify://shop_images/banner-2.webp",
+            "age": "6-12 Months",
+            "title": "Active Crawlers",
+            "description": "Flexible wear built for mobility and teethers with textured sensory surfaces.",
+            "link": "shopify://collections/all"
+          }
+        },
+        "stage_3": {
+          "type": "stage",
+          "settings": {
+            "image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp",
+            "age": "12-24M+",
+            "title": "First Steps",
+            "description": "Orthopedic-approved barefoot shoes and active organic sets for safe walking.",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "stage_1",
+        "stage_2",
+        "stage_3"
+      ],
+      "settings": {
+        "heading": "Shop by Baby's Stage",
+        "subheading": "Find exactly what your little explorer needs for their developmental journey.",
+        "bg_color": "#ffffff",
+        "card_bg_color": "#f4f6f1",
+        "section_width": "custom",
+        "custom_max_width": 1600
+      }
+    },
+    "homepage_barefoot_comparison": {
+      "type": "homepage-barefoot-comparison",
+      "settings": {
+        "heading": "Why Barefoot Shoes?",
+        "description": "Traditional rigid shoes can restrict healthy baby foot development. Here's why orthopedic experts recommend barefoot footwear.",
+        "bg_color": "#f4f6f1",
+        "section_width": "custom",
+        "custom_max_width": 1600,
+        "cta_link": "shopify://collections/all",
+        "cta_label": "Shop Healthy Barefoot Shoes"
+      }
     }
   },
   "order": [
     "hero_highlight_CFmN9h",
     "collection_circle_slider_home",
+    "homepage_shop_by_stage",
     "product_list_themegen",
     "promo_with_products_default",
     "section_x8mrnx",
     "collection_product_slider_6iVVTe",
+    "homepage_barefoot_comparison",
     "brand_logo_slider_WhpFKC"
   ]
 }

@@ -1,0 +1,660 @@
+{% liquid
+  assign section_width = section.settings.section_width | default: 'custom'
+  
+  if section.settings.bg_color != blank
+    render 'contrast-override', background_color: section.settings.bg_color, section_id: section.id
+  endif
+%}
+
+<style>
+  #shopify-section-{{ section.id }} .bf-comparison-section {
+    background-color: {{ section.settings.bg_color | default: '#f4f6f1' }};
+    width: 100%;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .bf-comparison-section {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+
+  /* Header styles */
+  .bf-comparison__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 0 20px;
+  }
+
+  .bf-comparison__heading {
+    margin: 0 0 12px;
+    font-size: {{ section.settings.heading_font_size | default: 32 }}px;
+    font-weight: 600;
+    color: {{ section.settings.heading_color | default: '#2e4a29' }};
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
+    line-height: 1.2;
+  }
+
+  .bf-comparison__description {
+    margin: 0 0 16px;
+    font-size: 16px;
+    color: #555555;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  .bf-comparison__heading-line {
+    width: 60px;
+    height: 3px;
+    background-color: {{ section.settings.accent_color | default: '#2e4a29' }};
+    border-radius: 2px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .bf-comparison__heading {
+      font-size: {{ section.settings.heading_font_size_mobile | default: 24 }}px;
+    }
+    .bf-comparison__description {
+      font-size: 14px;
+    }
+    .bf-comparison__header {
+      margin-bottom: 32px;
+    }
+  }
+
+  /* Columns Grid Layout */
+  .bf-comparison__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 990px) {
+    .bf-comparison__grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  /* Column styling */
+  .bf-comparison__col {
+    background: #ffffff;
+    border: 1px solid #eef1ea;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(46, 74, 41, 0.01);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .bf-comparison__col--barefoot {
+    border: 2px solid {{ section.settings.accent_color | default: '#2e4a29' }};
+    position: relative;
+  }
+
+  .bf-comparison__badge {
+    position: absolute;
+    top: -15px;
+    right: 30px;
+    background-color: {{ section.settings.accent_color | default: '#2e4a29' }};
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .bf-comparison__col-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #091208;
+    margin: 0 0 24px 0;
+    font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .bf-comparison__col--traditional .bf-comparison__col-title {
+    color: #555555;
+  }
+
+  .bf-comparison__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .bf-comparison__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333333;
+  }
+
+  .bf-comparison__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .bf-comparison__col--traditional .bf-comparison__icon {
+    background-color: #fce8e6;
+    color: #d93025;
+  }
+
+  .bf-comparison__col--barefoot .bf-comparison__icon {
+    background-color: #e6f4ea;
+    color: #137333;
+  }
+
+  .bf-comparison__icon svg {
+    width: 14px;
+    height: 14px;
+    stroke-width: 3px;
+  }
+
+  .bf-comparison__item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .bf-comparison__item-title {
+    font-weight: 600;
+    color: #091208;
+  }
+
+  .bf-comparison__col-image {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8faf6;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px dashed #e2e8dd;
+  }
+
+  .bf-comparison__col-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  @media screen and (max-width: 749px) {
+    .bf-comparison__col-image {
+      height: 140px;
+      margin-bottom: 16px;
+    }
+  }
+
+  /* Bottom CTA Banner */
+  .bf-comparison__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 48px;
+    padding: 0 20px;
+  }
+
+  .bf-comparison__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ section.settings.accent_color | default: '#2e4a29' }};
+    color: #ffffff;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(46, 74, 41, 0.15);
+  }
+
+  .bf-comparison__cta-btn:hover {
+    background-color: {{ section.settings.btn_hover_bg | default: '#1d301a' }};
+    transform: translateY(-2px);
+  }
+
+  @media screen and (max-width: 749px) {
+    .bf-comparison__col {
+      padding: 30px 20px;
+    }
+    .bf-comparison__col-title {
+      font-size: 18px;
+    }
+    .bf-comparison__item {
+      font-size: 14px;
+    }
+    .bf-comparison__cta-btn {
+      padding: 14px 28px;
+      font-size: 13px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .bf-comparison__footer {
+      margin-top: 32px;
+    }
+  }
+</style>
+
+<div class="bf-comparison-section">
+  <div
+    class="section section--{{ section_width }}{% if section_width == 'custom' %} section--page-width section--custom-width{% endif %}"
+    style="
+      {% if section_width == 'custom' %}
+        --page-content-width: {{ section.settings.custom_max_width | default: 1600 }}px;
+        --page-width: calc({{ section.settings.custom_max_width | default: 1600 }}px + (var(--page-margin) * 2));
+        max-width: {{ section.settings.custom_max_width | default: 1600 }}px;
+        margin: 0 auto;
+      {% endif %}
+    "
+  >
+    {%- if section.settings.heading != blank or section.settings.description != blank -%}
+      <div class="bf-comparison__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="bf-comparison__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="bf-comparison__description">{{ section.settings.description }}</p>
+        {%- endif -%}
+        <div class="bf-comparison__heading-line"></div>
+      </div>
+    {%- endif -%}
+
+    <div class="bf-comparison__grid">
+      <!-- Traditional Column -->
+      <div class="bf-comparison__col bf-comparison__col--traditional">
+        <h3 class="bf-comparison__col-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="color: #d93025;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          {{ section.settings.trad_title | default: "Traditional Baby Shoes" }}
+        </h3>
+        {%- if section.settings.trad_image != blank -%}
+          <div class="bf-comparison__col-image">
+            <img
+              src="{{ section.settings.trad_image | image_url: width: 600 }}"
+              alt="{{ section.settings.trad_title }}"
+              loading="lazy"
+              width="300"
+            >
+          </div>
+        {%- endif -%}
+        <ul class="bf-comparison__list">
+          <li class="bf-comparison__item">
+            <span class="bf-comparison__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <div class="bf-comparison__item-content">
+              <span class="bf-comparison__item-title">{{ section.settings.trad_item_1_title | default: "Narrow Toe Box" }}</span>
+              <span>{{ section.settings.trad_item_1_desc | default: "Pinches baby toes, leading to misalignment, blisters, and potential future foot deformities." }}</span>
+            </div>
+          </li>
+          <li class="bf-comparison__item">
+            <span class="bf-comparison__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <div class="bf-comparison__item-content">
+              <span class="bf-comparison__item-title">{{ section.settings.trad_item_2_title | default: "Stiff & Heavy Soles" }}</span>
+              <span>{{ section.settings.trad_item_2_desc | default: "Restricts natural foot flexing. Weakens arches and ankle muscles, causing dependency on shoe support." }}</span>
+            </div>
+          </li>
+          <li class="bf-comparison__item">
+            <span class="bf-comparison__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <div class="bf-comparison__item-content">
+              <span class="bf-comparison__item-title">{{ section.settings.trad_item_3_title | default: "Elevated Heels (Drop)" }}</span>
+              <span>{{ section.settings.trad_item_3_desc | default: "Alters natural posture, throwing off body balance and putting unnecessary stress on toddler knees and hips." }}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Barefoot Column -->
+      <div class="bf-comparison__col bf-comparison__col--barefoot">
+        <span class="bf-comparison__badge">{{ section.settings.badge_label | default: "Healthy Growth" }}</span>
+        <h3 class="bf-comparison__col-title">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="color: #137333;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          {{ section.settings.bf_title | default: "Little Leaf Barefoot Shoes" }}
+        </h3>
+        {%- if section.settings.bf_image != blank -%}
+          <div class="bf-comparison__col-image">
+            <img
+              src="{{ section.settings.bf_image | image_url: width: 600 }}"
+              alt="{{ section.settings.bf_title }}"
+              loading="lazy"
+              width="300"
+            >
+          </div>
+        {%- endif -%}
+        <ul class="bf-comparison__list">
+          <li class="bf-comparison__item">
+            <span class="bf-comparison__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div class="bf-comparison__item-content">
+              <span class="bf-comparison__item-title">{{ section.settings.bf_item_1_title | default: "Wide, Foot-Shaped Toe Box" }}</span>
+              <span>{{ section.settings.bf_item_1_desc | default: "Gives toes ample room to splay naturally, providing excellent stability, balance, and straight toe alignment." }}</span>
+            </div>
+          </li>
+          <li class="bf-comparison__item">
+            <span class="bf-comparison__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div class="bf-comparison__item-content">
+              <span class="bf-comparison__item-title">{{ section.settings.bf_item_2_title | default: "Ultra-Flexible, Thin Soles" }}</span>
+              <span>{{ section.settings.bf_item_2_desc | default: "Rolls easily in any direction. Mimics walking barefoot to build natural foot strength, arch structure, and sensory feedback." }}</span>
+            </div>
+          </li>
+          <li class="bf-comparison__item">
+            <span class="bf-comparison__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <div class="bf-comparison__item-content">
+              <span class="bf-comparison__item-title">{{ section.settings.bf_item_3_title | default: "Zero Heel-to-Toe Drop" }}</span>
+              <span>{{ section.settings.bf_item_3_desc | default: "Flat sole design supports natural alignment of spine, hips, and knees. Fosters ideal walking posture." }}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {%- if section.settings.cta_link != blank and section.settings.cta_label != blank -%}
+      <div class="bf-comparison__footer">
+        <a href="{{ section.settings.cta_link }}" class="bf-comparison__cta-btn">
+          {{ section.settings.cta_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Barefoot Shoes Comparison",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Barefoot Shoes?"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Traditional rigid shoes can restrict healthy baby foot development. Here's why orthopedic experts recommend barefoot footwear."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Barefoot)",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "btn_hover_bg",
+      "label": "CTA Button Hover BG",
+      "default": "#1d301a"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size (desktop)",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size_mobile",
+      "label": "Heading Font Size (mobile)",
+      "min": 14,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Traditional Column Settings"
+    },
+    {
+      "type": "text",
+      "id": "trad_title",
+      "label": "Traditional Shoes Title",
+      "default": "Traditional Baby Shoes"
+    },
+    {
+      "type": "image_picker",
+      "id": "trad_image",
+      "label": "Traditional Shoe Image"
+    },
+    {
+      "type": "text",
+      "id": "trad_item_1_title",
+      "label": "Item 1 Title",
+      "default": "Narrow Toe Box"
+    },
+    {
+      "type": "text",
+      "id": "trad_item_1_desc",
+      "label": "Item 1 Description",
+      "default": "Pinches baby toes, leading to misalignment, blisters, and potential future foot deformities."
+    },
+    {
+      "type": "text",
+      "id": "trad_item_2_title",
+      "label": "Item 2 Title",
+      "default": "Stiff & Heavy Soles"
+    },
+    {
+      "type": "text",
+      "id": "trad_item_2_desc",
+      "label": "Item 2 Description",
+      "default": "Restricts natural foot flexing. Weakens arches and ankle muscles, causing dependency on shoe support."
+    },
+    {
+      "type": "text",
+      "id": "trad_item_3_title",
+      "label": "Item 3 Title",
+      "default": "Elevated Heels (Drop)"
+    },
+    {
+      "type": "text",
+      "id": "trad_item_3_desc",
+      "label": "Item 3 Description",
+      "default": "Alters natural posture, throwing off body balance and putting unnecessary stress on toddler knees and hips."
+    },
+    {
+      "type": "header",
+      "content": "Barefoot Column Settings"
+    },
+    {
+      "type": "text",
+      "id": "bf_title",
+      "label": "Barefoot Shoes Title",
+      "default": "Little Leaf Barefoot Shoes"
+    },
+    {
+      "type": "image_picker",
+      "id": "bf_image",
+      "label": "Barefoot Shoe Image"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "label": "Feature Badge Label",
+      "default": "Healthy Growth"
+    },
+    {
+      "type": "text",
+      "id": "bf_item_1_title",
+      "label": "Item 1 Title",
+      "default": "Wide, Foot-Shaped Toe Box"
+    },
+    {
+      "type": "text",
+      "id": "bf_item_1_desc",
+      "label": "Item 1 Description",
+      "default": "Gives toes ample room to splay naturally, providing excellent stability, balance, and straight toe alignment."
+    },
+    {
+      "type": "text",
+      "id": "bf_item_2_title",
+      "label": "Item 2 Title",
+      "default": "Ultra-Flexible, Thin Soles"
+    },
+    {
+      "type": "text",
+      "id": "bf_item_2_desc",
+      "label": "Item 2 Description",
+      "default": "Rolls easily in any direction. Mimics walking barefoot to build natural foot strength, arch structure, and sensory feedback."
+    },
+    {
+      "type": "text",
+      "id": "bf_item_3_title",
+      "label": "Item 3 Title",
+      "default": "Zero Heel-to-Toe Drop"
+    },
+    {
+      "type": "text",
+      "id": "bf_item_3_desc",
+      "label": "Item 3 Description",
+      "default": "Flat sole design supports natural alignment of spine, hips, and knees. Fosters ideal walking posture."
+    },
+    {
+      "type": "header",
+      "content": "Bottom CTA settings"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA Button Label",
+      "default": "Shop Healthy Barefoot Shoes"
+    },
+    {
+      "type": "header",
+      "content": "Colors & Layout"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f4f6f1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page Width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full Width"
+        },
+        {
+          "value": "custom",
+          "label": "Custom Max Width"
+        }
+      ],
+      "default": "custom"
+    },
+    {
+      "type": "range",
+      "id": "custom_max_width",
+      "label": "Custom Max Width",
+      "min": 1000,
+      "max": 2000,
+      "step": 10,
+      "unit": "px",
+      "default": 1600
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top (desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom (desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (mobile)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barefoot Shoes Comparison"
+    }
+  ]
+}
+{% endschema %}
