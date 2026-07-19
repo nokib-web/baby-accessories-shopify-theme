@@ -206,8 +206,8 @@
         "padding-inline-start": 0,
         "padding-inline-end": 0,
         "background_color": "",
-        "padding-block-start": 0,
-        "padding-block-end": 32
+        "padding-block-start": 50,
+        "padding-block-end": 100
       }
     }
   },

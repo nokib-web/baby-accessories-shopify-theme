@@ -161,64 +161,6 @@
         "padding-block-end": 36
       }
     },
-    "about_specialties": {
-      "type": "about-us-specialties",
-      "blocks": {
-        "spec_1": {
-          "type": "specialty",
-          "settings": {
-            "title": "Organic Baby Clothing"
-          }
-        },
-        "spec_2": {
-          "type": "specialty",
-          "settings": {
-            "title": "Barefoot Shoes"
-          }
-        },
-        "spec_3": {
-          "type": "specialty",
-          "settings": {
-            "title": "Cloth Nappies & Accessories"
-          }
-        },
-        "spec_4": {
-          "type": "specialty",
-          "settings": {
-            "title": "Feeding Essentials"
-          }
-        },
-        "spec_5": {
-          "type": "specialty",
-          "settings": {
-            "title": "Nursery & Sleep"
-          }
-        },
-        "spec_6": {
-          "type": "specialty",
-          "settings": {
-            "title": "Baby Gift Sets & More"
-          }
-        }
-      },
-      "block_order": [
-        "spec_1",
-        "spec_2",
-        "spec_3",
-        "spec_4",
-        "spec_5",
-        "spec_6"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "We Specialize In",
-        "max_width": 1600,
-        "background_color": "",
-        "background_image": "shopify://shop_images/leafy-background-pattern.png",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "about_organic": {
       "type": "about-us-split-list",
       "blocks": {
@@ -373,7 +315,6 @@
     "about_hero",
     "about_promise",
     "collection_circle_slider_y9yhC4",
-    "about_specialties",
     "about_organic",
     "about_barefoot",
     "about_modal",
