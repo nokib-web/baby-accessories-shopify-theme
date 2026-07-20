@@ -113,8 +113,8 @@
         "button_font_weight": "600",
         "button_bg": "#2e4a29",
         "button_hover_bg": "#1d301a",
-        "button_text_2": "Why Barefoot Shoes",
-        "button_link_2": "shopify://pages/why-hopfrog-barefoot-shoes",
+        "button_text_2": "Our Story",
+        "button_link_2": "shopify://pages/about-us-1",
         "button_2_show_icon": false,
         "button_2_padding_horizontal": 28,
         "button_2_padding_vertical": 16,
@@ -450,6 +450,8 @@
             "show_social_icons": false,
             "facebook_url": "",
             "instagram_url": "",
+            "threads_url": "",
+            "whatsapp_url": "",
             "youtube_url": "",
             "tiktok_url": "",
             "twitter_url": ""
@@ -481,6 +483,8 @@
             "show_social_icons": false,
             "facebook_url": "",
             "instagram_url": "",
+            "threads_url": "",
+            "whatsapp_url": "",
             "youtube_url": "",
             "tiktok_url": "",
             "twitter_url": ""

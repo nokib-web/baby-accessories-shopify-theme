@@ -105,7 +105,7 @@
     
     {% if block.settings.show_social_icons %}
       {% liquid
-        assign social_keys = 'facebook_url,instagram_url,youtube_url,tiktok_url,twitter_url' | split: ','
+        assign social_keys = 'facebook_url,instagram_url,threads_url,whatsapp_url,youtube_url,tiktok_url,twitter_url' | split: ','
       %}
       <div class="text-block__social-icons" style="display: flex; gap: 12px; margin-top: 16px; justify-content: var(--text-align, var(--text-align-default, flex-start)); width: 100%;">
         {% for key in social_keys %}
@@ -118,6 +118,10 @@
                   assign platform = 'facebook'
                 when 'instagram_url'
                   assign platform = 'instagram'
+                when 'threads_url'
+                  assign platform = 'threads'
+                when 'whatsapp_url'
+                  assign platform = 'whatsapp'
                 when 'youtube_url'
                   assign platform = 'youtube'
                 when 'tiktok_url'

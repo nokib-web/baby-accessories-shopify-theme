@@ -178,11 +178,13 @@
             "padding-inline-start": 0,
             "padding-inline-end": 0,
             "show_social_icons": true,
-            "facebook_url": "",
+            "facebook_url": "https://facebook.com/littleleafbabyco",
             "instagram_url": "https://instagram.com/littleleafbabyco",
-            "youtube_url": "#",
-            "tiktok_url": "#",
-            "twitter_url": "#"
+            "threads_url": "#",
+            "whatsapp_url": "#",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
           },
           "blocks": {}
         },
