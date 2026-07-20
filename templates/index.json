@@ -17,7 +17,7 @@
           "settings": {
             "image": "shopify://shop_images/banner-1.webp",
             "slide_link": "shopify://collections/hopfrog-barefoot-shoes-multimix",
-            "button_text": "Shop Barefoot"
+            "button_text": ""
           }
         },
         "slider_image_k7w6Gd": {
@@ -113,8 +113,8 @@
         "button_font_weight": "600",
         "button_bg": "#2e4a29",
         "button_hover_bg": "#1d301a",
-        "button_text_2": "Our Story",
-        "button_link_2": "shopify://pages/about-us-1",
+        "button_text_2": "Barefoot Shoes",
+        "button_link_2": "shopify://collections/hopfrog-barefoot-shoes-multimix",
         "button_2_show_icon": false,
         "button_2_padding_horizontal": 28,
         "button_2_padding_vertical": 16,
@@ -223,41 +223,41 @@
         "stage_1": {
           "type": "stage",
           "settings": {
-            "image": "shopify://shop_images/hubble-morkov-prorezyvatel-v-ruke-detal_2cdd74e9-3e08-45d5-841c-bb2d51d060d5.webp",
-            "age": "0-6 Months",
-            "title": "Tiny Explorers",
-            "description": "GOTS certified organic cotton clothes and chemical-free teethers for soft skins.",
-            "link": "shopify://collections/all"
+            "image": "shopify://shop_images/BrightenedStudioImageEdit_17.png",
+            "age": "Winter",
+            "title": "Winter Range",
+            "description": "Keep your little ones warm and cozy with our organic winter wear.",
+            "link": "shopify://collections/winter"
           }
         },
         "stage_2": {
           "type": "stage",
           "settings": {
             "image": "shopify://shop_images/2fc390_dad9004940164a85aa38e2a5960a65eb_mv2.webp",
-            "age": "6-12 Months",
-            "title": "Active Crawlers",
-            "description": "Flexible wear built for mobility and teethers with textured sensory surfaces.",
-            "link": "shopify://collections/all"
+            "age": "Summer",
+            "title": "Summer Collection",
+            "description": "Breathable and soft organic cotton perfect for sunny adventures.",
+            "link": "shopify://collections/summer"
           }
         },
         "stage_3": {
           "type": "stage",
           "settings": {
             "image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp",
-            "age": "12-24M",
-            "title": "First Steps",
+            "age": "Footwear",
+            "title": "Barefoot Shoes",
             "description": "Orthopedic-approved barefoot shoes and active organic sets for safe walking.",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/hopfrog-barefoot-shoes-multimix"
           }
         },
         "stage_iNYrND": {
           "type": "stage",
           "settings": {
             "image": "shopify://shop_images/03_ac89df38-9aab-408a-a319-a56d6970cdf2.webp",
-            "age": "24-48M+",
-            "title": "Growing Essentials",
+            "age": "Accessories",
+            "title": "Teethers",
             "description": "Gentle organic clothing & non-toxic teethers designed for comfort and sensory exploration.",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/teethers-and-soothers"
           }
         }
       },
@@ -268,8 +268,8 @@
         "stage_iNYrND"
       ],
       "settings": {
-        "heading": "Shop by Baby's Stage",
-        "subheading": "Find exactly what your little explorer needs for their developmental journey.",
+        "heading": "Shop by Collection",
+        "subheading": "Find exactly what your little explorer needs from our curated collections.",
         "heading_color": "{{ settings.color_palette.color2 }}",
         "accent_color": "#2e4a29",
         "heading_font_size": 32,
@@ -631,42 +631,36 @@
         "brand_logo_tRAkNM": {
           "type": "brand_logo",
           "settings": {
-            "image": "shopify://shop_images/alecto.webp",
             "link": ""
           }
         },
         "brand_logo_zHTmTF": {
           "type": "brand_logo",
           "settings": {
-            "image": "shopify://shop_images/logo-12_7bb4b0f1-9986-4e57-89d2-f6cf343d551b.png",
             "link": ""
           }
         },
         "brand_logo_X4nDQw": {
           "type": "brand_logo",
           "settings": {
-            "image": "shopify://shop_images/chelino-platinum.png",
             "link": ""
           }
         },
         "brand_logo_cCbXar": {
           "type": "brand_logo",
           "settings": {
-            "image": "shopify://shop_images/logo-23_ca7c8633-e617-4092-a8b9-2a67f0a5c58b.png",
             "link": ""
           }
         },
         "brand_logo_nBMYrB": {
           "type": "brand_logo",
           "settings": {
-            "image": "shopify://shop_images/cybex_-_Copy.webp",
             "link": ""
           }
         },
         "brand_logo_rE9TU3": {
           "type": "brand_logo",
           "settings": {
-            "image": "shopify://shop_images/logo-13_76ecf545-4a4d-4eb5-91de-82532e778a82.png",
             "link": ""
           }
         }

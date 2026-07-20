@@ -82,6 +82,10 @@
     "variant_button_radius": 0,
     "variant_button_width": "equal-width-buttons",
     "whatsapp_number": "01910229119",
+    "social_facebook_link": "#",
+    "social_instagram_link": "#",
+    "social_whatsapp_link": "#",
+    "social_threads_link": "#",
     "sections": {
       "password-footer": {
         "type": "password-footer",

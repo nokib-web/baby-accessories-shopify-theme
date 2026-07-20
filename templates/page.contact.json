@@ -27,13 +27,22 @@
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
+            "text_color": "",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "show_social_icons": false,
+            "facebook_url": "",
+            "instagram_url": "",
+            "threads_url": "",
+            "whatsapp_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
           },
           "blocks": {}
         },
@@ -52,13 +61,22 @@
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
+            "text_color": "",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "padding-inline-end": 0,
+            "show_social_icons": false,
+            "facebook_url": "",
+            "instagram_url": "",
+            "threads_url": "",
+            "whatsapp_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
           },
           "blocks": {}
         }
@@ -67,6 +85,7 @@
         "title",
         "content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -75,75 +94,75 @@
         "padding-block-end": 0
       }
     },
-    "form": {
-      "type": "section",
-      "blocks": {
-        "contact_form_UwiCkQ": {
-          "type": "contact-form",
-          "settings": {
-            "width": "custom",
-            "custom_width": 50,
-            "width_mobile": "custom",
-            "custom_width_mobile": 100,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "submit-button": {
-              "type": "contact-form-submit-button",
-              "static": true,
-              "settings": {
-                "label": "Submit",
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
-      },
-      "block_order": [
-        "contact_form_UwiCkQ"
-      ],
-      "name": "t:names.contact_form",
+    "contact_hero": {
+      "type": "about-us-hero",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "image",
-        "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
+        "subtitle": "WE'D LOVE TO HEAR FROM YOU",
+        "title": "Contact Us for Any Enquiries!",
+        "text": "<p>Whether you have a question about our products, an order, or just want to say hello, we are here for you. Fill out the form below and we will get back to you as soon as possible.</p>",
+        "btn_1_label": "Shop Our Range",
+        "btn_1_link": "shopify://collections/all",
+        "btn_2_label": "Our Story",
+        "btn_2_link": "shopify://pages/about-us-1",
+        "show_leaf_icons": true,
+        "image": "shopify://shop_images/dva-prorezyvatelya-hubble-koala-v-zelenoi-korzinke-vid-sverkhu_50f60dfd-0659-4e32-a616-118fc3ab322a.webp",
+        "title_color": "#2e4a29",
+        "subtitle_color": "#8c9c84",
+        "text_color": "#4a4a4a",
+        "btn_1_bg_color": "#2e4a29",
+        "btn_1_text_color": "#ffffff",
+        "btn_2_border_color": "#2e4a29",
+        "btn_2_text_color": "#2e4a29",
+        "max_width": 1550,
+        "background_color": "",
         "background_image": "shopify://shop_images/leafy-background-pattern.png",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 32,
-        "padding-block-end": 84
+        "padding_top": 80,
+        "padding_bottom": 40
+      }
+    },
+    "custom_contact": {
+      "type": "custom-contact-page",
+      "settings": {
+        "subheading": "SEND US A MESSAGE",
+        "subheading_color": "#888888",
+        "heading": "How Can We Help?",
+        "heading_color": "{{ settings.color_palette.color2 }}",
+        "button_text": "SEND MESSAGE",
+        "button_color": "{{ settings.color_palette.color2 }}",
+        "info_bg_color": "{{ settings.color_palette.color3 }}",
+        "info_heading": "Contact Information",
+        "info_heading_color": "#222222",
+        "email": "support@littleleafbabyco.co.za",
+        "phone": "123456789",
+        "hours": "Mon - Fri: 9AM - 6PM",
+        "address": "Little Leaf Baby Company\nSouth Africa"
+      }
+    },
+    "about_belief": {
+      "type": "about-us-belief",
+      "settings": {
+        "title": "Our Belief",
+        "text": "<p>We believe in natural. We believe in gentle. We believe in growing little ones the right way — with love, care, and conscious choices.</p>",
+        "highlight_text": "For your baby. For your family. For the world they'll grow up in. ♥",
+        "closing_text": "Because the gentlest beginnings leave the deepest impressions.",
+        "image": "shopify://shop_images/hubble-morkov-prorezyvatel-v-ruke-detal_2cdd74e9-3e08-45d5-841c-bb2d51d060d5.webp",
+        "title_color": "#2e4a29",
+        "leaf_color": "#a6b89c",
+        "text_color": "#4a4a4a",
+        "highlight_color": "#2e4a29",
+        "closing_color": "#8c9c84",
+        "max_width": 1600,
+        "background_color": "",
+        "background_image": "shopify://shop_images/leafy-background-pattern.png",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "main",
-    "form"
+    "contact_hero",
+    "custom_contact",
+    "about_belief"
   ]
 }

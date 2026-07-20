@@ -16,7 +16,11 @@
 
   {% for link_key in social_links %}
     {% liquid
+      assign global_key = 'social_' | append: link_key | replace: '_url', '_link'
       assign link_url = block.settings[link_key]
+      if link_url == blank
+        assign link_url = settings[global_key]
+      endif
       assign render_icon = true
 
       if link_url != blank
