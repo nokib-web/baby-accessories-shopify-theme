@@ -333,7 +333,24 @@
   }
 
   .menu-list__link-title {
-    padding-inline: calc(var(--gap-xl) / 2);
+    padding-inline: 16px;
+    padding-block: 6px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .menu-list__link--active .menu-list__link-title,
+  .menu-list__link[aria-current="page"] .menu-list__link-title {
+    background-color: var(--menu-top-level-active-bg, #e2e5d0) !important;
+    color: var(--menu-top-level-active-color, #2e4a29) !important;
+    font-weight: 600;
+  }
+
+  .menu-list__link:hover .menu-list__link-title {
+    background-color: var(--menu-top-level-active-bg, #e2e5d0);
+    color: var(--menu-top-level-active-color, #2e4a29) !important;
   }
   [slot='overflow'] .menu-list__link-title {
     padding-inline: 0;
@@ -858,6 +875,18 @@
       "type": "color",
       "id": "hover_color",
       "label": "Hover color"
+    },
+    {
+      "type": "color",
+      "id": "active_background_color",
+      "label": "Active / Hover Button Background",
+      "default": "#e2e5d0"
+    },
+    {
+      "type": "color",
+      "id": "active_text_color",
+      "label": "Active / Hover Button Text Color",
+      "default": "#2e4a29"
     },
     {
       "type": "header",
