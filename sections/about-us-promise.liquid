@@ -24,21 +24,21 @@
   .about-promise-title {
     font-size: 2.2rem;
     font-weight: 700;
-    color: #2e4a29;
+    color: {{ section.settings.title_color | default: '#2e4a29' }};
     margin: 0 0 12px 0;
     font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
   }
 
   .about-promise-leaf {
     display: inline-block;
-    color: #a6b89c;
+    color: {{ section.settings.leaf_color | default: '#a6b89c' }};
     margin-bottom: 24px;
   }
 
   .about-promise-text {
     font-size: 1.15rem;
     line-height: 1.8;
-    color: #4a4a4a;
+    color: {{ section.settings.text_color | default: '#4a4a4a' }};
     max-width: 780px;
     margin: 0 auto;
     font-family: var(--font-body--family), Inter, sans-serif;
@@ -82,6 +82,28 @@
       "id": "text",
       "label": "Text Content",
       "default": "<p>Every product in our collection is thoughtfully selected with your baby's wellbeing and environmental responsibility in mind...</p>"
+    },
+    {
+      "type": "header",
+      "content": "Color & Typography Settings"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "leaf_color",
+      "label": "Leaf Accent Color",
+      "default": "#a6b89c"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Paragraph Color",
+      "default": "#4a4a4a"
     },
     {
       "type": "header",

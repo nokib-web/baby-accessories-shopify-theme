@@ -68,7 +68,7 @@
   .why-teethers-title {
     font-size: 3.0rem !important;
     font-weight: 700 !important;
-    color: #2e4a29 !important; /* Brand green */
+    color: {{ section.settings.title_color | default: '#2e4a29' }} !important;
     margin: 0 0 12px 0 !important;
     font-family: var(--font-heading--family), Outfit, Inter, sans-serif !important;
     line-height: 1.2 !important;
@@ -81,7 +81,7 @@
   }
 
   .why-teethers-ornament {
-    color: #2e4a29;
+    color: {{ section.settings.title_color | default: '#2e4a29' }};
     margin-bottom: 20px;
   }
 
@@ -93,11 +93,11 @@
   .why-teethers-subtitle {
     font-size: 1.15rem !important;
     font-weight: 700 !important;
-    color: #4a4a4a !important;
+    color: {{ section.settings.subtitle_color | default: '#4a4a4a' }} !important;
     text-transform: none !important;
     margin: 0 0 16px 0 !important;
     font-family: var(--font-heading--family), Outfit, sans-serif !important;
-    border-bottom: 1.5px solid #2e4a29;
+    border-bottom: 1.5px solid {{ section.settings.title_color | default: '#2e4a29' }};
     padding-bottom: 4px;
     display: inline-block;
   }
@@ -518,6 +518,28 @@
 {
   "name": "Why Teethers Custom",
   "settings": [
+    {
+      "type": "header",
+      "content": "Color & Style Settings"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "col_title_color",
+      "label": "Columns Title Color",
+      "default": "#2e4a29"
+    },
     {
       "type": "text",
       "id": "title",

@@ -28,14 +28,14 @@
   .about-belief-title {
     font-size: 2.2rem;
     font-weight: 700;
-    color: #2e4a29;
+    color: {{ section.settings.title_color | default: '#2e4a29' }};
     margin: 0 0 12px 0;
     font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
   }
 
   .about-belief-leaf {
     display: inline-block;
-    color: #a6b89c;
+    color: {{ section.settings.leaf_color | default: '#a6b89c' }};
   }
 
   .about-belief-grid {
@@ -85,7 +85,7 @@
   .about-belief-text {
     font-size: 1.15rem;
     line-height: 1.8;
-    color: #4a4a4a;
+    color: {{ section.settings.text_color | default: '#4a4a4a' }};
     margin-bottom: 24px;
     font-family: var(--font-body--family), Inter, sans-serif;
   }
@@ -93,7 +93,7 @@
   .about-belief-highlight {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #2e4a29;
+    color: {{ section.settings.highlight_color | default: '#2e4a29' }};
     margin-bottom: 16px;
     font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
   }
@@ -101,7 +101,7 @@
   .about-belief-closing {
     font-size: 1rem;
     font-weight: 700;
-    color: #8c9c84;
+    color: {{ section.settings.closing_color | default: '#8c9c84' }};
     font-family: var(--font-body--family), Inter, sans-serif;
   }
 </style>
@@ -183,6 +183,40 @@
       "type": "image_picker",
       "id": "image",
       "label": "Belief Image"
+    },
+    {
+      "type": "header",
+      "content": "Color & Typography Settings"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "leaf_color",
+      "label": "Leaf Accent Color",
+      "default": "#a6b89c"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Paragraph Color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Text Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "closing_color",
+      "label": "Closing Text Color",
+      "default": "#8c9c84"
     },
     {
       "type": "header",

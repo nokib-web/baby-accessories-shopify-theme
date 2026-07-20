@@ -48,7 +48,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 2px;
-    color: #8c9c84;
+    color: {{ section.settings.subtitle_color | default: '#8c9c84' }};
     text-transform: uppercase;
     margin-bottom: 12px;
     font-family: var(--font-body--family), Inter, sans-serif;
@@ -57,7 +57,7 @@
   .about-hero-title {
     font-size: 3.5rem;
     font-weight: 700;
-    color: #2e4a29;
+    color: {{ section.settings.title_color | default: '#2e4a29' }};
     line-height: 1.15;
     margin: 0 0 20px 0;
     font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
@@ -78,7 +78,7 @@
   .about-hero-text {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: #4a4a4a;
+    color: {{ section.settings.text_color | default: '#4a4a4a' }};
     margin-bottom: 32px;
     max-width: 580px;
     font-family: var(--font-body--family), Inter, sans-serif;
@@ -91,8 +91,8 @@
   }
 
   .about-hero-btn-primary {
-    background-color: #2e4a29;
-    color: #ffffff !important;
+    background-color: {{ section.settings.btn_1_bg_color | default: '#2e4a29' }};
+    color: {{ section.settings.btn_1_text_color | default: '#ffffff' }} !important;
     padding: 14px 28px;
     border-radius: 50px;
     font-size: 1rem;
@@ -106,13 +106,13 @@
   }
 
   .about-hero-btn-primary:hover {
-    background-color: #1e331a;
+    filter: brightness(0.9);
     transform: translateY(-2px);
   }
 
   .about-hero-btn-secondary {
-    border: 1px solid #2e4a29;
-    color: #2e4a29 !important;
+    border: 1px solid {{ section.settings.btn_2_border_color | default: '#2e4a29' }};
+    color: {{ section.settings.btn_2_text_color | default: '#2e4a29' }} !important;
     padding: 14px 28px;
     border-radius: 50px;
     font-size: 1rem;
@@ -258,6 +258,52 @@
       "type": "image_picker",
       "id": "image",
       "label": "Hero Image"
+    },
+    {
+      "type": "header",
+      "content": "Color & Typography Settings"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#8c9c84"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Content Color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "btn_1_bg_color",
+      "label": "Primary Button Background",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "btn_1_text_color",
+      "label": "Primary Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "btn_2_border_color",
+      "label": "Secondary Button Border Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "btn_2_text_color",
+      "label": "Secondary Button Text Color",
+      "default": "#2e4a29"
     },
     {
       "type": "header",

@@ -24,14 +24,14 @@
   .about-specs-title {
     font-size: 2.2rem;
     font-weight: 700;
-    color: #2e4a29;
+    color: {{ section.settings.title_color | default: '#2e4a29' }};
     margin: 0 0 12px 0;
     font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
   }
 
   .about-specs-leaf {
     display: inline-block;
-    color: #a6b89c;
+    color: {{ section.settings.leaf_color | default: '#a6b89c' }};
     margin-bottom: 40px;
   }
 
@@ -83,7 +83,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #f4f6f2;
+    background-color: {{ section.settings.icon_bg_color | default: '#f4f6f2' }};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,7 +95,7 @@
 
   .about-spec-item:hover .about-spec-icon-circle {
     transform: translateY(-4px);
-    background-color: #eef1ea;
+    filter: brightness(0.96);
   }
 
   .about-spec-icon-circle img {
@@ -107,13 +107,13 @@
   .about-spec-icon-circle svg {
     width: 36px;
     height: 36px;
-    color: #2e4a29;
+    color: {{ section.settings.item_title_color | default: '#2e4a29' }};
   }
 
   .about-spec-title {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #2e4a29;
+    color: {{ section.settings.item_title_color | default: '#2e4a29' }};
     line-height: 1.4;
     margin: 0;
     font-family: var(--font-heading--family), Outfit, Inter, sans-serif;
@@ -156,6 +156,34 @@
       "id": "title",
       "label": "Title",
       "default": "We Specialize In"
+    },
+    {
+      "type": "header",
+      "content": "Color & Typography Settings"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Section Title Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "leaf_color",
+      "label": "Leaf Accent Color",
+      "default": "#a6b89c"
+    },
+    {
+      "type": "color",
+      "id": "item_title_color",
+      "label": "Specialty Item Title & Icon Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon Background Circle Color",
+      "default": "#f4f6f2"
     },
     {
       "type": "header",
