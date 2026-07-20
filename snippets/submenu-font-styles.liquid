@@ -4,41 +4,35 @@
      settings: {block.settings}
 {%- endcomment -%}
 
---menu-parent-font-family: var(--font-{{ settings.type_font_primary_link }}--family); --menu-parent-font-style:
-var(--font-
-{{- settings.type_font_primary_link -}}
---style); --menu-parent-font-weight: var(--font-
-{{- settings.type_font_primary_link -}}
---weight); --menu-parent-font-case:
-{% if settings.type_case_primary_link == 'uppercase' %}uppercase{% else %}none{% endif %};
-{% case settings.menu_font_style %}
-  {% when 'regular' %}
-    --menu-parent-font-size: var(--menu-font-md--size); --menu-parent-font-line-height:
-    var(--menu-font-md--line-height); --menu-parent-font-color: var(--color-foreground);
-    --menu-parent-active-font-color: var(--color-foreground-subdued);
-  {% when 'inverse' %}
-    --menu-parent-font-size: var(--menu-font-sm--size); --menu-parent-font-line-height:
-    var(--menu-font-sm--line-height); --menu-parent-font-color: var(--color-foreground-subdued);
-    --menu-parent-active-font-color: var(--color-foreground);
-  {% when 'inverse_large' %}
-    --menu-parent-font-size: var(--menu-font-sm--size); --menu-parent-font-line-height:
-    var(--menu-font-sm--line-height); --menu-parent-font-color: var(--color-foreground-subdued);
-    --menu-parent-active-font-color: var(--color-foreground);
-{% endcase %}
---menu-child-font-family: var(--font-{{ settings.type_font_primary_link }}--family); --menu-child-font-style:var(--font-
-{{- settings.type_font_primary_link -}}
---style); --menu-child-font-weight: var(--font-
-{{- settings.type_font_primary_link -}}
---weight); --menu-child-font-case:
-{% if settings.type_case_primary_link == 'uppercase' %}uppercase{% else %}none{% endif %};
-{% case settings.menu_font_style %}
-  {% when 'regular' %}
-    --menu-child-font-size: var(--menu-font-sm--size); --menu-child-font-line-height: var(--menu-font-sm--line-height);
-    --menu-child-font-color: var(--color-foreground-subdued); --menu-child-active-font-color: var(--color-foreground);
-  {% when 'inverse' %}
-    --menu-child-font-size: var(--menu-font-md--size); --menu-child-font-line-height: var(--menu-font-md--line-height);
-    --menu-child-font-color: var(--color-foreground); --menu-child-active-font-color: var(--color-foreground-subdued);
-  {% when 'inverse_large' %}
-    --menu-child-font-size: var(--menu-font-xl--size); --menu-child-font-line-height: var(--menu-font-xl--line-height);
-    --menu-child-font-color: var(--color-foreground); --menu-child-active-font-color: var(--color-foreground-subdued);
-{% endcase %}
+--menu-parent-font-family: var(--font-{{ settings.type_font_primary_link }}--family);
+--menu-parent-font-style: var(--font-{{- settings.type_font_primary_link -}}--style);
+{% if settings.submenu_font_weight != blank %}
+  --menu-parent-font-weight: {{ settings.submenu_font_weight }};
+  --menu-child-font-weight: {{ settings.submenu_font_weight }};
+{% else %}
+  --menu-parent-font-weight: 600;
+  --menu-child-font-weight: 500;
+{% endif %}
+--menu-parent-font-case: {% if settings.type_case_primary_link == 'uppercase' %}uppercase{% else %}none{% endif %};
+{% if settings.submenu_font_size_px != blank %}
+  --menu-parent-font-size: {{ settings.submenu_font_size_px }}px;
+  --menu-child-font-size: {{ settings.submenu_font_size_px }}px;
+{% else %}
+  --menu-parent-font-size: 15px;
+  --menu-child-font-size: 14px;
+{% endif %}
+--menu-parent-font-line-height: 1.4;
+--menu-child-font-line-height: 1.4;
+{% if settings.submenu_text_color != blank and settings.submenu_text_color.alpha != 0 %}
+  --menu-parent-font-color: {{ settings.submenu_text_color }};
+  --menu-child-font-color: {{ settings.submenu_text_color }};
+{% else %}
+  --menu-parent-font-color: #333333;
+  --menu-child-font-color: #4a4a4a;
+{% endif %}
+--menu-parent-active-font-color: {{ settings.submenu_active_text_color | default: '#2e4a29' }};
+--menu-child-active-font-color: {{ settings.submenu_active_text_color | default: '#2e4a29' }};
+--menu-submenu-active-bg: {{ settings.submenu_active_bg_color | default: '#e2e5d0' }};
+--menu-child-font-family: var(--font-{{ settings.type_font_primary_link }}--family);
+--menu-child-font-style: var(--font-{{- settings.type_font_primary_link -}}--style);
+--menu-child-font-case: {% if settings.type_case_primary_link == 'uppercase' %}uppercase{% else %}none{% endif %};

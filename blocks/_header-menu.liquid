@@ -333,9 +333,9 @@
   }
 
   .menu-list__link-title {
-    padding-inline: 16px;
+    padding-inline: 14px;
     padding-block: 6px;
-    border-radius: 20px;
+    border-radius: var(--menu-top-level-border-radius, 6px);
     transition: background-color 0.2s ease, color 0.2s ease;
     display: inline-flex;
     align-items: center;
@@ -546,10 +546,17 @@
     white-space: normal;
     text-decoration: none;
     display: inline-flex;
-    padding: var(--padding-2xs) 0;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: var(--menu-top-level-border-radius, 6px);
+    transition: background-color 0.2s ease, color 0.2s ease;
 
-    &:hover {
-      color: var(--menu-child-active-font-color);
+    &:hover,
+    &.mega-menu__link--active,
+    &[aria-current="page"] {
+      background-color: var(--menu-submenu-active-bg, #e2e5d0);
+      color: var(--menu-child-active-font-color, #2e4a29) !important;
+      font-weight: 600;
     }
   }
 
@@ -561,9 +568,15 @@
     line-height: var(--menu-parent-font-line-height);
     text-transform: var(--menu-parent-font-case);
     color: var(--menu-parent-font-color);
+    padding: 6px 12px;
+    border-radius: var(--menu-top-level-border-radius, 6px);
 
-    &:hover {
-      color: var(--menu-parent-active-font-color);
+    &:hover,
+    &.mega-menu__link--active,
+    &[aria-current="page"] {
+      background-color: var(--menu-submenu-active-bg, #e2e5d0);
+      color: var(--menu-parent-active-font-color, #2e4a29) !important;
+      font-weight: 700;
     }
   }
 
@@ -709,16 +722,16 @@
   }
   
   .menu-list__list-item[data-menu-layout='dropdown'] .mega-menu__link {
-    padding: 14px 20px;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: #333333;
+    font-size: var(--menu-child-font-size, 15px) !important;
+    font-weight: var(--menu-child-font-weight, 600) !important;
+    color: var(--menu-child-font-color, #2e4a29) !important;
     background-color: transparent;
-    transition: color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     border-radius: 0;
     border-bottom: 1px solid #f2f2f2; /* Horizontal separators */
   }
@@ -727,15 +740,17 @@
     border-bottom: none; /* Remove separator on last item */
   }
   
-  .menu-list__list-item[data-menu-layout='dropdown'] .mega-menu__link:hover {
-    color: var(--menu-top-level-font-hover-color);
-    background-color: transparent;
+  .menu-list__list-item[data-menu-layout='dropdown'] .mega-menu__link:hover,
+  .menu-list__list-item[data-menu-layout='dropdown'] .mega-menu__link.mega-menu__link--active,
+  .menu-list__list-item[data-menu-layout='dropdown'] .mega-menu__link[aria-current="page"] {
+    color: var(--menu-child-active-font-color, #2e4a29) !important;
+    background-color: var(--menu-submenu-active-bg, #e2e5d0) !important;
   }
 
   /* Sub-menu (3rd level) styles for dropdown */
   .menu-list__list-item[data-menu-layout='dropdown'] ul.list-unstyled {
-    padding-left: 20px;
-    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-bottom: 4px;
     margin-top: 0;
     margin-bottom: 0;
     display: flex;
@@ -744,18 +759,20 @@
   }
   
   .menu-list__list-item[data-menu-layout='dropdown'] ul.list-unstyled a {
-    padding: 10px 20px 10px 0;
-    font-size: 13px;
-    font-weight: 500;
-    opacity: 0.8;
-    border-radius: 0;
-    color: #333333;
-    transition: color 0.2s ease, opacity 0.2s ease;
+    padding: 10px 16px;
+    font-size: var(--menu-child-font-size, 14px) !important;
+    font-weight: var(--menu-child-font-weight, 500) !important;
+    border-radius: 4px;
+    color: var(--menu-child-font-color, #4a4a4a) !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
   
-  .menu-list__list-item[data-menu-layout='dropdown'] ul.list-unstyled a:hover {
-    opacity: 1;
-    color: var(--menu-top-level-font-hover-color);
+  .menu-list__list-item[data-menu-layout='dropdown'] ul.list-unstyled a:hover,
+  .menu-list__list-item[data-menu-layout='dropdown'] ul.list-unstyled a.mega-menu__link--active,
+  .menu-list__list-item[data-menu-layout='dropdown'] ul.list-unstyled a[aria-current="page"] {
+    background-color: var(--menu-submenu-active-bg, #e2e5d0) !important;
+    color: var(--menu-child-active-font-color, #2e4a29) !important;
+  }  color: var(--menu-top-level-font-hover-color);
     background-color: transparent;
   }
 
@@ -887,6 +904,72 @@
       "id": "active_text_color",
       "label": "Active / Hover Button Text Color",
       "default": "#2e4a29"
+    },
+    {
+      "type": "range",
+      "id": "menu_item_border_radius",
+      "label": "Active / Hover Button Corner Radius (px)",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Submenu Typography & Colors"
+    },
+    {
+      "type": "color",
+      "id": "submenu_text_color",
+      "label": "Submenu Item Text Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "color",
+      "id": "submenu_active_bg_color",
+      "label": "Submenu Active / Hover Background",
+      "default": "#e2e5d0"
+    },
+    {
+      "type": "color",
+      "id": "submenu_active_text_color",
+      "label": "Submenu Active / Hover Text Color",
+      "default": "#2e4a29"
+    },
+    {
+      "type": "range",
+      "id": "submenu_font_size_px",
+      "label": "Submenu Font Size (px)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "submenu_font_weight",
+      "label": "Submenu Font Weight",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal (400)"
+        },
+        {
+          "value": "500",
+          "label": "Medium (500)"
+        },
+        {
+          "value": "600",
+          "label": "Semi-Bold (600)"
+        },
+        {
+          "value": "700",
+          "label": "Bold (700)"
+        }
+      ],
+      "default": "600"
     },
     {
       "type": "header",

@@ -15,26 +15,25 @@
         "slider_image_Ye4jic": {
           "type": "slider_image",
           "settings": {
-            "image": "shopify://shop_images/banner-1.webp"
+            "image": "shopify://shop_images/banner-1.webp",
+            "slide_link": "shopify://collections/hopfrog-barefoot-shoes-multimix",
+            "button_text": "Shop Barefoot"
           }
         },
         "slider_image_k7w6Gd": {
           "type": "slider_image",
           "settings": {
-            "image": "shopify://shop_images/banner-2.webp"
+            "image": "shopify://shop_images/banner-2.webp",
+            "slide_link": "",
+            "button_text": ""
           }
         },
         "slider_image_mdGW9r": {
           "type": "slider_image",
           "settings": {
-            "image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp"
-          }
-        },
-        "slider_image_RxhGYr": {
-          "type": "slider_image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/2fc390_dad9004940164a85aa38e2a5960a65eb_mv2.webp"
+            "image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp",
+            "slide_link": "",
+            "button_text": ""
           }
         },
         "badge_tVMrPJ": {
@@ -66,7 +65,6 @@
         "slider_image_Ye4jic",
         "slider_image_k7w6Gd",
         "slider_image_mdGW9r",
-        "slider_image_RxhGYr",
         "badge_tVMrPJ",
         "badge_iKMN8E",
         "badge_eNGceh"
@@ -604,6 +602,25 @@
         "padding_bottom_mobile": 48
       }
     },
+    "featured_blog_custom_home": {
+      "type": "featured-blog-custom",
+      "settings": {
+        "blog": "news",
+        "heading": "Our Latest Blog Posts",
+        "description": "Explore parenting tips, organic babywear guides, and story highlights from Little Leaf.",
+        "heading_size": 32,
+        "heading_color": "{{ settings.color_palette.color2 }}",
+        "button_text": "See All Blog Posts",
+        "button_link": "",
+        "button_bg": "#2e4a29",
+        "button_color": "#ffffff",
+        "section_width": "custom",
+        "custom_max_width": 1520,
+        "bg_color": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "brand_logo_slider_WhpFKC": {
       "type": "brand-logo-slider",
       "blocks": {
@@ -695,6 +712,7 @@
     "section_x8mrnx",
     "collection_product_slider_6iVVTe",
     "homepage_barefoot_comparison",
+    "featured_blog_custom_home",
     "brand_logo_slider_WhpFKC"
   ]
 }

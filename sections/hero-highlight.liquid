@@ -64,20 +64,29 @@
             <div class="swiper hero2-swiper" id="hero2-swiper-{{ section.id }}" style="width: 100%; overflow: hidden;">
               <div class="swiper-wrapper">
                 {%- for block in slider_blocks -%}
-                  <div class="swiper-slide" {{ block.shopify_attributes }}>
+                  {%- assign slide_link = block.settings.slide_link | default: section.settings.button_link | default: '#' -%}
+                  {%- assign slide_button_label = block.settings.button_text | default: section.settings.button_text | default: 'SHOP COLLECTION' -%}
+                  <div
+                    class="swiper-slide"
+                    data-slide-link="{{ slide_link }}"
+                    data-slide-button-text="{{ slide_button_label | escape }}"
+                    {{ block.shopify_attributes }}
+                  >
                     {%- if block.settings.image -%}
-                      <img
-                        class="hero2__image"
-                        src="{{ block.settings.image | image_url: width: 1400 }}"
-                        srcset="{{ block.settings.image | image_url: width: 700 }} 700w,
-                                {{ block.settings.image | image_url: width: 1000 }} 1000w,
-                                {{ block.settings.image | image_url: width: 1400 }} 1400w"
-                        sizes="(min-width: 990px) 50vw, 100vw"
-                        alt="{{ block.settings.image.alt | default: section.settings.title_line1 | escape }}"
-                        width="{{ block.settings.image.width }}"
-                        height="{{ block.settings.image.height }}"
-                        loading="lazy"
-                      >
+                      <a href="{{ slide_link }}" style="display: block; width: 100%; height: 100%;">
+                        <img
+                          class="hero2__image"
+                          src="{{ block.settings.image | image_url: width: 1400 }}"
+                          srcset="{{ block.settings.image | image_url: width: 700 }} 700w,
+                                  {{ block.settings.image | image_url: width: 1000 }} 1000w,
+                                  {{ block.settings.image | image_url: width: 1400 }} 1400w"
+                          sizes="(min-width: 990px) 50vw, 100vw"
+                          alt="{{ block.settings.image.alt | default: section.settings.title_line1 | escape }}"
+                          width="{{ block.settings.image.width }}"
+                          height="{{ block.settings.image.height }}"
+                          loading="lazy"
+                        >
+                      </a>
                     {%- else -%}
                       {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg hero2__image hero2__image-placeholder' }}
                     {%- endif -%}
@@ -498,7 +507,26 @@
         swiperContainer.swiper.destroy(true, true);
       }
       
-      new Swiper(swiperContainer, {
+      function updateHeroButton(swiperInst) {
+        if (!swiperInst || !swiperInst.slides || swiperInst.slides.length === 0) return;
+        const activeSlide = swiperInst.slides[swiperInst.activeIndex];
+        if (!activeSlide) return;
+
+        const newLink = activeSlide.getAttribute('data-slide-link');
+        const newButtonText = activeSlide.getAttribute('data-slide-button-text');
+        const primaryBtn = document.querySelector('#shopify-section-{{ section.id }} .hero2__btn--primary');
+
+        if (primaryBtn) {
+          if (newLink && newLink !== '') {
+            primaryBtn.setAttribute('href', newLink);
+          }
+          if (newButtonText && newButtonText.trim() !== '') {
+            primaryBtn.textContent = newButtonText;
+          }
+        }
+      }
+
+      const swiperObj = new Swiper(swiperContainer, {
         loop: true,
         autoplay: {
           delay: {{ section.settings.slider_speed | times: 1000 }},
@@ -511,6 +539,14 @@
         navigation: {
           nextEl: swiperContainer.parentElement.querySelector('.swiper-button-next'),
           prevEl: swiperContainer.parentElement.querySelector('.swiper-button-prev'),
+        },
+        on: {
+          init: function () {
+            updateHeroButton(this);
+          },
+          slideChange: function () {
+            updateHeroButton(this);
+          }
         }
       });
     }
@@ -1152,6 +1188,17 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "slide_link",
+          "label": "Collection / Slide Link"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Label",
+          "placeholder": "e.g. SHOP BAREFOOT SHOES"
         }
       ]
     }
