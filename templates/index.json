@@ -209,7 +209,7 @@
         "gap_between_elements": 24,
         "speed": 50,
         "movement_direction": "normal",
-        "heading_color": "",
+        "heading_color": "#2e4a29",
         "heading_font_size": 28,
         "heading_font_size_mobile": 22,
         "text_color": "",
@@ -272,7 +272,7 @@
       "settings": {
         "heading": "Shop by Baby's Stage",
         "subheading": "Find exactly what your little explorer needs for their developmental journey.",
-        "heading_color": "{{ settings.color_palette.color8 }}",
+        "heading_color": "{{ settings.color_palette.color2 }}",
         "accent_color": "#2e4a29",
         "heading_font_size": 32,
         "heading_font_size_mobile": 24,
@@ -290,7 +290,7 @@
       "type": "collection-product-slider",
       "settings": {
         "heading": "Save Big on Baby Essentials",
-        "heading_color": "#333333",
+        "heading_color": "{{ settings.color_palette.color2 }}",
         "heading_font_size": 28,
         "heading_font_size_mobile": 22,
         "collection": "teethers-and-soothers",
@@ -549,7 +549,7 @@
       "name": "Collection Product Slider",
       "settings": {
         "heading": "Explore Our Featured Collection",
-        "heading_color": "#333333",
+        "heading_color": "{{ settings.color_palette.color2 }}",
         "heading_font_size": 28,
         "heading_font_size_mobile": 22,
         "collection": "all-products",
@@ -571,7 +571,7 @@
       "settings": {
         "heading": "Why Barefoot Shoes?",
         "description": "Traditional rigid shoes can restrict healthy baby foot development. Here's why orthopedic experts recommend barefoot footwear.",
-        "heading_color": "{{ settings.color_palette.color8 }}",
+        "heading_color": "{{ settings.color_palette.color2 }}",
         "accent_color": "#2e4a29",
         "btn_hover_bg": "#1d301a",
         "heading_font_size": 32,
