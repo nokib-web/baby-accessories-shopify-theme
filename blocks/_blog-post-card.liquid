@@ -24,11 +24,12 @@
     {% content_for 'block', id: 'image', type: '_blog-post-image', article: article %}
   {% endif %}
 
-  <div class="blog-post-card__content">
+  <div class="blog-post-card__content" style="padding: 16px 20px;">
     <a
       class="blog-post-card__title-link"
       href="{{ article.url }}"
       data-testid="blog-post-link"
+      style="color: #2e4a29; text-decoration: none;"
     >
       {%- content_for 'block', id: 'heading', type: '_heading', text: article.title -%}
     </a>
@@ -41,6 +42,11 @@
     %}
 
     {% content_for 'block', id: 'content', type: '_blog-post-description', article: article, show_read_more: true %}
+
+    <a href="{{ article.url }}" class="blog-card-read-more" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 14px; font-weight: 700; color: #2e4a29; text-decoration: none;">
+      Read More
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
   </div>
 </div>
 

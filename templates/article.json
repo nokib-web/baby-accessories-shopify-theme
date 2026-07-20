@@ -52,7 +52,7 @@
           "blocks": {}
         },
         "blog-post-image": {
-          "type": "image",
+          "type": "_blog-post-featured-image",
           "name": "Featured image",
           "settings": {
             "image_ratio": "landscape",
