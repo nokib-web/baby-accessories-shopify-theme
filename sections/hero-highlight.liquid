@@ -18,39 +18,56 @@
       <div class="hero2__grid">
 
       <div class="hero2__content">
-        {%- if section.settings.eyebrow_text != blank -%}
-          <p class="hero2__eyebrow">{{ section.settings.eyebrow_text }}</p>
+        {%- assign slider_blocks = section.blocks | where: 'type', 'slider_image' -%}
+        {%- assign first_block = slider_blocks | first -%}
+        
+        {%- assign current_eyebrow = first_block.settings.eyebrow_text | default: section.settings.eyebrow_text -%}
+        {%- assign current_title1 = first_block.settings.title_line1 | default: section.settings.title_line1 -%}
+        {%- assign current_highlight = first_block.settings.title_highlight | default: section.settings.title_highlight -%}
+        {%- assign current_title2 = first_block.settings.title_line2 | default: section.settings.title_line2 -%}
+        {%- assign current_desc = first_block.settings.description | default: section.settings.description -%}
+        {%- assign current_btn1_text = first_block.settings.button_text | default: section.settings.button_text -%}
+        {%- assign current_btn1_link = first_block.settings.slide_link | default: section.settings.button_link | default: '#' -%}
+        {%- assign current_btn2_text = first_block.settings.button_text_2 | default: section.settings.button_text_2 -%}
+        {%- assign current_btn2_link = first_block.settings.button_link_2 | default: section.settings.button_link_2 | default: '#' -%}
+
+        {%- if current_eyebrow != blank -%}
+          <p class="hero2__eyebrow">{{ current_eyebrow }}</p>
         {%- endif -%}
 
         <h1 class="hero2__title">
-          {%- if section.settings.title_line1 != blank -%}
-            <span class="hero2__title-line1">{{ section.settings.title_line1 }}</span><br>
+          {%- if current_title1 != blank -%}
+            <span class="hero2__title-line1">{{ current_title1 }}</span><br>
           {%- endif -%}
-          {%- if section.settings.title_highlight != blank -%}
-            <span class="hero2__title-highlight">{{ section.settings.title_highlight }}</span>
-          {%- endif -%}
-          {%- if section.settings.title_line2 != blank -%}
-            <span class="hero2__title-line2">{{ section.settings.title_line2 }}</span>
+          {%- if current_title2 != blank or current_highlight != blank -%}
+            <span class="hero2__title-bottom-wrapper" style="display: inline-block;">
+              {%- if current_highlight != blank -%}
+                <span class="hero2__title-highlight">{{ current_highlight }}</span>
+              {%- endif -%}
+              {%- if current_title2 != blank -%}
+                <span class="hero2__title-line2">{{ current_title2 }}</span>
+              {%- endif -%}
+            </span>
           {%- endif -%}
         </h1>
 
-        {%- if section.settings.description != blank -%}
-          <div class="hero2__description">{{ section.settings.description }}</div>
+        {%- if current_desc != blank -%}
+          <div class="hero2__description">{{ current_desc }}</div>
         {%- endif -%}
 
-        {%- if section.settings.button_text != blank or section.settings.button_text_2 != blank -%}
+        {%- if current_btn1_text != blank or current_btn2_text != blank -%}
           <div class="hero2__buttons">
-            {%- if section.settings.button_text != blank -%}
-              <a href="{{ section.settings.button_link | default: '#' }}" class="hero2__btn hero2__btn--primary">
-                {{ section.settings.button_text }}
+            {%- if current_btn1_text != blank -%}
+              <a href="{{ current_btn1_link }}" class="hero2__btn hero2__btn--primary">
+                {{ current_btn1_text }}
               </a>
             {%- endif -%}
-            {%- if section.settings.button_text_2 != blank -%}
-              <a href="{{ section.settings.button_link_2 | default: '#' }}" class="hero2__btn hero2__btn--secondary">
+            {%- if current_btn2_text != blank -%}
+              <a href="{{ current_btn2_link }}" class="hero2__btn hero2__btn--secondary">
                 {%- if section.settings.button_2_show_icon -%}
                   <svg class="hero2__btn-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 {%- endif -%}
-                {{ section.settings.button_text_2 }}
+                <span class="hero2__btn-secondary-text">{{ current_btn2_text }}</span>
               </a>
             {%- endif -%}
           </div>
@@ -65,11 +82,26 @@
               <div class="swiper-wrapper">
                 {%- for block in slider_blocks -%}
                   {%- assign slide_link = block.settings.slide_link | default: section.settings.button_link | default: '#' -%}
-                  {%- assign slide_button_label = block.settings.button_text | default: section.settings.button_text | default: 'SHOP COLLECTION' -%}
+                  {%- assign slide_button_label = block.settings.button_text | default: section.settings.button_text -%}
+                  {%- assign slide_eyebrow = block.settings.eyebrow_text | default: section.settings.eyebrow_text -%}
+                  {%- assign slide_title1 = block.settings.title_line1 | default: section.settings.title_line1 -%}
+                  {%- assign slide_highlight = block.settings.title_highlight | default: section.settings.title_highlight -%}
+                  {%- assign slide_title2 = block.settings.title_line2 | default: section.settings.title_line2 -%}
+                  {%- assign slide_desc = block.settings.description | default: section.settings.description -%}
+                  {%- assign slide_btn2_label = block.settings.button_text_2 | default: section.settings.button_text_2 -%}
+                  {%- assign slide_btn2_link = block.settings.button_link_2 | default: section.settings.button_link_2 | default: '#' -%}
+                  
                   <div
                     class="swiper-slide"
                     data-slide-link="{{ slide_link }}"
                     data-slide-button-text="{{ slide_button_label | escape }}"
+                    data-eyebrow="{{ slide_eyebrow | escape }}"
+                    data-title1="{{ slide_title1 | escape }}"
+                    data-highlight="{{ slide_highlight | escape }}"
+                    data-title2="{{ slide_title2 | escape }}"
+                    data-desc="{{ slide_desc | base64_encode }}"
+                    data-btn2-text="{{ slide_btn2_label | escape }}"
+                    data-btn2-link="{{ slide_btn2_link }}"
                     {{ block.shopify_attributes }}
                   >
                     {%- if block.settings.image -%}
@@ -507,21 +539,71 @@
         swiperContainer.swiper.destroy(true, true);
       }
       
-      function updateHeroButton(swiperInst) {
+      function updateHeroContent(swiperInst) {
         if (!swiperInst || !swiperInst.slides || swiperInst.slides.length === 0) return;
         const activeSlide = swiperInst.slides[swiperInst.activeIndex];
         if (!activeSlide) return;
 
         const newLink = activeSlide.getAttribute('data-slide-link');
         const newButtonText = activeSlide.getAttribute('data-slide-button-text');
-        const primaryBtn = document.querySelector('#shopify-section-{{ section.id }} .hero2__btn--primary');
+        
+        const newEyebrow = activeSlide.getAttribute('data-eyebrow');
+        const newTitle1 = activeSlide.getAttribute('data-title1');
+        const newHighlight = activeSlide.getAttribute('data-highlight');
+        const newTitle2 = activeSlide.getAttribute('data-title2');
+        const newDescEncoded = activeSlide.getAttribute('data-desc');
+        const newBtn2Text = activeSlide.getAttribute('data-btn2-text');
+        const newBtn2Link = activeSlide.getAttribute('data-btn2-link');
 
+        const sectionEl = document.querySelector('#shopify-section-{{ section.id }}');
+        
+        const primaryBtn = sectionEl.querySelector('.hero2__btn--primary');
         if (primaryBtn) {
           if (newLink && newLink !== '') {
             primaryBtn.setAttribute('href', newLink);
           }
           if (newButtonText && newButtonText.trim() !== '') {
             primaryBtn.textContent = newButtonText;
+          }
+        }
+        
+        const secondaryBtn = sectionEl.querySelector('.hero2__btn--secondary');
+        const secondaryBtnText = sectionEl.querySelector('.hero2__btn-secondary-text');
+        if (secondaryBtn) {
+          if (newBtn2Link && newBtn2Link !== '') {
+            secondaryBtn.setAttribute('href', newBtn2Link);
+          }
+          if (newBtn2Text && newBtn2Text.trim() !== '' && secondaryBtnText) {
+            secondaryBtnText.textContent = newBtn2Text;
+          }
+        }
+        
+        const eyebrowEl = sectionEl.querySelector('.hero2__eyebrow');
+        if (eyebrowEl && newEyebrow !== null) {
+          eyebrowEl.textContent = newEyebrow;
+        }
+        
+        const title1El = sectionEl.querySelector('.hero2__title-line1');
+        if (title1El && newTitle1 !== null) {
+          title1El.textContent = newTitle1;
+        }
+        
+        const titleHighlightEl = sectionEl.querySelector('.hero2__title-highlight');
+        if (titleHighlightEl && newHighlight !== null) {
+          titleHighlightEl.textContent = newHighlight;
+        }
+        
+        const title2El = sectionEl.querySelector('.hero2__title-line2');
+        if (title2El && newTitle2 !== null) {
+          title2El.textContent = newTitle2;
+        }
+        
+        const descEl = sectionEl.querySelector('.hero2__description');
+        if (descEl && newDescEncoded !== null) {
+          try {
+            descEl.innerHTML = atob(newDescEncoded);
+          } catch(e) {
+            console.error('Error decoding description base64', e);
           }
         }
       }
@@ -542,10 +624,10 @@
         },
         on: {
           init: function () {
-            updateHeroButton(this);
+            updateHeroContent(this);
           },
           slideChange: function () {
-            updateHeroButton(this);
+            updateHeroContent(this);
           }
         }
       });
@@ -1190,15 +1272,57 @@
           "label": "Image"
         },
         {
-          "type": "url",
-          "id": "slide_link",
-          "label": "Collection / Slide Link"
+          "type": "text",
+          "id": "eyebrow_text",
+          "label": "Eyebrow text",
+          "info": "Leave blank to use section default"
+        },
+        {
+          "type": "text",
+          "id": "title_line1",
+          "label": "Title line 1",
+          "info": "Leave blank to use section default"
+        },
+        {
+          "type": "text",
+          "id": "title_highlight",
+          "label": "Title highlighted word",
+          "info": "Leave blank to use section default"
+        },
+        {
+          "type": "text",
+          "id": "title_line2",
+          "label": "Title line 2 (rest of line)",
+          "info": "Leave blank to use section default"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "info": "Leave blank to use section default"
         },
         {
           "type": "text",
           "id": "button_text",
-          "label": "Button Label",
-          "placeholder": "e.g. SHOP BAREFOOT SHOES"
+          "label": "Primary Button Label",
+          "placeholder": "e.g. SHOP BAREFOOT SHOES",
+          "info": "Leave blank to use section default"
+        },
+        {
+          "type": "url",
+          "id": "slide_link",
+          "label": "Primary Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button_text_2",
+          "label": "Secondary Button Label",
+          "info": "Leave blank to use section default"
+        },
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "Secondary Button Link"
         }
       ]
     }
