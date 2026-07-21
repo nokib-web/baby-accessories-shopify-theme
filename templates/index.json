@@ -159,6 +159,34 @@
     "collection_circle_slider_home": {
       "type": "collection-circle-slider",
       "blocks": {
+        "collection_mdLye3": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "title": ""
+          }
+        },
+        "collection_YQB9b4": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-blankets-receivers",
+            "title": ""
+          }
+        },
+        "collection_hppHi9": {
+          "type": "collection",
+          "settings": {
+            "collection": "winter-range",
+            "title": ""
+          }
+        },
+        "collection_VxXEPc": {
+          "type": "collection",
+          "settings": {
+            "collection": "summer-range",
+            "title": ""
+          }
+        },
         "block_1": {
           "type": "collection",
           "settings": {
@@ -214,6 +242,10 @@
         }
       },
       "block_order": [
+        "collection_mdLye3",
+        "collection_YQB9b4",
+        "collection_hppHi9",
+        "collection_VxXEPc",
         "block_1",
         "block_2",
         "block_3",
@@ -594,6 +626,24 @@
     },
     "homepage_barefoot_comparison": {
       "type": "homepage-barefoot-comparison",
+      "blocks": {
+        "bf_image_HAKwER": {
+          "type": "bf_image",
+          "settings": {
+            "image": "shopify://shop_images/09_b6dd6c8e-24fe-46eb-a920-d8257b71ed2d.webp"
+          }
+        },
+        "bf_image_jhwVVF": {
+          "type": "bf_image",
+          "settings": {
+            "image": "shopify://shop_images/07_67768c91-bf94-4102-ab72-d8e3f92753d1.webp"
+          }
+        }
+      },
+      "block_order": [
+        "bf_image_HAKwER",
+        "bf_image_jhwVVF"
+      ],
       "settings": {
         "heading": "Why Barefoot Shoes?",
         "description": "Traditional rigid shoes can restrict healthy baby foot development. Here's why orthopedic experts recommend barefoot footwear.",
@@ -611,7 +661,6 @@
         "trad_item_3_title": "Elevated Heels (Drop)",
         "trad_item_3_desc": "Alters natural posture, throwing off body balance and putting unnecessary stress on toddler knees and hips.",
         "bf_title": "Little Leaf Barefoot Shoes",
-        "bf_image": "shopify://shop_images/09_b6dd6c8e-24fe-46eb-a920-d8257b71ed2d.webp",
         "badge_label": "Healthy Growth",
         "bf_item_1_title": "Wide, Foot-Shaped Toe Box",
         "bf_item_1_desc": "Gives toes ample room to splay naturally, providing excellent stability, balance, and straight toe alignment.",
