@@ -1,8 +1,5 @@
-<script
-  src="{{ 'marquee.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
 
 {% liquid
   if section.settings.background_color != blank
@@ -61,90 +58,99 @@
     </div>
   {% endif %}
 
-  <marquee-component
-    class="gap-style"
-    style="
-      {% render 'gap-style', value: section.settings.gap_between_elements, name: 'marquee-gap' %}
-      --marquee-direction: {{ section.settings.movement_direction }};
-    "
-    data-speed-factor="{{ section.settings.speed }}"
-    data-movement-direction="{{ section.settings.movement_direction }}"
-  >
-    <div
-      class="marquee__wrapper"
-      ref="wrapper"
-    >
-      <div
-        class="marquee__content"
-        ref="content"
-      >
-        <div
-          class="marquee__repeated-items"
-          ref="marqueeItems[]"
-          style="gap: var(--marquee-gap);"
-        >
-          {% for block in section.blocks %}
-            {% liquid
-              assign collection = block.settings.collection
-              assign image = block.settings.image | default: collection.featured_image
-              assign title = block.settings.title | default: collection.title
-              assign url = collection.url
-            %}
-            <a href="{{ url | default: '#' }}" class="collection-circle__item" style="color: {{ section.settings.text_color | default: 'inherit' }};" {{ block.shopify_attributes }}>
+  <div class="collection-circle-slider-swiper-container swiper" id="circle-swiper-{{ section.id }}" style="padding: 20px 0; overflow: hidden; width: 100%;">
+    <div class="swiper-wrapper" style="align-items: center;">
+      {% for i in (1..4) %}
+        {% for block in section.blocks %}
+          {% liquid
+            assign collection = block.settings.collection
+            assign image = block.settings.image | default: collection.featured_image
+            assign title = block.settings.title | default: collection.title
+            assign url = collection.url
+          %}
+          <div class="swiper-slide" style="width: max-content;">
+            <a href="{{ url | default: '#' }}" class="collection-circle__item" style="color: {{ section.settings.text_color | default: 'inherit' }};" draggable="false" {{ block.shopify_attributes }}>
               <div class="collection-circle__image-wrapper" style="--circle-size: {{ section.settings.image_size }}px;">
                 {% if image != blank %}
-                  {{ image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'collection-circle__image' }}
+                  <img src="{{ image | image_url: width: 300 }}" alt="{{ title | escape }}" class="collection-circle__image" loading="lazy" draggable="false">
                 {% else %}
                   {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
                 {% endif %}
               </div>
               <span class="collection-circle__title">{{ title | default: 'Collection' }}</span>
             </a>
-          {% endfor %}
-        </div>
-      </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
     </div>
-  </marquee-component>
+  </div>
+
+  <script>
+    (function() {
+      function initCircleSwiper() {
+        var container = document.querySelector('#circle-swiper-{{ section.id }}');
+        if (!container) return;
+        
+        if (typeof Swiper === 'undefined') {
+          setTimeout(initCircleSwiper, 100);
+          return;
+        }
+
+        if (container.swiper) {
+          container.swiper.destroy(true, true);
+        }
+
+        var speedSetting = {{ section.settings.speed }};
+        var speedMs = 150000 / speedSetting; // Adjust speed based on setting
+
+        var gap = {{ section.settings.gap_between_elements | default: 24 }};
+
+        new Swiper(container, {
+          loop: true,
+          freeMode: true,
+          speed: speedMs,
+          slidesPerView: 'auto',
+          spaceBetween: gap,
+          grabCursor: true,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            reverseDirection: {% if section.settings.movement_direction == 'reverse' %}true{% else %}false{% endif %}
+          }
+        });
+
+        // Pause on hover
+        container.addEventListener('mouseenter', function() {
+          if (container.swiper) {
+            container.swiper.autoplay.stop();
+            container.swiper.setTransition(300); // add a bit of friction when stopping
+          }
+        });
+        container.addEventListener('mouseleave', function() {
+          if (container.swiper) {
+            container.swiper.autoplay.start();
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCircleSwiper);
+      } else {
+        initCircleSwiper();
+      }
+
+      document.addEventListener('shopify:section:load', function(e) {
+        if (e.detail.sectionId === '{{ section.id }}') {
+          setTimeout(initCircleSwiper, 100);
+        }
+      });
+    })();
+  </script>
 </div>
 
 {% stylesheet %}
-  marquee-component {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .marquee__wrapper {
-    display: flex;
-    gap: var(--marquee-gap);
-    width: fit-content;
-    white-space: nowrap;
-  }
-
-  .marquee__content {
-    min-width: max-content;
-    display: flex;
-    gap: var(--marquee-gap);
-  }
-
-  .marquee__repeated-items {
-    min-width: max-content;
-    display: flex;
-    gap: var(--marquee-gap);
-    align-items: center;
-    justify-content: center;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    marquee-component:not([data-disabled]) .marquee__wrapper {
-      animation: marquee-motion var(--marquee-speed) linear infinite var(--marquee-direction);
-    }
-  }
-
-  @keyframes marquee-motion {
-    to {
-      transform: translate3d(calc(-50% - (var(--marquee-gap) / 2)), 0, 0);
-    }
+  .collection-circle-slider-swiper-container .swiper-wrapper {
+    transition-timing-function: linear !important;
   }
 
   .collection-circle__item {
