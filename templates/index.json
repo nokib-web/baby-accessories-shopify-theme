@@ -15,25 +15,46 @@
         "slider_image_Ye4jic": {
           "type": "slider_image",
           "settings": {
-            "image": "shopify://shop_images/banner-1.webp",
-            "slide_link": "shopify://collections/hopfrog-barefoot-shoes-multimix",
-            "button_text": ""
+            "image": "shopify://shop_images/Brightened_Studio_Image_Edit_19_1_5f0363f1-2431-441e-a1bd-8a5418eea2bf.webp",
+            "eyebrow_text": "Pure Comfort for Every Little Moment",
+            "title_line1": "Organic Clothing for",
+            "title_highlight": "Every",
+            "title_line2": "Little Moment",
+            "description": "<p>Shop premium organic baby clothing, blankets, and everyday essentials made from soft, breathable cotton. Safe, gentle, and perfect for newborns and growing babies.</p>",
+            "button_text": "SHop Collection",
+            "slide_link": "shopify://collections/100-organic-cotton",
+            "button_text_2": "",
+            "button_link_2": ""
           }
         },
         "slider_image_k7w6Gd": {
           "type": "slider_image",
           "settings": {
-            "image": "shopify://shop_images/banner-2.webp",
-            "slide_link": "",
-            "button_text": ""
+            "image": "shopify://shop_images/03_ac89df38-9aab-408a-a319-a56d6970cdf2.webp",
+            "eyebrow_text": "Comfortable Support for Tiny Feet",
+            "title_line1": "Barefoot Shoes For",
+            "title_highlight": "Every",
+            "title_line2": "Little Feet",
+            "description": "<p>Explore soft baby shoes and barefoot footwear designed to support healthy foot development while keeping little feet comfortable and protected</p>",
+            "button_text": "Shop Collection",
+            "slide_link": "shopify://collections/hopfrog-barefoot-shoes-multimix",
+            "button_text_2": "",
+            "button_link_2": ""
           }
         },
         "slider_image_mdGW9r": {
           "type": "slider_image",
           "settings": {
-            "image": "shopify://shop_images/04_22414e63-4e8d-40f4-aeb4-c121dffe3b86.webp",
-            "slide_link": "",
-            "button_text": ""
+            "image": "shopify://shop_images/Brightened_Studio_Image_Edit_14.webp",
+            "eyebrow_text": "Thoughtful Gifts for Precious Memories",
+            "title_line1": "Baby Gifts &",
+            "title_highlight": "Comfortable",
+            "title_line2": "Bathrobes",
+            "description": "<p>Discover beautiful baby gift sets, keepsakes, and newborn essentials for baby showers, birthdays, and special occasions. Perfect gifts for every growing family.</p>",
+            "button_text": "Shop Collection",
+            "slide_link": "shopify://collections/100-cotton-bathrobes-and-gift-sets",
+            "button_text_2": "",
+            "button_link_2": ""
           }
         },
         "badge_tVMrPJ": {
@@ -113,8 +134,8 @@
         "button_font_weight": "600",
         "button_bg": "#2e4a29",
         "button_hover_bg": "#1d301a",
-        "button_text_2": "Barefoot Shoes",
-        "button_link_2": "shopify://collections/hopfrog-barefoot-shoes-multimix",
+        "button_text_2": "",
+        "button_link_2": "",
         "button_2_show_icon": false,
         "button_2_padding_horizontal": 28,
         "button_2_padding_vertical": 16,
@@ -156,6 +177,7 @@
           "type": "collection",
           "settings": {
             "collection": "all-products",
+            "image": "shopify://shop_images/BrightenedStudioImageEdit_20.png",
             "title": ""
           }
         },
@@ -163,6 +185,7 @@
           "type": "collection",
           "settings": {
             "collection": "hopfrog-barefoot-shoes-multimix",
+            "image": "shopify://shop_images/07_67768c91-bf94-4102-ab72-d8e3f92753d1.webp",
             "title": ""
           }
         },
@@ -170,6 +193,7 @@
           "type": "collection",
           "settings": {
             "collection": "teethers-and-soothers",
+            "image": "shopify://shop_images/dva-prorezyvatelya-hubble-koala-v-zelenoi-korzinke-vid-sverkhu_50f60dfd-0659-4e32-a616-118fc3ab322a.webp",
             "title": ""
           }
         },
@@ -223,7 +247,7 @@
         "stage_1": {
           "type": "stage",
           "settings": {
-            "image": "shopify://shop_images/BrightenedStudioImageEdit_17.png",
+            "image": "shopify://shop_images/Brightened_Studio_Image_Edit_17_1.webp",
             "age": "Winter",
             "title": "Winter Range",
             "description": "Keep your little ones warm and cozy with our organic winter wear.",
@@ -233,7 +257,7 @@
         "stage_2": {
           "type": "stage",
           "settings": {
-            "image": "shopify://shop_images/2fc390_dad9004940164a85aa38e2a5960a65eb_mv2.webp",
+            "image": "shopify://shop_images/Brightened_Studio_Image_Edit_19_1_5f0363f1-2431-441e-a1bd-8a5418eea2bf.webp",
             "age": "Summer",
             "title": "Summer Collection",
             "description": "Breathable and soft organic cotton perfect for sunny adventures.",
@@ -253,7 +277,7 @@
         "stage_iNYrND": {
           "type": "stage",
           "settings": {
-            "image": "shopify://shop_images/dva-prorezyvatelya-hubble-koala-v-zelenoi-korzinke-vid-sverkhu_50f60dfd-0659-4e32-a616-118fc3ab322a.webp",
+            "image": "shopify://shop_images/hubble-morkov-prorezyvatel-v-ruke-detal_2cdd74e9-3e08-45d5-841c-bb2d51d060d5.webp",
             "age": "Accessories",
             "title": "Teethers",
             "description": "Gentle organic clothing & non-toxic teethers designed for comfort and sensory exploration.",
@@ -587,7 +611,7 @@
         "trad_item_3_title": "Elevated Heels (Drop)",
         "trad_item_3_desc": "Alters natural posture, throwing off body balance and putting unnecessary stress on toddler knees and hips.",
         "bf_title": "Little Leaf Barefoot Shoes",
-        "bf_image": "shopify://shop_images/AngelBanner_1.webp",
+        "bf_image": "shopify://shop_images/09_b6dd6c8e-24fe-46eb-a920-d8257b71ed2d.webp",
         "badge_label": "Healthy Growth",
         "bf_item_1_title": "Wide, Foot-Shaped Toe Box",
         "bf_item_1_desc": "Gives toes ample room to splay naturally, providing excellent stability, balance, and straight toe alignment.",

@@ -344,7 +344,7 @@
                 <div class="swiper-slide">
                   <div class="custom-prod-card">
                     <div class="custom-prod-card__image-wrapper">
-                      <a href="{{ product.url }}" style="display: block; width: 100%; height: 100%;">
+                      <a href="{{ product.url }}" style="display: block; width: 100%; height: 100%;" draggable="false">
                         {%- if product.featured_image -%}
                           <img
                             class="custom-prod-card__image"
@@ -353,6 +353,7 @@
                             loading="lazy"
                             width="300"
                             height="300"
+                            draggable="false"
                           >
                         {%- else -%}
                           {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg custom-prod-card__image' }}
@@ -469,10 +470,12 @@
         swiperContainer.swiper.destroy(true, true);
       }
       
+      var slideCount = swiperContainer.querySelectorAll('.swiper-slide').length;
       new Swiper(swiperContainer, {
         slidesPerView: 4,
         spaceBetween: 16,
-        loop: true,
+        loop: slideCount > 4,
+        watchOverflow: true,
         navigation: {
           nextEl: '.swiper-button-next-{{ section.id }}',
           prevEl: '.swiper-button-prev-{{ section.id }}',
