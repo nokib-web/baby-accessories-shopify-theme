@@ -38,6 +38,8 @@
             "show_social_icons": false,
             "facebook_url": "",
             "instagram_url": "",
+            "threads_url": "",
+            "whatsapp_url": "",
             "youtube_url": "",
             "tiktok_url": "",
             "twitter_url": ""
@@ -141,6 +143,7 @@
             "product_title_4nY4eT": {
               "type": "product-title",
               "name": "t:names.product_title",
+              "disabled": true,
               "settings": {
                 "width": "100%",
                 "max_width": "normal",

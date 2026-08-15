@@ -14,6 +14,21 @@
     "header_announcements_qhn3M6": {
       "type": "header-announcements",
       "blocks": {
+        "announcement_JnYnJ9": {
+          "type": "_announcement",
+          "name": "t:names.announcement",
+          "settings": {
+            "text": "Shop our latest arrivals!",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": ""
+          },
+          "blocks": {}
+        },
         "announcement_bQUyVA": {
           "type": "_announcement",
           "name": "t:names.announcement",
@@ -60,6 +75,7 @@
         }
       },
       "block_order": [
+        "announcement_JnYnJ9",
         "announcement_bQUyVA",
         "announcement_dkjw8P",
         "announcement_rbzkrG"
@@ -100,7 +116,7 @@
           "settings": {
             "menu": "main-menu",
             "background_color": "{{ settings.color_palette.background }}",
-            "text_color": "#0d4802",
+            "text_color": "#203D1A",
             "hover_color": "",
             "active_background_color": "#e2e5d0",
             "active_text_color": "#2e4a29",
@@ -108,11 +124,11 @@
             "submenu_text_color": "#2e4a29",
             "submenu_active_bg_color": "#e2e5d0",
             "submenu_active_text_color": "#2e4a29",
-            "submenu_font_size_px": 15,
-            "submenu_font_weight": "600",
+            "submenu_font_size_px": 14,
+            "submenu_font_weight": "500",
             "type_font_primary_size_px": 16,
-            "menu_font_weight": "700",
-            "menu_font_style": "regular",
+            "menu_font_weight": "normal",
+            "menu_font_style": "inverse",
             "type_font_primary_link": "body",
             "type_case_primary_link": "none",
             "menu_style": "text",
@@ -142,7 +158,7 @@
         "country_selector_style": false,
         "show_language": true,
         "localization_font": "heading",
-        "localization_font_size": "1.125rem",
+        "localization_font_size": "1rem",
         "localization_position": "right",
         "localization_row": "top",
         "section_width": "custom",

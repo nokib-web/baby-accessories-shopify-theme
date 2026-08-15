@@ -35,9 +35,9 @@
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0,
-            "show_social_icons": false,
+            "show_social_icons": true,
             "facebook_url": "",
-            "instagram_url": "",
+            "instagram_url": "https://www.instagram.com/littleleafbabyco_za",
             "threads_url": "",
             "whatsapp_url": "",
             "youtube_url": "",
@@ -133,7 +133,7 @@
         "info_heading": "Contact Information",
         "info_heading_color": "#222222",
         "email": "support@littleleafbabyco.co.za",
-        "phone": "123456789",
+        "phone": "0662551347",
         "hours": "Mon - Fri: 9AM - 6PM",
         "address": "Little Leaf Baby Company\nSouth Africa"
       }

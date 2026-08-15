@@ -108,12 +108,12 @@
         "image_height": 480,
         "image_width_mobile": 90,
         "image_height_mobile": 280,
-        "eyebrow_text": "Nurturing Your Little Ones",
+        "eyebrow_text": "Natures Best for your little one",
         "eyebrow_font_size": 13,
         "eyebrow_color": "#2e4a29",
         "eyebrow_font_weight": "600",
-        "title_line1": "Organic Clothing &",
-        "title_highlight": "Healthy",
+        "title_line1": "Organic & Natural",
+        "title_highlight": "Baby Essentials &",
         "highlight_color": "#2e4a29",
         "title_line2": "Barefoot Shoes",
         "title_font_size": 52,
@@ -163,6 +163,13 @@
           "type": "collection",
           "settings": {
             "collection": "accessories",
+            "title": ""
+          }
+        },
+        "collection_tW8BBa": {
+          "type": "collection",
+          "settings": {
+            "collection": "baby-blankets-receivers",
             "title": ""
           }
         },
@@ -243,6 +250,7 @@
       },
       "block_order": [
         "collection_mdLye3",
+        "collection_tW8BBa",
         "collection_YQB9b4",
         "collection_hppHi9",
         "collection_VxXEPc",
@@ -283,7 +291,7 @@
             "age": "Winter",
             "title": "Winter Range",
             "description": "Keep your little ones warm and cozy with our organic winter wear.",
-            "link": "shopify://collections/winter"
+            "link": "shopify://collections/winter-range"
           }
         },
         "stage_2": {
@@ -293,7 +301,7 @@
             "age": "Summer",
             "title": "Summer Collection",
             "description": "Breathable and soft organic cotton perfect for sunny adventures.",
-            "link": "shopify://collections/summer"
+            "link": "shopify://collections/summer-range"
           }
         },
         "stage_3": {
@@ -698,6 +706,77 @@
         "padding_bottom": 60
       }
     },
+    "17847055097acdc87b": {
+      "type": "_blocks",
+      "blocks": {
+        "judge_me_reviews_cards_carousel_9gAYP8": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "all",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "star_rating": "all",
+            "show_review_media": true,
+            "display_order": "media_first",
+            "no_image_fallback": "product_image",
+            "max_reviews": 20,
+            "review_length": "medium",
+            "text_size": "medium",
+            "image_ratio": "1",
+            "reviews_shown": 4,
+            "show_reviewer_name": true,
+            "show_product_name": true,
+            "hide_arrows_mobile": true,
+            "arrows_position": "sides",
+            "max_width": 1400,
+            "corner_styling": "soft",
+            "header_text_color": "{{ settings.color_palette.color2 }}",
+            "text_color": "#000000",
+            "card_color": "{{ settings.color_palette.color3 }}",
+            "stars_color": "#2e4a29",
+            "arrows_color": "#000000",
+            "transition_speed": 4,
+            "header_text": "What Our Customers are saying",
+            "show_average_rating": true,
+            "rating_display": "default"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_cards_carousel_9gAYP8"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
     "brand_logo_slider_WhpFKC": {
       "type": "brand-logo-slider",
       "blocks": {
@@ -784,6 +863,7 @@
     "collection_product_slider_6iVVTe",
     "homepage_barefoot_comparison",
     "featured_blog_custom_home",
+    "17847055097acdc87b",
     "brand_logo_slider_WhpFKC"
   ]
 }
