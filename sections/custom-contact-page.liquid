@@ -277,7 +277,7 @@
               {%- assign link_setting = 'social_' | append: platform | append: '_link' -%}
               {%- if settings[link_setting] != blank -%}
                 <a href="{{ settings[link_setting] }}" target="_blank" aria-label="{{ platform | capitalize }}">
-                  <svg class="social-icons__icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <svg class="contact-social-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                     {%- render 'icon', icon: platform -%}
                   </svg>
                 </a>

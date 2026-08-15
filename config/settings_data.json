@@ -82,10 +82,10 @@
     "variant_button_radius": 0,
     "variant_button_width": "equal-width-buttons",
     "whatsapp_number": "27662551347",
-    "social_facebook_link": "#",
+    "social_facebook_link": "",
     "social_instagram_link": "https://www.instagram.com/littleleafbabyco_za?utm_source=qr&igsh=MWh6cmd2b3pjenMwcA%3D%3D",
-    "social_whatsapp_link": "#",
-    "social_threads_link": "#",
+    "social_whatsapp_link": "https://wa.me/27662551347",
+    "social_threads_link": "",
     "sections": {
       "password-footer": {
         "type": "password-footer",
