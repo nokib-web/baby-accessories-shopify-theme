@@ -112,23 +112,26 @@
           {% liquid
             assign link_url = block.settings[key]
             
-            if link_url != blank
-              case key
-                when 'facebook_url'
-                  assign platform = 'facebook'
-                when 'instagram_url'
-                  assign platform = 'instagram'
-                when 'threads_url'
-                  assign platform = 'threads'
-                when 'whatsapp_url'
-                  assign platform = 'whatsapp'
-                when 'youtube_url'
-                  assign platform = 'youtube'
-                when 'tiktok_url'
-                  assign platform = 'tiktok'
-                when 'twitter_url'
-                  assign platform = 'twitter'
-              endcase
+            case key
+              when 'facebook_url'
+                assign platform = 'facebook'
+              when 'instagram_url'
+                assign platform = 'instagram'
+              when 'threads_url'
+                assign platform = 'threads'
+              when 'whatsapp_url'
+                assign platform = 'whatsapp'
+              when 'youtube_url'
+                assign platform = 'youtube'
+              when 'tiktok_url'
+                assign platform = 'tiktok'
+              when 'twitter_url'
+                assign platform = 'twitter'
+            endcase
+
+            if link_url == blank
+              assign global_key = 'social_' | append: platform | append: '_link'
+              assign link_url = settings[global_key]
             endif
           %}
           
